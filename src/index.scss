@@ -54,13 +54,26 @@
 }
 [data-enima="fade-up"] {
   // initial state
-  transform: translate3d(0, 30px, 0) scale(0.95);
+  transform: translate3d(0, 30px, 0);
   background-color: orange !important;
   transition: 0.8s transform, 0.8s background-color;
   // transition-timing-function: cubic-bezier(.19,1,.22,1);
   // animation
   &[data-enima-in] {
     transform: translate3d(0, 0px, 0) !important;
+    background-color: yellow !important;
+  }
+}
+
+[data-enima="rotate"] {
+  // initial state
+  transform: rotate(180deg);
+  background-color: orange !important;
+  transition: 0.8s transform, 0.8s background-color;
+  // transition-timing-function: cubic-bezier(.19,1,.22,1);
+  // animation
+  &[data-enima-in] {
+    transform: rotate(0deg) !important;
     background-color: yellow !important;
   }
 }

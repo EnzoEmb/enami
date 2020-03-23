@@ -1,6 +1,6 @@
 * Library of animations
-* Once ✔️
-* Offseting
+* Once ✅
+* Offseting ❎
 * Stagger
 * Events
 * Methods

@@ -143,7 +143,7 @@
         }
       });
 
-    }, { rootMargin: "0px 0px 0px 0px" });
+    }, { rootMargin: settings.offset });
 
     // create observer for each enima
     document.querySelectorAll('[data-enima]:not([data-enima-parent])').forEach(enimas => { observer.observe(enimas) });
@@ -175,7 +175,8 @@
         }
       });
 
-    }, { rootMargin: "0px 0px 0px 0px" });
+    }, { rootMargin: settings.offset });
+    // }, { rootMargin: "0px 0px 0px 0px" });
 
     // create observer for each parent
     let parents = [];
