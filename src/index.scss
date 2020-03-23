@@ -1,9 +1,9 @@
 .enter {
-//   animation: enter 1s 1 forwards;
+  //   animation: enter 1s 1 forwards;
 }
 .enter-animation {
   animation: enter 1s 1 forwards;
-  animation-delay: .2s
+  animation-delay: 0.2s;
 }
 
 @keyframes enter {
@@ -17,9 +17,39 @@
   }
 }
 
+// [data-enima-animate="fade-up"] {
+//   animation: enter 1s 1 forwards;
+// }
+// [data-enima-animate="fade-out"] {
+//   animation: enter 1s 1 forwards;
+// }
 
 
-[data-enima="fade-up"]{
+// with animations
+// [data-enima="fade-up"] {
+//   // initial state
+//   transform: translate3d(0, 50px, 0);
+//   background-color: orange !important;
+//   // animation
+//   &[data-enima-animate="fade-up"] {
+//     animation: enter 1s 1 forwards .5s;
+//   }
+// }
 
-  
+
+// with css
+[data-enima="fade-up"] {
+  // initial state
+  transform: translate3d(50px, 0, 0);
+  background-color: orange !important;
+  transition: 1s transform, 1s background-color;
+  // animation
+  &[data-enima-in] {
+    transform: translate3d(0, 0px, 0) !important;
+    background-color: yellow !important;
+  }
+  // &[data-enima-out]{
+  //   transform: translate3d(0, 100px, 0) !important;
+  //   background-color: blue !important;
+  // }
 }

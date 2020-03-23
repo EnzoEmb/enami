@@ -2,6 +2,7 @@ body {
   padding-top: 10vh;
   padding-bottom: 100vh;
   background-color: #efece3;
+  overflow-x: hidden;
 }
 *,
 *:after,
@@ -33,4 +34,7 @@ body {
     border: solid 1px rgba(0, 0, 0, 0.1);
     box-shadow: 0 0.625rem 3.4375rem 0 rgba(102, 102, 102, 0.1);
   }
+}
+.test-parent{
+  border: 2px dashed red;
 }

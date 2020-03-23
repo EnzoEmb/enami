@@ -1,44 +1,12 @@
-// var statusBox = document.getElementById("statusBox");
-// var statusText = document.getElementById("statusText");
-
-// function handler(entries, observer) {
-//   for (entry of entries) {
-//     console.log(entry);
-
-//     statusText.textContent = entry.isIntersecting;
-
-//     if (entry.isIntersecting) {
-//       statusBox.className = "yes";
-//     } else {
-//       statusBox.className = "no";
-//     }
-//   }
-// }
-
-// /* By default, invokes the handler whenever:
-//    1. Any part of the target enters the viewport
-//    2. The last part of the target leaves the viewport */
-
-// let observer = new IntersectionObserver(handler);
-// observer.observe(document.getElementById("target"));
+/*!
+ * enima-js
+ * Animation on scroll
+ * 2020 Enzo Vergara
+ * MIT License
+ * https://github.com/enzoemb/enima
+ */
 
 
-
-
-
-
-// function enima(options){
-//   this.name = "test";
-// }
-
-// enima.prototype.init = function() {
-//   var self = this;
-//   console.log('HOLA');
-
-// };
-
-
-// module.exports = enima;
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory(root));
@@ -66,6 +34,16 @@
     distance: 0,
   };
   // data-parent
+
+  // /**
+  //  * Remove duplicates
+  //  * @param {*} value 
+  //  * @param {*} index 
+  //  * @param {*} self 
+  //  */
+  // function onlyUnique(value, index, self) {
+  //   return self.indexOf(value) === index;
+  // }
 
 
   /**
@@ -114,34 +92,86 @@
   };
 
 
-  // var enima = {};
+  function enimateIn(element) {
+
+  }
+
+  function enimateOut() {
+
+  }
+
+
   publicMethods.init = function (options) {
-    console.log('HOLA');
+    console.log('ENIMA INITED');
     // Code goes here...
 
     // Merge user options with defaults
     var settings = extend(defaults, options || {});
 
-
-    const onIntersection = (entries) => {
-      for (const entry of entries) {
+    // set intersection observers for elements
+    let observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // console.log(entry);
-          entry.target.classList.add("enter-animation");
+          entry.target.removeAttribute("data-enima-out");
+          entry.target.setAttribute("data-enima-in", "");
+
+          // set delay
+          let d = entry.target.getAttribute("data-enima-delay");
+          entry.target.style.transitionDelay = d;
+        } else {
+          entry.target.removeAttribute("data-enima-in", "");
+          entry.target.setAttribute("data-enima-out", "");
         }
-      }
-    };
+      });
+    }, { rootMargin: "0px 0px 0px 0px" });
 
-    const observer = new IntersectionObserver(onIntersection);
-    observer.observe(document.querySelector('.box-4'));
-
-
+    // create observer for each enima
+    document.querySelectorAll('[data-enima]:not([data-enima-parent])').forEach(enimas => { observer.observe(enimas) });
 
 
 
+    // set intersection observer for parents
+    let parentObserver = new IntersectionObserver((pEntries, pObserver) => {
+      // console.log(pObserver);
+      pEntries.forEach(entry => {
 
-    //
+        let parentSelector = entry.target.getAttribute('data-enima-parent-name');
+        let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
+        if (entry.isIntersecting) {
+          parentChildrens.forEach(e => {
+            e.removeAttribute("data-enima-out");
+            e.setAttribute("data-enima-in", "");
+
+            // set delay
+            let d = e.getAttribute("data-enima-delay");
+            e.style.transitionDelay = d;
+          });
+        } else {
+          parentChildrens.forEach(e => {
+            e.removeAttribute("data-enima-in", "");
+            e.setAttribute("data-enima-out", "");
+          });
+        }
+      });
+    }, { rootMargin: "0px 0px 0px 0px" });
+
+    // create observer for each parent
+    let parents = [];
+    let enimaWithParents = document.querySelectorAll('[data-enima-parent]')
+    enimaWithParents.forEach(e => {
+      parents.push(e.getAttribute('data-enima-parent'));
+    });
+    let parentsFilter = [...new Set(parents)];
+    parentsFilter.forEach(e => {
+      document.querySelector(e).setAttribute('data-enima-parent-name', e);
+      parentObserver.observe(document.querySelector(e))
+    });
+
+
+
   };
+
+
   return publicMethods;
 
 });
