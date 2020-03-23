@@ -27,6 +27,7 @@
   "homepage": "https://github.com/EnzoEmb/enima#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
     "gulp-terser": "^1.2.0"
   }

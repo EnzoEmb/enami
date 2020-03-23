@@ -1,10 +1,12 @@
 const gulp = require('gulp');
 const terser = require('gulp-terser');
+const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 
 // compile js
 gulp.task('js', function (done) {
     gulp.src('src/index.js')
+        .pipe(plumber())
         .pipe(terser())
         .pipe(gulp.dest('./dist'));
 
