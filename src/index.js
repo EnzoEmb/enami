@@ -32,8 +32,7 @@
     offset: false,
     delay: 0,
     duration: 400,
-    once: false,
-    mirror: false,
+    once: true,
     distance: 0,
   };
   // data-parent

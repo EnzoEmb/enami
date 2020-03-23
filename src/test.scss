@@ -17,7 +17,7 @@ body {
   padding-top: 10vh;
   padding-bottom: 100vh;
   background-color: #efece3;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 *,
 *:after,
@@ -41,12 +41,12 @@ body {
 #main-header {
   text-align: center;
 }
-.top-boxs{
+.top-boxs {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  .box{
+  .box {
     margin-bottom: 20px;
     width: calc(25% - 15px) !important;
   }
@@ -54,7 +54,7 @@ body {
 #main-wrapper {
   margin: auto;
   max-width: 1000px;
-  padding: 30px;
+  padding: 30px 60px;
   .box {
     width: 200px;
     height: 200px;
@@ -75,4 +75,19 @@ body {
 .test-parent {
   border: 2px dashed rgba(0, 0, 0, 0.5);
   padding: 50px;
+}
+
+.test-horizontal {
+  border: 2px dashed rgba(0, 0, 0, 0.5);
+  padding: 50px;
+  margin: 50px 0;
+  .container {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    .box {
+      flex-shrink: 0;
+      margin-right: 50px;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 * Library of animations
-* Mirroring
+* Once ✔️
 * Offseting
 * Stagger
 * Events
