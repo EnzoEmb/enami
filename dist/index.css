@@ -1,0 +1,1 @@
+.enter-animation{animation:enter 1s 1 forwards;animation-delay:.2s}@keyframes enter{from{transform:translate3d(0, 50px, 0);background-color:red}to{transform:translate3d(0, 0, 0);background-color:greenyellow}}
