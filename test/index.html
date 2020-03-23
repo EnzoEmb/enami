@@ -4,49 +4,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enima Testing</title>
+    <title>Enima - Testing Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../dist/index.css">
     <link rel="stylesheet" href="../dist/test.css">
     <script src="../dist/index.js"></script>
+
 </head>
 
 <body>
-
+    <header id="main-header">
+        <h1>Enima.js - Testing Zone</h1>
+    </header>
     <section id="main-wrapper">
+        <div class="top-boxs">
+            <div class="box" data-enima="fade-up" data-enima-delay=".1s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".2s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".3s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".4s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".5s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".6s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".7s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay=".8s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="1s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="1.2s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="1.4s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="1.6s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="1.8s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="2s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="2.2s"></div>
+            <div class="box" data-enima="fade-up" data-enima-delay="2.4s"></div>
+
+        </div>
         <div class="container">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="container text-center">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="container text-right">
-            <div class="box enter" data-enima="fade-up" data-enima-delay=".2s"></div>
+            <div class="box" data-enima="fade-right" data-enima-delay="2s">2s delay</div>
         </div>
         <div class="container text-center">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="container text-left">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="container text-center">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="container text-right">
-            <div class="box enter" data-enima="fade-up"></div>
+            <div class="box" data-enima="fade-right"></div>
         </div>
         <div class="test-parent">
+            <h2>Parent Test</h2>
             <div class="container text-center">
-                <div class="box enter" data-enima="fade-up" data-enima-parent=".test-parent"></div>
+                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent"></div>
             </div>
             <div class="container text-left">
-                <div class="box enter" data-enima="fade-up" data-enima-parent=".test-parent"></div>
+                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent" data-enima-delay="1s">1s delay</div>
             </div>
             <div class="container text-center">
-                <div class="box enter" data-enima="fade-up" data-enima-parent=".test-parent"></div>
+                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent"></div>
             </div>
             <div class="container text-right">
-                <div class="box enter" data-enima="fade-up" data-enima-parent=".test-parent"></div>
+                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent"></div>
             </div>
         </div>
     </section>

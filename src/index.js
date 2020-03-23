@@ -6,7 +6,10 @@
  * https://github.com/enzoemb/enima
  */
 
-
+/**
+ * Based on cferdinandi's starter template
+ * https://gist.github.com/cferdinandi/57c96241114fc6e8ce6cd2c5bfeeb346
+ */
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory(root));
@@ -94,10 +97,18 @@
 
   function enimateIn(element) {
 
+    element.removeAttribute("data-enima-out");
+    element.setAttribute("data-enima-in", "");
+
+    // set delay
+    let d = element.getAttribute("data-enima-delay");
+    element.style.transitionDelay = d;
   }
 
-  function enimateOut() {
+  function enimateOut(element) {
 
+    element.removeAttribute("data-enima-in", "");
+    element.setAttribute("data-enima-out", "");
   }
 
 
@@ -112,15 +123,9 @@
     let observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.removeAttribute("data-enima-out");
-          entry.target.setAttribute("data-enima-in", "");
-
-          // set delay
-          let d = entry.target.getAttribute("data-enima-delay");
-          entry.target.style.transitionDelay = d;
+          enimateIn(entry.target)
         } else {
-          entry.target.removeAttribute("data-enima-in", "");
-          entry.target.setAttribute("data-enima-out", "");
+          enimateOut(entry.target)
         }
       });
     }, { rootMargin: "0px 0px 0px 0px" });
@@ -139,17 +144,11 @@
         let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
         if (entry.isIntersecting) {
           parentChildrens.forEach(e => {
-            e.removeAttribute("data-enima-out");
-            e.setAttribute("data-enima-in", "");
-
-            // set delay
-            let d = e.getAttribute("data-enima-delay");
-            e.style.transitionDelay = d;
+            enimateIn(e)
           });
         } else {
           parentChildrens.forEach(e => {
-            e.removeAttribute("data-enima-in", "");
-            e.setAttribute("data-enima-out", "");
+            enimateOut(e)
           });
         }
       });
