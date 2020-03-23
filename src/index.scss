@@ -24,7 +24,6 @@
 //   animation: enter 1s 1 forwards;
 // }
 
-
 // with animations
 // [data-enima="fade-up"] {
 //   // initial state
@@ -36,14 +35,13 @@
 //   }
 // }
 
-
 // with css
 [data-enima="fade-right"] {
   // initial state
   transform: translate3d(50px, 0, 0);
   background-color: orange !important;
   transition: 1s transform, 1s background-color;
-  transition-timing-function: cubic-bezier(.19,1,.22,1);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   // animation
   &[data-enima-in] {
     transform: translate3d(0, 0px, 0) !important;
@@ -56,9 +54,9 @@
 }
 [data-enima="fade-up"] {
   // initial state
-  transform: translate3d(0, 30px, 0) scale(.95);
+  transform: translate3d(0, 30px, 0) scale(0.95);
   background-color: orange !important;
-  transition: .8s transform, .8s background-color;
+  transition: 0.8s transform, 0.8s background-color;
   // transition-timing-function: cubic-bezier(.19,1,.22,1);
   // animation
   &[data-enima-in] {

@@ -6,4 +6,5 @@
 * Methods
 * disableOnMobile
 * Polyfills
+* Visibility percentage
 * CSS Transform or Animations?

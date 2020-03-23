@@ -34,7 +34,7 @@ body {
   text-align: center;
 }
 .container {
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 //content
@@ -69,6 +69,7 @@ body {
     font-family: $f-mono;
     font-weight: bold;
     letter-spacing: -0.02em;
+    font-size: 18px;
   }
 }
 .test-parent {

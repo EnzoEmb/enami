@@ -56,46 +56,50 @@
    * @param {Object}   objects  The objects to merge together
    * @returns {Object}          Merged values of defaults and options
    */
-  var extend = function () {
+  // var extend = function () {
 
-    // Variables
-    var extended = {};
-    var deep = false;
-    var i = 0;
-    var length = arguments.length;
+  //   // Variables
+  //   var extended = {};
+  //   var deep = false;
+  //   var i = 0;
+  //   var length = arguments.length;
 
-    // Check if a deep merge
-    if (Object.prototype.toString.call(arguments[0]) === '[object Boolean]') {
-      deep = arguments[0];
-      i++;
-    }
+  //   // Check if a deep merge
+  //   if (Object.prototype.toString.call(arguments[0]) === '[object Boolean]') {
+  //     deep = arguments[0];
+  //     i++;
+  //   }
 
-    // Merge the object into the extended object
-    var merge = function (obj) {
-      for (var prop in obj) {
-        if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-          // If deep merge and property is an object, merge properties
-          if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
-            extended[prop] = extend(true, extended[prop], obj[prop]);
-          } else {
-            extended[prop] = obj[prop];
-          }
-        }
-      }
-    };
+  //   // Merge the object into the extended object
+  //   var merge = function (obj) {
+  //     for (var prop in obj) {
+  //       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+  //         // If deep merge and property is an object, merge properties
+  //         if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+  //           extended[prop] = extend(true, extended[prop], obj[prop]);
+  //         } else {
+  //           extended[prop] = obj[prop];
+  //         }
+  //       }
+  //     }
+  //   };
 
-    // Loop through each object and conduct a merge
-    for (; i < length; i++) {
-      var obj = arguments[i];
-      merge(obj);
-    }
+  //   // Loop through each object and conduct a merge
+  //   for (; i < length; i++) {
+  //     var obj = arguments[i];
+  //     merge(obj);
+  //   }
 
-    return extended;
+  //   return extended;
 
-  };
+  // };
 
 
   function enimateIn(element) {
+
+    // let dataOnce = element.getAttribute('data-enima-once');
+    // console.log(dataOnce);
+    // console.log(dataOnce === "true" || dataOnce === "1");
 
     element.removeAttribute("data-enima-out");
     element.setAttribute("data-enima-in", "");
@@ -114,20 +118,32 @@
 
   publicMethods.init = function (options) {
     console.log('ENIMA INITED');
-    // Code goes here...
-
-    // Merge user options with defaults
-    var settings = extend(defaults, options || {});
+    console.log(defaults)
+    // var settings = extend(defaults, options || {});
+    var settings = {
+      ...defaults,
+      ...options
+    };
+    console.log(settings)
 
     // set intersection observers for elements
     let observer = new IntersectionObserver((entries, observer) => {
+
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           enimateIn(entry.target)
+
+          // unobserve if has once attribute    
+          let dataOnce = entry.target.getAttribute('data-enima-once');
+          if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+            observer.unobserve(entry.target);
+          }
+
         } else {
           enimateOut(entry.target)
         }
       });
+
     }, { rootMargin: "0px 0px 0px 0px" });
 
     // create observer for each enima
@@ -137,14 +153,21 @@
 
     // set intersection observer for parents
     let parentObserver = new IntersectionObserver((pEntries, pObserver) => {
-      // console.log(pObserver);
+
       pEntries.forEach(entry => {
 
         let parentSelector = entry.target.getAttribute('data-enima-parent-name');
+        let parentElement = document.querySelector(parentSelector);
         let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
+
         if (entry.isIntersecting) {
           parentChildrens.forEach(e => {
             enimateIn(e)
+            // unobserve if has once attribute    
+            let dataOnce = e.getAttribute('data-enima-once');
+            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+              pObserver.unobserve(parentElement);
+            }
           });
         } else {
           parentChildrens.forEach(e => {
@@ -152,6 +175,7 @@
           });
         }
       });
+
     }, { rootMargin: "0px 0px 0px 0px" });
 
     // create observer for each parent
