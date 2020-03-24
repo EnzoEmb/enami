@@ -19,23 +19,23 @@
         <h1>Enima.js - Testing Zone</h1>
     </header>
     <section id="main-wrapper">
-        <div class="top-boxs" data-enima-stagger=".1s">
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
-            <div class="box" data-enima="rotate" data-enima-parent=".top-boxs"></div>
+        <div class="top-boxs" data-enima-stagger=".1s" data-enima-children=".box">
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate" data-enima-once="true">data-enima-once="true"</div>
 
         </div>
         <div class="container">
@@ -45,7 +45,7 @@
             <div class="box" data-enima="fade-right" data-enima-once="true">data-enima-once="true"</div>
         </div>
         <div class="container text-right">
-            <div class="box" data-enima="fade-right" data-enima-delay="2s">2s delay</div>
+            <div class="box" data-enima="fade-right" data-enima-delay=".5s">data-enima-delay=".5s"</div>
         </div>
         <div class="container text-center">
             <div class="box" data-enima="fade-right"></div>
@@ -61,7 +61,6 @@
         </div>
         <div class="test-horizontal">
             <div class="container">
-
                 <div class="box" data-enima="fade-up"></div>
                 <div class="box" data-enima="fade-up"></div>
                 <div class="box" data-enima="fade-up"></div>
@@ -73,21 +72,21 @@
                 <div class="box" data-enima="fade-up"></div>
             </div>
         </div>
-        <div class="test-parent" data-enima-stagger="500ms">
+        <div class="test-parent" data-enima-children=".box">
             <h2>Parent Test</h2>
             <div class="container text-center">
-                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent"></div>
+                <div class="box" data-enima="fade-right"></div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent" data-enima-delay=".1s">.1s
+                <div class="box" data-enima="fade-right" data-enima-delay=".1s">.1s
                     delay</div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent" data-enima-delay=".2s">.2s
+                <div class="box" data-enima="fade-right" data-enima-delay=".2s">.2s
                     delay</div>
             </div>
             <div class="container text-right">
-                <div class="box" data-enima="fade-right" data-enima-parent=".test-parent" data-enima-delay=".3s">.3s
+                <div class="box" data-enima="fade-right" data-enima-delay=".3s">.3s
                     delay</div>
             </div>
         </div>

@@ -95,7 +95,6 @@
 
 
   function enimateIn(element) {
-
     // let dataOnce = element.getAttribute('data-enima-once');
     // console.log(dataOnce);
     // console.log(dataOnce === "true" || dataOnce === "1");
@@ -105,17 +104,18 @@
 
     // set delay
     let d = element.getAttribute("data-enima-delay");
-    if(d){
+    if (d) {
       element.style.transitionDelay = d;
 
     }
   }
 
   function enimateOut(element) {
-
     element.removeAttribute("data-enima-in", "");
     element.setAttribute("data-enima-out", "");
   }
+
+
 
 
   publicMethods.init = function (options) {
@@ -128,6 +128,14 @@
     };
     // console.log(settings)
 
+
+    // setNormalElements(settings);
+    // setParentElements(settings);
+
+    /**
+     * REGULAR ITEMS
+     */
+    // function setNormalElements(settings) {
     // set intersection observers for elements
     let observer = new IntersectionObserver((entries, observer) => {
 
@@ -150,89 +158,147 @@
 
     // create observer for each enima
     document.querySelectorAll('[data-enima]:not([data-enima-parent])').forEach(enimas => { observer.observe(enimas) });
+    // }
 
 
 
-    // set intersection observer for parents
-    let parentObserver = new IntersectionObserver((pEntries, pObserver) => {
-
-      pEntries.forEach(entry => {
-
-        let parentSelector = entry.target.getAttribute('data-enima-parent-name');
-        let parentElement = document.querySelector(parentSelector);
-        let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
-        let parentStagger = parentElement.getAttribute('data-enima-stagger');
-        // console.log(parentStagger);
-
-        // setup stagger delay
-        if (parentStagger != null) {
-          let parentStaggerNumber = parentStagger.replace(/\D/g, '');
-          // let isMs = false;
-          if (parentStagger.indexOf('ms') != -1) {
-          // let isMs = true;
-          // console.log(parentStagger.indexOf('ms'))
-            // console.log('HAS MS');
-
-          }
-          else if (parentStagger.indexOf('s') != -1) {
-            // console.log(parentStaggerNumber*100);
-            parentStaggerNumber = parentStaggerNumber*100;
-            // console.log(parentStagger.indexOf('s'))
-            // console.log('HAS S');
-          }
-
-          let i = 1;
-          parentChildrens.forEach(e => {
-            // console.log(e);
-            let delay = parentStaggerNumber * i;
-            // console.log(delay); 
-            // if(isMs){
-              e.style.transitionDelay = delay+'ms';
-            // }else{
-            //   e.style.transitionDelay = '.'+delay+'s';
-            // }
-            // element.style[styleproperty] = valuestring;
-            // e.style.setProperty('transition-delay','1s');
-            i++;
-          });
 
 
-        }
+    // function setParentElements(settings) {
+    /**
+     * PARENTING
+     */
 
+    //vars
+    let parents = document.querySelectorAll('[data-enima-children]');
+
+
+    //observer
+    let parentObserver = new IntersectionObserver((entries, observer) => {
+      // console.log(entries);
+
+      entries.forEach(entry => {
+        let childrenClass = entry.target.getAttribute('data-enima-children');
+        let childrens = entry.target.querySelectorAll(childrenClass);
 
         if (entry.isIntersecting) {
-
-          // enimate elements
-          parentChildrens.forEach(e => {
-            enimateIn(e)
+          childrens.forEach(children => {
+            enimateIn(children)
+            
             // unobserve if has once attribute    
-            let dataOnce = e.getAttribute('data-enima-once');
-            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-              pObserver.unobserve(parentElement);
-            }
+            // let dataOnce = children.getAttribute('data-enima-once');
+            // console.log(dataOnce);
+            // if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+            //   observer.unobserve(children);
+            // }
           });
+
+
         } else {
-          parentChildrens.forEach(e => {
-            enimateOut(e)
+          childrens.forEach(children => {
+            enimateOut(children)
           });
         }
       });
 
     }, { rootMargin: settings.offset });
-    // }, { rootMargin: "0px 0px 0px 0px" });
+
+    parents.forEach(parent => {
+      // add observer to each parent
+      parentObserver.observe(parent);
+
+      // remove normal observer from childrens
+      let childrenClass = parent.getAttribute('data-enima-children');
+      let childrens = parent.querySelectorAll(childrenClass);
+      childrens.forEach(children => {
+        observer.unobserve(children);
+      });
+
+    });
+
+    // }
 
 
-    // create observer for each parent
-    let parents = [];
-    let enimaWithParents = document.querySelectorAll('[data-enima-parent]')
-    enimaWithParents.forEach(e => {
-      parents.push(e.getAttribute('data-enima-parent'));
-    });
-    let parentsFilter = [...new Set(parents)];
-    parentsFilter.forEach(e => {
-      document.querySelector(e).setAttribute('data-enima-parent-name', e);
-      parentObserver.observe(document.querySelector(e))
-    });
+    // // set intersection observer for parents
+    // let parentObserver = new IntersectionObserver((pEntries, pObserver) => {
+
+    //   pEntries.forEach(entry => {
+
+    //     let parentSelector = entry.target.getAttribute('data-enima-parent-name');
+    //     let parentElement = document.querySelector(parentSelector);
+    //     let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
+    //     let parentStagger = parentElement.getAttribute('data-enima-stagger');
+    //     // console.log(parentStagger);
+
+    //     // setup stagger delay
+    //     if (parentStagger != null) {
+    //       let parentStaggerNumber = parentStagger.replace(/\D/g, '');
+    //       // let isMs = false;
+    //       if (parentStagger.indexOf('ms') != -1) {
+    //       // let isMs = true;
+    //       // console.log(parentStagger.indexOf('ms'))
+    //         // console.log('HAS MS');
+
+    //       }
+    //       else if (parentStagger.indexOf('s') != -1) {
+    //         // console.log(parentStaggerNumber*100);
+    //         parentStaggerNumber = parentStaggerNumber*100;
+    //         // console.log(parentStagger.indexOf('s'))
+    //         // console.log('HAS S');
+    //       }
+
+    //       let i = 1;
+    //       parentChildrens.forEach(e => {
+    //         // console.log(e);
+    //         let delay = parentStaggerNumber * i;
+    //         // console.log(delay); 
+    //         // if(isMs){
+    //           e.style.transitionDelay = delay+'ms';
+    //         // }else{
+    //         //   e.style.transitionDelay = '.'+delay+'s';
+    //         // }
+    //         // element.style[styleproperty] = valuestring;
+    //         // e.style.setProperty('transition-delay','1s');
+    //         i++;
+    //       });
+
+
+    //     }
+
+
+    //     if (entry.isIntersecting) {
+
+    //       // enimate elements
+    //       parentChildrens.forEach(e => {
+    //         enimateIn(e)
+    //         // unobserve if has once attribute    
+    //         let dataOnce = e.getAttribute('data-enima-once');
+    //         if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+    //           pObserver.unobserve(parentElement);
+    //         }
+    //       });
+    //     } else {
+    //       parentChildrens.forEach(e => {
+    //         enimateOut(e)
+    //       });
+    //     }
+    //   });
+
+    // }, { rootMargin: settings.offset });
+    // // }, { rootMargin: "0px 0px 0px 0px" });
+
+
+    // // create observer for each parent
+    // let parents = [];
+    // let enimaWithParents = document.querySelectorAll('[data-enima-parent]')
+    // enimaWithParents.forEach(e => {
+    //   parents.push(e.getAttribute('data-enima-parent'));
+    // });
+    // let parentsFilter = [...new Set(parents)];
+    // parentsFilter.forEach(e => {
+    //   document.querySelector(e).setAttribute('data-enima-parent-name', e);
+    //   parentObserver.observe(document.querySelector(e))
+    // });
 
 
 
