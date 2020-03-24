@@ -34,6 +34,7 @@
     duration: 400,
     once: true,
     disableOnMobile: false,
+    threshold: 0
   };
 
 
@@ -110,7 +111,7 @@
         }
       });
 
-    }, { rootMargin: settings.offset });
+    }, { rootMargin: settings.offset, threshold: settings.threshold });
 
     // create observer for each enima
     document.querySelectorAll('[data-enima]:not([data-enima-parent])').forEach(enimas => { observer.observe(enimas) });
@@ -174,7 +175,7 @@
         }
       });
 
-    }, { rootMargin: settings.offset });
+    }, { rootMargin: settings.offset, threshold: settings.threshold });
 
     parents.forEach(parent => {
       // add observer to each parent
@@ -195,6 +196,11 @@
 
 
   };
+
+
+  publicMethods.destroy = function (options) {
+    console.log('DESTRUIDO EN SEGUNDOS');
+  }
 
 
   return publicMethods;

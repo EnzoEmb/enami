@@ -17,6 +17,7 @@ body {
   padding-top: 10vh;
   padding-bottom: 100vh;
   background-color: #efece3;
+  font-family: $f-mono;
   // overflow-x: hidden;
 }
 *,
@@ -35,6 +36,23 @@ body {
 }
 .container {
   padding: 20px 0;
+}
+
+.fix-test {
+  z-index: 600;
+  position: fixed;
+  left: 0;
+  right: 0;
+  border-top: 1px dotted blue;
+  height: 1px;
+  span {
+    background-color: blue;
+    color: white;
+    line-height: 1;
+    display: inline-block;
+    padding: 5px;
+    font-size: 12px;
+  }
 }
 
 //content

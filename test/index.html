@@ -92,13 +92,21 @@
         </div>
     </section>
 
+
+    <div class="fix-test" style="bottom: 50px">
+        <span>50px</span>
+    </div>
+    <div class="fix-test" style="top: 50px;">
+        <span>50px</span>
+    </div>
 </body>
 <script>
-    enima.init({
+    var hola = enima.init({
         once: false,
-        offset: '0px 0px',
+        offset: '-50px 0px -50px 0px',
         // disableOnMobile: true,
     });
+    console.log(hola);
 </script>
 
 </html>

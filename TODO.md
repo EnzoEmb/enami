@@ -1,7 +1,7 @@
 * Library of animations
 * Once ✅
 * Offseting ❎
-* Visibility percentage
+* Visibility percentage ✅ (threshold)
 * Stagger ✅
 * Events
 * Methods
