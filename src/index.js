@@ -48,7 +48,7 @@
     // set delay
     let d = element.getAttribute("data-enima-delay");
     if (d) {
-      element.style.style.transitionDelay = d;
+      element.style.transitionDelay = d;
 
     }
   }
