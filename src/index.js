@@ -105,7 +105,10 @@
 
     // set delay
     let d = element.getAttribute("data-enima-delay");
-    element.style.transitionDelay = d;
+    if(d){
+      element.style.transitionDelay = d;
+
+    }
   }
 
   function enimateOut(element) {
@@ -117,13 +120,13 @@
 
   publicMethods.init = function (options) {
     console.log('ENIMA INITED');
-    console.log(defaults)
+    // console.log(defaults)
     // var settings = extend(defaults, options || {});
     var settings = {
       ...defaults,
       ...options
     };
-    console.log(settings)
+    // console.log(settings)
 
     // set intersection observers for elements
     let observer = new IntersectionObserver((entries, observer) => {
@@ -158,8 +161,48 @@
         let parentSelector = entry.target.getAttribute('data-enima-parent-name');
         let parentElement = document.querySelector(parentSelector);
         let parentChildrens = entry.target.querySelectorAll('[data-enima-parent="' + parentSelector + '"]');
+        let parentStagger = parentElement.getAttribute('data-enima-stagger');
+        // console.log(parentStagger);
+
+        // setup stagger delay
+        if (parentStagger != null) {
+          let parentStaggerNumber = parentStagger.replace(/\D/g, '');
+          // let isMs = false;
+          if (parentStagger.indexOf('ms') != -1) {
+          // let isMs = true;
+          // console.log(parentStagger.indexOf('ms'))
+            // console.log('HAS MS');
+
+          }
+          else if (parentStagger.indexOf('s') != -1) {
+            // console.log(parentStaggerNumber*100);
+            parentStaggerNumber = parentStaggerNumber*100;
+            // console.log(parentStagger.indexOf('s'))
+            // console.log('HAS S');
+          }
+
+          let i = 1;
+          parentChildrens.forEach(e => {
+            // console.log(e);
+            let delay = parentStaggerNumber * i;
+            // console.log(delay); 
+            // if(isMs){
+              e.style.transitionDelay = delay+'ms';
+            // }else{
+            //   e.style.transitionDelay = '.'+delay+'s';
+            // }
+            // element.style[styleproperty] = valuestring;
+            // e.style.setProperty('transition-delay','1s');
+            i++;
+          });
+
+
+        }
+
 
         if (entry.isIntersecting) {
+
+          // enimate elements
           parentChildrens.forEach(e => {
             enimateIn(e)
             // unobserve if has once attribute    
@@ -177,6 +220,7 @@
 
     }, { rootMargin: settings.offset });
     // }, { rootMargin: "0px 0px 0px 0px" });
+
 
     // create observer for each parent
     let parents = [];
