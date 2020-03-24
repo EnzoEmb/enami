@@ -80,7 +80,7 @@
   }
 
 
-
+  var parentObserver, observer, parentEnimas;
 
 
 
@@ -99,7 +99,7 @@
     }
 
     // set intersection observers for single elements
-    let observer = new IntersectionObserver((entries, observer) => {
+    observer = new IntersectionObserver((entries, observer) => {
 
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -132,10 +132,10 @@
      */
 
     //vars
-    let parents = document.querySelectorAll('[data-enima-children]');
+    parentEnimas = document.querySelectorAll('[data-enima-children]');
 
     //observer
-    let parentObserver = new IntersectionObserver((entries, observer) => {
+    parentObserver = new IntersectionObserver((entries, observer) => {
 
       entries.forEach(entry => {
         let parentStagger = entry.target.getAttribute('data-enima-stagger');
@@ -184,7 +184,7 @@
 
     }, { rootMargin: settings.offset, threshold: settings.threshold });
 
-    parents.forEach(parent => {
+    parentEnimas.forEach(parent => {
       // add observer to each parent
       parentObserver.observe(parent);
 
@@ -206,9 +206,9 @@
 
 
   publicMethods.destroy = function (options) {
-    emitEvent('enima:destroy')
-
-    console.log('destroyed');
+    emitEvent('enima:destroy');
+    parentObserver.disconnect();
+    observer.disconnect();
   }
 
 
