@@ -41,6 +41,18 @@
   /**
    * HELPERS
    */
+  var emitEvent = function (type, options, anchor, toggle) {
+    // if (!options.emitEvents || typeof window.CustomEvent !== 'function') return;
+    var event = new CustomEvent(type, {
+      // bubbles: true,
+      // detail: {
+      // 	anchor: anchor,
+      // 	toggle: toggle
+      // }
+    });
+    document.dispatchEvent(event);
+  };
+
   function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
@@ -74,6 +86,8 @@
 
   publicMethods.init = function (options) {
     console.log('ENIMA INITED');
+
+    emitEvent('enima:init')
     // console.log(defaults)
     // var settings = extend(defaults, options || {});
     var settings = {

@@ -101,12 +101,20 @@
     </div>
 </body>
 <script>
-    var hola = enima.init({
+    
+    document.addEventListener('enima:init', function(e){
+        console.info('enima:init')
+    });
+
+    enima.init({
         once: false,
         offset: '-50px 0px -50px 0px',
         // disableOnMobile: true,
     });
-    console.log(hola);
+    // enima.destroy();
+    // console.log(hola);
+    
+
 </script>
 
 </html>
