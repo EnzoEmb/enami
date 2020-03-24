@@ -35,7 +35,7 @@
     once: true,
     disableOnMobile: false,
   };
-  
+
 
   /**
    * HELPERS
@@ -79,8 +79,11 @@
       ...defaults,
       ...options
     };
-    // console.log(settings)
 
+    // console.log(settings)
+    if (settings.disableOnMobile == true && isMobile()) {
+      return;
+    }
 
     // setNormalElements(settings);
     // setParentElements(settings);

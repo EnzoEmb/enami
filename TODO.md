@@ -1,10 +1,10 @@
 * Library of animations
 * Once ✅
 * Offseting ❎
+* Visibility percentage
 * Stagger ✅
 * Events
 * Methods
-* disableOnMobile
+* disableOnMobile ✅
 * Polyfills
-* Visibility percentage
-* CSS Transform or Animations?
+* CSS Transform or Animations? ✅ both(?)
