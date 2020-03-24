@@ -29,7 +29,7 @@
 
   // Default settings
   var defaults = {
-    offset: false,
+    offset: '0px 0px 0px 0px',
     delay: 0,
     duration: 400,
     once: true,
