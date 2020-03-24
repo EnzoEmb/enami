@@ -35,8 +35,7 @@
     once: true,
     distance: 0,
   };
-
-
+  
 
   function enimateIn(element) {
     // let dataOnce = element.getAttribute('data-enima-once');
@@ -49,7 +48,7 @@
     // set delay
     let d = element.getAttribute("data-enima-delay");
     if (d) {
-      element.style.transitionDelay = d;
+      element.style.style.transitionDelay = d;
 
     }
   }
@@ -119,11 +118,27 @@
 
     //observer
     let parentObserver = new IntersectionObserver((entries, observer) => {
-      // console.log(entries);
 
       entries.forEach(entry => {
+        let parentStagger = entry.target.getAttribute('data-enima-stagger');
         let childrenClass = entry.target.getAttribute('data-enima-children');
         let childrens = entry.target.querySelectorAll(childrenClass);
+
+
+        // setup stagger delay
+        if (parentStagger != null) {
+          let parentStaggerNumber = parentStagger.replace(/[^0-9.]/g, '');
+          if (parentStagger.indexOf('s') != -1) {
+            parentStaggerNumber = parentStaggerNumber * 100;
+          }
+          let i = 1;
+          childrens.forEach(children => {
+            let delay = parentStaggerNumber * i;
+            children.style.transitionDelay = delay + 'ms';
+            i++;
+          });
+        }
+
 
         if (entry.isIntersecting) {
           childrens.forEach(children => {
@@ -159,6 +174,10 @@
       });
 
     });
+
+    // }
+
+
 
 
   };
