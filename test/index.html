@@ -7,10 +7,11 @@
     <title>Enima - Testing Zone</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Mono:wght@400;700&display=swap"
         rel="stylesheet">
+
+    <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../dist/index.css">
-    <link rel="stylesheet" href="../dist/test.css">
-    <script src="../src/index.js"></script>
+    <link rel="stylesheet" href="../dist/enima.css">
+    <link rel="stylesheet" href="test.css">
 
 </head>
 
@@ -99,43 +100,50 @@
     <div class="fix-test" style="top: 50px;">
         <span>50px</span>
     </div>
-</body>
-<script>
-    
-    // document.addEventListener('enima:init', function(e){
-    //     console.info(e);
-    //     console.info('enima:init')
-    // });
-    // document.addEventListener('enima:destroy', function(e){
-    //     console.info(e);
-    //     console.info('enima:destroy')
-    // });
-    // document.getElementById('first').addEventListener('enima:animate-in', function(e){
-    //     console.info(e);
-    //     console.info('enima:animate-in')
-    // });
-    // document.getElementById('first').addEventListener('enima:animate-out', function(e){
-    //     console.info(e);
-    //     console.info('enima:animate-out')
-    // });
-    // document.getElementById('only').addEventListener('enima:animate-in', function(e){
-    //     console.info(e);
-    //     console.info('enima:animate-in')
-    // });
-    // document.getElementById('only').addEventListener('enima:animate-out', function(e){
-    //     console.info(e);
-    //     console.info('enima:animate-out')
-    // });
 
-    enima.init({
-        // once: false,
-        // offset: '-50px 0px -50px 0px',
-        // disableOnMobile: true,
-    });
+
+
+    <!-- Scripts -->
+    <script src="../dist/enima.min.js"></script>
+    <script>
+
+        // document.addEventListener('enima:init', function(e){
+        //     console.info(e);
+        //     console.info('enima:init')
+        // });
+        // document.addEventListener('enima:destroy', function(e){
+        //     console.info(e);
+        //     console.info('enima:destroy')
+        // });
+        // document.getElementById('first').addEventListener('enima:animate-in', function(e){
+        //     console.info(e);
+        //     console.info('enima:animate-in')
+        // });
+        // document.getElementById('first').addEventListener('enima:animate-out', function(e){
+        //     console.info(e);
+        //     console.info('enima:animate-out')
+        // });
+        // document.getElementById('only').addEventListener('enima:animate-in', function(e){
+        //     console.info(e);
+        //     console.info('enima:animate-in')
+        // });
+        // document.getElementById('only').addEventListener('enima:animate-out', function(e){
+        //     console.info(e);
+        //     console.info('enima:animate-out')
+        // });
+
+        enima.init({
+            // once: false,
+            // offset: '-50px 0px -50px 0px',
+            // disableOnMobile: true,
+        });
     // enima.destroy();
     // console.log(hola);
-    
 
-</script>
+
+    </script>
+
+
+</body>
 
 </html>
