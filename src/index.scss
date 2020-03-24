@@ -65,15 +65,43 @@
   }
 }
 
+// [data-enima="rotate"] {
+//   // initial state
+//   transform: rotate(180deg);
+//   background-color: orange !important;
+//   transition: 0.8s transform, 0.8s background-color;
+//   // transition-timing-function: cubic-bezier(.19,1,.22,1);
+//   // animation
+//   &[data-enima-in] {
+//     transform: rotate(0deg) !important;
+//     background-color: yellow !important;
+//   }
+// }
+
 [data-enima="rotate"] {
   // initial state
-  transform: rotate(180deg);
-  background-color: orange !important;
-  transition: 0.8s transform, 0.8s background-color;
+  // transform: rotate(180deg);
+  // background-color: orange !important;
+  // transition: 0.8s transform, 0.8s background-color;
   // transition-timing-function: cubic-bezier(.19,1,.22,1);
   // animation
+  transform: rotate(180deg);
+  background-color: orange !important;
+  // animation: 1s;
   &[data-enima-in] {
-    transform: rotate(0deg) !important;
-    background-color: yellow !important;
+    animation: 1s rotor forwards;
+    // transform: rotate(0deg) !important;
+    // background-color: yellow !important;
+  }
+}
+
+@keyframes rotor {
+  from {
+    transform: rotate(180deg) ;
+    background-color: orange ;
+  }
+  to {
+    transform: rotate(0deg) ;
+    background-color: yellow ;
   }
 }

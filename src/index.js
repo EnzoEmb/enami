@@ -33,9 +33,16 @@
     delay: 0,
     duration: 400,
     once: true,
-    distance: 0,
+    disableOnMobile: false,
   };
   
+
+  /**
+   * HELPERS
+   */
+  function isMobile() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
 
   function enimateIn(element) {
     // let dataOnce = element.getAttribute('data-enima-once');
@@ -49,6 +56,7 @@
     let d = element.getAttribute("data-enima-delay");
     if (d) {
       element.style.transitionDelay = d;
+      element.style.animationDelay = d;
 
     }
   }
@@ -57,6 +65,8 @@
     element.removeAttribute("data-enima-in", "");
     element.setAttribute("data-enima-out", "");
   }
+
+
 
 
 
@@ -135,6 +145,7 @@
           childrens.forEach(children => {
             let delay = parentStaggerNumber * i;
             children.style.transitionDelay = delay + 'ms';
+            children.style.animationDelay = delay + 'ms';
             i++;
           });
         }

@@ -1,7 +1,7 @@
 * Library of animations
 * Once ✅
 * Offseting ❎
-* Stagger
+* Stagger ✅
 * Events
 * Methods
 * disableOnMobile
