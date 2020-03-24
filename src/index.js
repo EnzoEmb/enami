@@ -41,16 +41,15 @@
   /**
    * HELPERS
    */
-  var emitEvent = function (type, options, anchor, toggle) {
+  var emitEvent = function (type, element) {
     // if (!options.emitEvents || typeof window.CustomEvent !== 'function') return;
-    var event = new CustomEvent(type, {
-      // bubbles: true,
-      // detail: {
-      // 	anchor: anchor,
-      // 	toggle: toggle
-      // }
-    });
-    document.dispatchEvent(event);
+    var event = new CustomEvent(type, {});
+    if (element) {
+      element.dispatchEvent(event);
+    } else {
+      document.dispatchEvent(event);
+
+    }
   };
 
   function isMobile() {
@@ -61,20 +60,22 @@
     // let dataOnce = element.getAttribute('data-enima-once');
     // console.log(dataOnce);
     // console.log(dataOnce === "true" || dataOnce === "1");
+    emitEvent('enima:animate-in', element)
 
-    element.removeAttribute("data-enima-out");
-    element.setAttribute("data-enima-in", "");
 
     // set delay
     let d = element.getAttribute("data-enima-delay");
     if (d) {
       element.style.transitionDelay = d;
       element.style.animationDelay = d;
-
     }
+
+    element.removeAttribute("data-enima-out");
+    element.setAttribute("data-enima-in", "");
   }
 
   function enimateOut(element) {
+    emitEvent('enima:animate-out', element)
     element.removeAttribute("data-enima-in", "");
     element.setAttribute("data-enima-out", "");
   }
@@ -121,6 +122,8 @@
           }
 
         } else {
+          // } else if(entry.target.hasAttribute('data-enima-in')) {
+          // console.log((entry.target));
           enimateOut(entry.target)
         }
       });
@@ -128,7 +131,7 @@
     }, { rootMargin: settings.offset, threshold: settings.threshold });
 
     // create observer for each enima
-    document.querySelectorAll('[data-enima]:not([data-enima-parent])').forEach(enimas => { observer.observe(enimas) });
+    document.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
     // }
 
 
@@ -184,7 +187,10 @@
 
         } else {
           childrens.forEach(children => {
-            enimateOut(children)
+            if (children.hasAttribute('data-enima-in')) {
+              enimateOut(children)
+
+            }
           });
         }
       });
@@ -213,6 +219,8 @@
 
 
   publicMethods.destroy = function (options) {
+    emitEvent('enima:destroy')
+
     console.log('DESTRUIDO EN SEGUNDOS');
   }
 

@@ -1,10 +1,13 @@
 * Library of animations
 * Once ✅
-* Offseting ❎
+* Offseting ✅
 * Visibility percentage ✅ (threshold)
 * Stagger ✅
-* Events
+* Events ✅
 * Methods
 * disableOnMobile ✅
 * Polyfills
 * CSS Transform or Animations? ✅ both(?)
+
+Later:
+* Dinamic added elements

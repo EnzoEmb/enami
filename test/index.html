@@ -20,7 +20,7 @@
     </header>
     <section id="main-wrapper">
         <div class="top-boxs" data-enima-stagger=".4s" data-enima-children=".box">
-            <div class="box" data-enima="rotate"></div>
+            <div class="box" data-enima="rotate" id="first">#first</div>
             <div class="box" data-enima="rotate"></div>
             <div class="box" data-enima="rotate"></div>
             <div class="box" data-enima="rotate"></div>
@@ -102,9 +102,22 @@
 </body>
 <script>
     
-    document.addEventListener('enima:init', function(e){
-        console.info('enima:init')
-    });
+    // document.addEventListener('enima:init', function(e){
+    //     console.info(e);
+    //     console.info('enima:init')
+    // });
+    // document.addEventListener('enima:destroy', function(e){
+    //     console.info(e);
+    //     console.info('enima:destroy')
+    // });
+    // document.getElementById('first').addEventListener('enima:animate-in', function(e){
+    //     console.info(e);
+    //     console.info('enima:animate-in')
+    // });
+    // document.getElementById('first').addEventListener('enima:animate-out', function(e){
+    //     console.info(e);
+    //     console.info('enima:animate-out')
+    // });
 
     enima.init({
         once: false,
