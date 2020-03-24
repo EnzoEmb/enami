@@ -10,6 +10,7 @@
  * Based on cferdinandi's starter template
  * https://gist.github.com/cferdinandi/57c96241114fc6e8ce6cd2c5bfeeb346
  */
+
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory(root));
@@ -23,7 +24,6 @@
   'use strict';
 
 
-  // 'use strict';
   var window = root; // Map window to root to avoid confusion
   var publicMethods = {}; // Placeholder for public methods
 
@@ -39,23 +39,25 @@
 
 
   /**
-   * HELPERS
+   * Helper functions
    */
-  var emitEvent = function (type, element) {
-    // if (!options.emitEvents || typeof window.CustomEvent !== 'function') return;
+
+  // emit events
+  function emitEvent(type, element) {
     var event = new CustomEvent(type, {});
     if (element) {
       element.dispatchEvent(event);
     } else {
       document.dispatchEvent(event);
-
     }
   };
 
+  // detect mobile
   function isMobile() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
 
+  // execute animation in
   function enimateIn(element) {
     emitEvent('enima:animate-in', element)
 
@@ -71,6 +73,7 @@
     element.setAttribute("data-enima-in", "");
   }
 
+  // execute out animation
   function enimateOut(element) {
     emitEvent('enima:animate-out', element)
 
@@ -80,9 +83,9 @@
   }
 
 
+
+
   var parentObserver, observer, parentEnimas;
-
-
 
   publicMethods.init = function (options) {
     emitEvent('enima:init');
@@ -120,15 +123,11 @@
 
     // create observer for each enima
     document.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
-    // }
 
 
 
-
-
-    // function setParentElements(settings) {
     /**
-     * PARENTING
+     * Parenting
      */
 
     //vars
@@ -184,6 +183,8 @@
 
     }, { rootMargin: settings.offset, threshold: settings.threshold });
 
+
+    // setup parent enimas
     parentEnimas.forEach(parent => {
       // add observer to each parent
       parentObserver.observe(parent);
@@ -194,21 +195,19 @@
       childrens.forEach(children => {
         observer.unobserve(children);
       });
-
     });
-
-    // }
-
-
-
 
   };
 
 
+  // destroy methdo
   publicMethods.destroy = function (options) {
     emitEvent('enima:destroy');
     parentObserver.disconnect();
     observer.disconnect();
+    parentObserver = null;
+    observer = null;
+    console.log(parentObserver);
   }
 
 

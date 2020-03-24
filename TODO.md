@@ -4,7 +4,7 @@
 * Visibility percentage ✅ (threshold)
 * Stagger ✅
 * Events ✅
-* Methods
+* Methods ✅
 * disableOnMobile ✅
 * Polyfills
 * CSS Transform or Animations? ✅ both(?)
