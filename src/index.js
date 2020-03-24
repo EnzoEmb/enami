@@ -57,11 +57,7 @@
   };
 
   function enimateIn(element) {
-    // let dataOnce = element.getAttribute('data-enima-once');
-    // console.log(dataOnce);
-    // console.log(dataOnce === "true" || dataOnce === "1");
     emitEvent('enima:animate-in', element)
-
 
     // set delay
     let d = element.getAttribute("data-enima-delay");
@@ -70,12 +66,15 @@
       element.style.animationDelay = d;
     }
 
+    // add attributes
     element.removeAttribute("data-enima-out");
     element.setAttribute("data-enima-in", "");
   }
 
   function enimateOut(element) {
     emitEvent('enima:animate-out', element)
+
+    // add attributes
     element.removeAttribute("data-enima-in", "");
     element.setAttribute("data-enima-out", "");
   }
@@ -86,29 +85,20 @@
 
 
   publicMethods.init = function (options) {
-    console.log('ENIMA INITED');
+    emitEvent('enima:init');
 
-    emitEvent('enima:init')
-    // console.log(defaults)
-    // var settings = extend(defaults, options || {});
+    // merge settings
     var settings = {
       ...defaults,
       ...options
     };
 
-    // console.log(settings)
+    // disable on mobile
     if (settings.disableOnMobile == true && isMobile()) {
       return;
     }
 
-    // setNormalElements(settings);
-    // setParentElements(settings);
-
-    /**
-     * REGULAR ITEMS
-     */
-    // function setNormalElements(settings) {
-    // set intersection observers for elements
+    // set intersection observers for single elements
     let observer = new IntersectionObserver((entries, observer) => {
 
       entries.forEach(entry => {
@@ -121,9 +111,7 @@
             observer.unobserve(entry.target);
           }
 
-        } else {
-          // } else if(entry.target.hasAttribute('data-enima-in')) {
-          // console.log((entry.target));
+        } else if (entry.target.hasAttribute('data-enima-in')) {
           enimateOut(entry.target)
         }
       });
@@ -145,7 +133,6 @@
 
     //vars
     let parents = document.querySelectorAll('[data-enima-children]');
-
 
     //observer
     let parentObserver = new IntersectionObserver((entries, observer) => {
@@ -221,7 +208,7 @@
   publicMethods.destroy = function (options) {
     emitEvent('enima:destroy')
 
-    console.log('DESTRUIDO EN SEGUNDOS');
+    console.log('destroyed');
   }
 
 
