@@ -68,6 +68,13 @@
       element.style.animationDelay = d;
     }
 
+    // set duration
+    let duration = element.getAttribute("data-enima-duration");
+    if (duration) {
+      element.style.transitionDuration = duration;
+      element.style.animationDuration = duration;
+    }
+
     // add attributes
     element.removeAttribute("data-enima-out");
     element.setAttribute("data-enima-in", "");
@@ -170,6 +177,12 @@
             // }
           });
 
+          // unobserve parent if has once attribute
+          let dataOnce = entry.target.getAttribute('data-enima-once');
+          // console.log(dataOnce);
+          if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+            observer.unobserve(entry.target);
+          }
 
         } else {
           childrens.forEach(children => {

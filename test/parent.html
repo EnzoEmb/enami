@@ -50,9 +50,9 @@
 
         <!-- Parenting once -->
         <h2 class="separator-title">Parent trigger "data-enima-once" on parent</h2>
-        <div data-enima-children=".box">
+        <div data-enima-children=".box" data-enima-once="true"> 
             <div class="container text-center">
-                <div class="box" data-enima="fade-right" data-enima-once="true"></div>
+                <div class="box" data-enima="fade-right"></div>
             </div>
             <div class="container text-left">
                 <div class="box" data-enima="fade-right"></div>
@@ -118,7 +118,7 @@
 
 
     <!-- Scripts -->
-    <script src="../dist/enima.min.js"></script>
+    <script src="../dist/enima.js"></script>
     <script>
 
         // document.addEventListener('enima:init', function(e){
