@@ -147,7 +147,7 @@
         let parentStagger = entry.target.getAttribute('data-enima-stagger');
         let childrenClass = entry.target.getAttribute('data-enima-children');
         let childrens = entry.target.querySelectorAll(childrenClass);
-
+        // console.log(childrens);
 
         // setup stagger delay
         if (parentStagger != null) {
@@ -166,15 +166,8 @@
 
 
         if (entry.isIntersecting) {
-          childrens.forEach(children => {
+          childrens.forEach((children, i) => {
             enimateIn(children)
-
-            // unobserve if has once attribute    
-            // let dataOnce = children.getAttribute('data-enima-once');
-            // console.log(dataOnce);
-            // if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-            //   observer.unobserve(children);
-            // }
           });
 
           // unobserve parent if has once attribute
