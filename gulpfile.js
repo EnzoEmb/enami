@@ -44,7 +44,7 @@ gulp.task('sass', function (done) {
 //watch
 gulp.task('dev', gulp.series(['js', 'sass'], function dev(done) {
     gulp.watch(['src/index.js'], gulp.series(['js']));
-    gulp.watch(['src/*.scss'], gulp.series(['sass']));
+    gulp.watch(['src/*.scss', 'test/*.scss'], gulp.series(['sass']));
     done();
 }));
 

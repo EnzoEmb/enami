@@ -11,3 +11,6 @@
 
 Later:
 * Dinamic added elements
+
+Bugs:
+* stagger with 1s translates to 100ms
