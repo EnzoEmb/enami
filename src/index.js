@@ -57,6 +57,23 @@
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
 
+  // seconds attribute to ms
+  function secondsToMs(attr) {
+    var attr = attr.trim();
+    var number = attr.replace(/[^0-9.]/g, '');
+    if (attr.endsWith('ms')) {            // is 100ms
+      return number;
+    } else {
+      return number * 1000;
+    }
+
+    // if (attr.startsWith('.')) {    // is .1s
+    //   return number * 1000;
+    // } else {                              // is 1s
+    //   return number * 1000;
+    // }
+  }
+
   // execute animation in
   function enimateIn(element) {
     emitEvent('enima:animate-in', element)
@@ -88,6 +105,7 @@
     element.removeAttribute("data-enima-in", "");
     element.setAttribute("data-enima-out", "");
   }
+
 
 
 
@@ -151,10 +169,7 @@
 
         // setup stagger delay
         if (parentStagger != null) {
-          let parentStaggerNumber = parentStagger.replace(/[^0-9.]/g, '');
-          if (parentStagger.indexOf('s') != -1) {
-            parentStaggerNumber = parentStaggerNumber * 100;
-          }
+          let parentStaggerNumber = secondsToMs(parentStagger);
           let i = 1;
           childrens.forEach(children => {
             let delay = parentStaggerNumber * i;
