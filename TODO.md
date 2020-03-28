@@ -16,8 +16,8 @@ Bugs:
 * method for update new elemetsn .update(); ✅
 * reset to initial animation on not visible resetAnimations ✅
 * check dinamic added content on stagger 🆗
+* change name to enami ✅
 * method for isIntersection and all the others
-* change name to enami
 
 Info:
 * data-attributes should override init settings
@@ -28,5 +28,5 @@ Optimizaciones
 * better logs
 
 Testing:
-* method
+* method ✅
 * events

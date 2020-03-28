@@ -114,6 +114,11 @@
 
   }
 
+  
+
+
+
+
 
 
 
@@ -159,13 +164,13 @@
 
     // update method
     enami.update = function () {
+      emitEvent('enami:update');
       enami.destroy();
       init();
     }
 
 
     function init() {
-
       emitEvent('enami:init');
 
       // disable on mobile
