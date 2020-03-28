@@ -17,6 +17,7 @@ Bugs:
 * reset to initial animation on not visible resetAnimations ✅
 * check dinamic added content on stagger
 * method for isIntersection and all the others
+* change name to enami
 
 Info:
 * data-attributes should override init settings
