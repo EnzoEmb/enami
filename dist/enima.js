@@ -101,6 +101,19 @@
     element.setAttribute("data-enima-out", "");
   }
 
+  // reset animations
+  var enimateReset = function (element) {
+    element.style.transition = 'false';
+    element.style.animation = 'false';
+    element.removeAttribute('data-enima-in')
+
+    setTimeout(function () {
+      element.style.transition = '';
+      element.style.animation = '';
+    }, 1)
+
+  }
+
 
 
 
@@ -134,7 +147,6 @@
       observer.disconnect();
       parentObserver = null;
       observer = null;
-      console.log(parentObserver);
     }
 
 
@@ -142,16 +154,7 @@
     enima.reset = function (element) {
       emitEvent('enima:reset');
       var e = document.querySelector(element);
-      e.style.transition = 'false';
-      e.style.animation = 'false';
-      e.removeAttribute('data-enima-in')
-
-      setTimeout(function () {
-        e.style.transition = '';
-        e.style.animation = '';
-        e.setAttribute('data-enima-in', "")
-      }, 1)
-
+      enimateReset(e)
     }
 
     // update method
@@ -186,16 +189,7 @@
           } else if (entry.target.hasAttribute('data-enima-in') && entry.target.hasAttribute('data-enima-reset') == false) {
             enimateOut(entry.target)
           } else if (entry.target.hasAttribute('data-enima-reset')) {
-            entry.target.style.transition = 'false';
-            entry.target.style.animation = 'false';
-            entry.target.removeAttribute('data-enima-in')
-
-            setTimeout(function () {
-
-              entry.target.style.transition = '';
-              entry.target.style.animation = '';
-              //  children.setAttribute('data-enima-in', "")
-            }, 1)
+            enimateReset(entry.target)
           }
         });
 
@@ -252,26 +246,10 @@
             childrens.forEach(children => {
               if (children.hasAttribute('data-enima-in')) {
                 if (parentReset != null) {
-
-
-                  children.style.transition = 'false';
-                  children.style.animation = 'false';
-                  children.removeAttribute('data-enima-in')
-
-                  setTimeout(function () {
-
-                    children.style.transition = '';
-                    children.style.animation = '';
-                    //  children.setAttribute('data-enima-in', "")
-                  }, 1)
-
-
-
+                  enimateReset(children);
                 } else {
                   enimateOut(children)
-
                 }
-
               }
             });
           }

@@ -15,7 +15,7 @@ Bugs:
 * mehotd for reinit animation .reset('.test'); ✅
 * method for update new elemetsn .update(); ✅
 * reset to initial animation on not visible resetAnimations ✅
-* check dinamic added content on stagger
+* check dinamic added content on stagger 🆗
 * method for isIntersection and all the others
 * change name to enami
 
@@ -25,6 +25,7 @@ Info:
 Optimizaciones
 * merge parent intersection observer with the basic one ()
 * make boolean data-attributes get validated on present or not, not based on the value
+* better logs
 
 Testing:
 * method
