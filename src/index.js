@@ -35,7 +35,8 @@
     duration: 400,
     once: true,
     disableOnMobile: false,
-    threshold: 0
+    threshold: 0,
+    selector: null
   };
 
 
@@ -137,9 +138,8 @@
       ...options
     };
 
-
-    if (parentSelector) {
-      parentSelector = document.querySelector(settings.parentSelector)
+    if (settings.selector != null) {
+      parentSelector = document.querySelector(settings.selector)
     } else {
       parentSelector = document;
     }
@@ -166,13 +166,13 @@
       enamiteReset(e)
     }
 
+
     // update method
     enami.update = function () {
       emitEvent('enami:update');
       enami.destroy();
       init();
     }
-
 
     function init() {
       emitEvent('enami:init');
@@ -184,10 +184,8 @@
 
       // set intersection observers for single elements
       observer = new IntersectionObserver((entries, observer) => {
-
-
-
         entries.forEach(entry => {
+          
           if (entry.target.hasAttribute('data-enami-children')) {
             // is parent entry
 
