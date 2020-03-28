@@ -24,8 +24,8 @@
   'use strict';
 
 
+
   var window = root; // Map window to root to avoid confusion
-  var publicMethods = {}; // Placeholder for public methods
 
   // Default settings
   var defaults = {
@@ -67,12 +67,6 @@
     } else {
       return number * 1000;
     }
-
-    // if (attr.startsWith('.')) {    // is .1s
-    //   return number * 1000;
-    // } else {                              // is 1s
-    //   return number * 1000;
-    // }
   }
 
   // execute animation in
@@ -113,25 +107,10 @@
 
 
 
-  // return publicMethods;
   var enima = function (options) {
     var parentObserver, observer, parentEnimas, parentSelector;
-    //
-    // Variables
-    //
-
-
-    // if (selector == null) {
-    //   selector = document;
-    // }
-    // console.log(selector);
-    // console.log(options);
-
 
     var enima = {}; // Object for public APIs
-    // var settings, anchor, toggle, fixedHeader, eventTimeout, animationInterval;
-
-    // enima.animateScroll = function (anchor, toggle, options) {
 
 
     // merge settings
@@ -139,16 +118,16 @@
       ...defaults,
       ...options
     };
+
+
     if (parentSelector) {
       parentSelector = document.querySelector(settings.parentSelector)
     } else {
       parentSelector = document;
     }
 
-    // };
 
-
-    // destroy methdo
+    // destroy method
     enima.destroy = function (options) {
       emitEvent('enima:destroy');
       parentObserver.disconnect();
@@ -159,36 +138,23 @@
     }
 
 
-    // destroy methdo
+    // reset method
     enima.reset = function (element) {
-      // console.log(element)
       emitEvent('enima:reset');
       var e = document.querySelector(element);
-      // console.log(e);
       e.style.transition = 'false';
       e.style.animation = 'false';
-      // e.style.transitionDuration = '0s';
-      // e.style.transitionDuration = '0s';
-      // e.style.animationDuration = '0s';
-      // e.style.transitionDelay = '0s';
-      // e.style.animationDelay = '0s';
       e.removeAttribute('data-enima-in')
 
       setTimeout(function () {
-
         e.style.transition = '';
         e.style.animation = '';
-        // e.style.transitionDuration = '';
-        // e.style.animationDuration = '';
-        // e.style.transitionDelay = '';
-        // e.style.animationDelay = '';
-
         e.setAttribute('data-enima-in', "")
       }, 1)
 
     }
 
-
+    // update method
     enima.update = function () {
       enima.destroy();
       init();
