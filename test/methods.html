@@ -32,6 +32,7 @@
             <button id="reset">reset</button>
             <button id="update">update</button>
             <button id="add-items">add items</button>
+            <button id="add-items-stagger">add items stagger</button>
         </div>
         <!-- Parenting -->
         <h2 class="separator-title">Normal</h2>
@@ -52,8 +53,8 @@
 
         <!-- Stagger -->
         <h2 class="separator-title">Parent staggering</h2>
-        <div data-enima-children=".box" data-enima-stagger=".1s">
-            <div class="container text-center">
+        <div data-enima-children=".box" data-enima-stagger=".1s" data-enima-reset>
+            <div class="container text-center" id="stagger">
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
@@ -125,6 +126,15 @@
         });
 
 
+        //appending
+        document.getElementById('add-items-stagger').addEventListener('click', function (e) {
+            var e = document.createElement('div');
+            e.innerHTML = `<div class="box sm" data-enima="fade-right"></div>`;
+
+            while (e.firstChild) {
+                document.getElementById('stagger').appendChild(e.firstChild);
+            }
+        });
 
 
 
