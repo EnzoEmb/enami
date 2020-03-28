@@ -10,12 +10,12 @@ gulp.task('js', function (done) {
         .pipe(plumber())
         .pipe(terser())
 
-        .pipe(rename('enima.min.js'))
+        .pipe(rename('enami.min.js'))
         .pipe(gulp.dest('./dist/'));
 
     gulp.src('src/index.js')
         .pipe(plumber())
-        .pipe(rename('enima.js'))
+        .pipe(rename('enami.js'))
         .pipe(gulp.dest('./dist/'));
 
     done();
@@ -26,12 +26,12 @@ gulp.task('sass', function (done) {
 
     gulp.src('src/index.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
-        .pipe(rename('enima.min.css'))
+        .pipe(rename('enami.min.css'))
         .pipe(gulp.dest('./dist/'));
 
     gulp.src('src/index.scss')
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
-        .pipe(rename('enima.css'))
+        .pipe(rename('enami.css'))
         .pipe(gulp.dest('./dist/'));
 
     gulp.src('test/test.scss')

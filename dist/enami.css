@@ -14,35 +14,35 @@
   }
 }
 
-[data-enima="fade-right"] {
+[data-enami="fade-right"] {
   transform: translate3d(50px, 0, 0);
   background-color: orange !important;
   transition: 1s transform, 1s background-color;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-[data-enima="fade-right"][data-enima-in] {
+[data-enami="fade-right"][data-enami-in] {
   transform: translate3d(0, 0px, 0) !important;
   background-color: yellow !important;
 }
 
-[data-enima="fade-up"] {
+[data-enami="fade-up"] {
   transform: translate3d(0, 30px, 0);
   background-color: orange !important;
   transition: 0.8s transform, 0.8s background-color;
 }
 
-[data-enima="fade-up"][data-enima-in] {
+[data-enami="fade-up"][data-enami-in] {
   transform: translate3d(0, 0px, 0) !important;
   background-color: yellow !important;
 }
 
-[data-enima="rotate"] {
+[data-enami="rotate"] {
   transform: rotate(180deg);
   background-color: orange !important;
 }
 
-[data-enima="rotate"][data-enima-in] {
+[data-enami="rotate"][data-enami-in] {
   animation: 1s rotor forwards;
 }
 

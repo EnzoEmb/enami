@@ -11,7 +11,7 @@
 
 Bugs:
 * stagger with 1s translates to 100ms ✅
-* define offset only on global init config, make posible to init multiple enimas on different elements, if not defined init on global ✅
+* define offset only on global init config, make posible to init multiple enamis on different elements, if not defined init on global ✅
 * mehotd for reinit animation .reset('.test'); ✅
 * method for update new elemetsn .update(); ✅
 * reset to initial animation on not visible resetAnimations ✅

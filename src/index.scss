@@ -17,68 +17,68 @@
   }
 }
 
-// [data-enima-animate="fade-up"] {
+// [data-enami-animate="fade-up"] {
 //   animation: enter 1s 1 forwards;
 // }
-// [data-enima-animate="fade-out"] {
+// [data-enami-animate="fade-out"] {
 //   animation: enter 1s 1 forwards;
 // }
 
 // with animations
-// [data-enima="fade-up"] {
+// [data-enami="fade-up"] {
 //   // initial state
 //   transform: translate3d(0, 50px, 0);
 //   background-color: orange !important;
 //   // animation
-//   &[data-enima-animate="fade-up"] {
+//   &[data-enami-animate="fade-up"] {
 //     animation: enter 1s 1 forwards .5s;
 //   }
 // }
 
 // with css
-[data-enima="fade-right"] {
+[data-enami="fade-right"] {
   // initial state
   transform: translate3d(50px, 0, 0);
   background-color: orange !important;
   transition: 1s transform, 1s background-color;
   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
   // animation
-  &[data-enima-in] {
+  &[data-enami-in] {
     transform: translate3d(0, 0px, 0) !important;
     background-color: yellow !important;
   }
-  // &[data-enima-out]{
+  // &[data-enami-out]{
   //   transform: translate3d(0, 100px, 0) !important;
   //   background-color: blue !important;
   // }
 }
-[data-enima="fade-up"] {
+[data-enami="fade-up"] {
   // initial state
   transform: translate3d(0, 30px, 0);
   background-color: orange !important;
   transition: 0.8s transform, 0.8s background-color;
   // transition-timing-function: cubic-bezier(.19,1,.22,1);
   // animation
-  &[data-enima-in] {
+  &[data-enami-in] {
     transform: translate3d(0, 0px, 0) !important;
     background-color: yellow !important;
   }
 }
 
-// [data-enima="rotate"] {
+// [data-enami="rotate"] {
 //   // initial state
 //   transform: rotate(180deg);
 //   background-color: orange !important;
 //   transition: 0.8s transform, 0.8s background-color;
 //   // transition-timing-function: cubic-bezier(.19,1,.22,1);
 //   // animation
-//   &[data-enima-in] {
+//   &[data-enami-in] {
 //     transform: rotate(0deg) !important;
 //     background-color: yellow !important;
 //   }
 // }
 
-[data-enima="rotate"] {
+[data-enami="rotate"] {
   // initial state
   // transform: rotate(180deg);
   // background-color: orange !important;
@@ -88,7 +88,7 @@
   transform: rotate(180deg);
   background-color: orange !important;
   // animation: 1s;
-  &[data-enima-in] {
+  &[data-enami-in] {
     animation: 1s rotor forwards;
     // transform: rotate(0deg) !important;
     // background-color: yellow !important;

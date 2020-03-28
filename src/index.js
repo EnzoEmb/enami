@@ -1,9 +1,9 @@
 /*!
- * enima-js
+ * enami
  * Animation on scroll
  * 2020 Enzo Vergara
  * MIT License
- * https://github.com/enzoemb/enima
+ * https://github.com/enzoemb/enami
  */
 
 /**
@@ -17,7 +17,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory(root);
   } else {
-    root.enima = factory(root);
+    root.enami = factory(root);
   }
 })(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {
 
@@ -70,42 +70,42 @@
   }
 
   // execute animation in
-  var enimateIn = function (element) {
-    emitEvent('enima:animate-in', element)
+  var enamiteIn = function (element) {
+    emitEvent('enami:animate-in', element)
 
     // set delay
-    let d = element.getAttribute("data-enima-delay");
+    let d = element.getAttribute("data-enami-delay");
     if (d) {
       element.style.transitionDelay = d;
       element.style.animationDelay = d;
     }
 
     // set duration
-    let duration = element.getAttribute("data-enima-duration");
+    let duration = element.getAttribute("data-enami-duration");
     if (duration) {
       element.style.transitionDuration = duration;
       element.style.animationDuration = duration;
     }
 
     // add attributes
-    element.removeAttribute("data-enima-out");
-    element.setAttribute("data-enima-in", "");
+    element.removeAttribute("data-enami-out");
+    element.setAttribute("data-enami-in", "");
   }
 
   // execute out animation
-  var enimateOut = function (element) {
-    emitEvent('enima:animate-out', element)
+  var enamiteOut = function (element) {
+    emitEvent('enami:animate-out', element)
 
     // add attributes
-    element.removeAttribute("data-enima-in", "");
-    element.setAttribute("data-enima-out", "");
+    element.removeAttribute("data-enami-in", "");
+    element.setAttribute("data-enami-out", "");
   }
 
   // reset animations
-  var enimateReset = function (element) {
+  var enamiteReset = function (element) {
     element.style.transition = 'false';
     element.style.animation = 'false';
-    element.removeAttribute('data-enima-in')
+    element.removeAttribute('data-enami-in')
 
     setTimeout(function () {
       element.style.transition = '';
@@ -120,10 +120,10 @@
 
 
 
-  var enima = function (options) {
-    var parentObserver, observer, parentEnimas, parentSelector;
+  var enami = function (options) {
+    var parentObserver, observer, parentEnamis, parentSelector;
 
-    var enima = {}; // Object for public APIs
+    var enami = {}; // Object for public APIs
 
 
     // merge settings
@@ -141,8 +141,8 @@
 
 
     // destroy method
-    enima.destroy = function (options) {
-      emitEvent('enima:destroy');
+    enami.destroy = function (options) {
+      emitEvent('enami:destroy');
       parentObserver.disconnect();
       observer.disconnect();
       parentObserver = null;
@@ -151,22 +151,22 @@
 
 
     // reset method
-    enima.reset = function (element) {
-      emitEvent('enima:reset');
+    enami.reset = function (element) {
+      emitEvent('enami:reset');
       var e = document.querySelector(element);
-      enimateReset(e)
+      enamiteReset(e)
     }
 
     // update method
-    enima.update = function () {
-      enima.destroy();
+    enami.update = function () {
+      enami.destroy();
       init();
     }
 
 
     function init() {
 
-      emitEvent('enima:init');
+      emitEvent('enami:init');
 
       // disable on mobile
       if (settings.disableOnMobile == true && isMobile()) {
@@ -178,26 +178,26 @@
 
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            enimateIn(entry.target)
+            enamiteIn(entry.target)
 
             // unobserve if has once attribute    
-            let dataOnce = entry.target.getAttribute('data-enima-once');
+            let dataOnce = entry.target.getAttribute('data-enami-once');
             if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
               observer.unobserve(entry.target);
             }
 
-          } else if (entry.target.hasAttribute('data-enima-in') && entry.target.hasAttribute('data-enima-reset') == false) {
-            enimateOut(entry.target)
-          } else if (entry.target.hasAttribute('data-enima-reset')) {
-            enimateReset(entry.target)
+          } else if (entry.target.hasAttribute('data-enami-in') && entry.target.hasAttribute('data-enami-reset') == false) {
+            enamiteOut(entry.target)
+          } else if (entry.target.hasAttribute('data-enami-reset')) {
+            enamiteReset(entry.target)
           }
         });
 
       }, { rootMargin: settings.offset, threshold: settings.threshold });
 
-      // create observer for each enima
+      // create observer for each enami
       console.log(parentSelector);
-      parentSelector.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
+      parentSelector.querySelectorAll('[data-enami]').forEach(enamis => { observer.observe(enamis) });
 
 
 
@@ -206,15 +206,15 @@
        */
 
       //vars
-      parentEnimas = parentSelector.querySelectorAll('[data-enima-children]');
+      parentEnamis = parentSelector.querySelectorAll('[data-enami-children]');
 
       //observer
       parentObserver = new IntersectionObserver((entries, observer) => {
 
         entries.forEach(entry => {
-          let parentStagger = entry.target.getAttribute('data-enima-stagger');
-          let parentReset = entry.target.getAttribute('data-enima-reset');
-          let childrenClass = entry.target.getAttribute('data-enima-children');
+          let parentStagger = entry.target.getAttribute('data-enami-stagger');
+          let parentReset = entry.target.getAttribute('data-enami-reset');
+          let childrenClass = entry.target.getAttribute('data-enami-children');
           let childrens = entry.target.querySelectorAll(childrenClass);
           // console.log(childrens);
 
@@ -233,22 +233,22 @@
 
           if (entry.isIntersecting) {
             childrens.forEach((children, i) => {
-              enimateIn(children)
+              enamiteIn(children)
             });
 
             // unobserve parent if has once attribute
-            let dataOnce = entry.target.getAttribute('data-enima-once');
+            let dataOnce = entry.target.getAttribute('data-enami-once');
             if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
               observer.unobserve(entry.target);
             }
 
           } else {
             childrens.forEach(children => {
-              if (children.hasAttribute('data-enima-in')) {
+              if (children.hasAttribute('data-enami-in')) {
                 if (parentReset != null) {
-                  enimateReset(children);
+                  enamiteReset(children);
                 } else {
-                  enimateOut(children)
+                  enamiteOut(children)
                 }
               }
             });
@@ -258,13 +258,13 @@
       }, { rootMargin: settings.offset, threshold: settings.threshold });
 
 
-      // setup parent enimas
-      parentEnimas.forEach(parent => {
+      // setup parent enamis
+      parentEnamis.forEach(parent => {
         // add observer to each parent
         parentObserver.observe(parent);
 
         // remove normal observer from childrens
-        let childrenClass = parent.getAttribute('data-enima-children');
+        let childrenClass = parent.getAttribute('data-enami-children');
         let childrens = parent.querySelectorAll(childrenClass);
         childrens.forEach(children => {
           observer.unobserve(children);
@@ -281,10 +281,10 @@
     // Public APIs
     //
 
-    return enima;
+    return enami;
 
   };
 
-  return enima;
+  return enami;
 
 });

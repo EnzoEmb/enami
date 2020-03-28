@@ -1,5 +1,5 @@
 {
-  "name": "enima",
+  "name": "enami",
   "version": "1.0.0",
   "description": "Animation on scroll package",
   "main": "src/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EnzoEmb/enima.git"
+    "url": "git+https://github.com/EnzoEmb/enami.git"
   },
   "keywords": [
     "animate",
@@ -22,9 +22,9 @@
   "author": "Enzo Vergara",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EnzoEmb/enima/issues"
+    "url": "https://github.com/EnzoEmb/enami/issues"
   },
-  "homepage": "https://github.com/EnzoEmb/enima#readme",
+  "homepage": "https://github.com/EnzoEmb/enami#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-plumber": "^1.2.1",
