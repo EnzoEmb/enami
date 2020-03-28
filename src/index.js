@@ -115,8 +115,7 @@
 
   // return publicMethods;
   var enima = function (options) {
-    var parentObserver, observer, parentEnimas;
-
+    var parentObserver, observer, parentEnimas, parentSelector;
     //
     // Variables
     //
@@ -135,6 +134,17 @@
     // enima.animateScroll = function (anchor, toggle, options) {
 
 
+    // merge settings
+    var settings = {
+      ...defaults,
+      ...options
+    };
+    if(parentSelector){
+      parentSelector = document.querySelector(settings.parentSelector)
+    }else{
+      parentSelector = document;
+    }
+
     // };
 
 
@@ -152,12 +162,6 @@
     function init() {
 
       emitEvent('enima:init');
-
-      // merge settings
-      var settings = {
-        ...defaults,
-        ...options
-      };
 
       // disable on mobile
       if (settings.disableOnMobile == true && isMobile()) {
@@ -185,7 +189,8 @@
       }, { rootMargin: settings.offset, threshold: settings.threshold });
 
       // create observer for each enima
-      document.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
+      console.log(parentSelector);
+      parentSelector.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
 
 
 
@@ -194,7 +199,7 @@
        */
 
       //vars
-      parentEnimas = document.querySelectorAll('[data-enima-children]');
+      parentEnimas = parentSelector.querySelectorAll('[data-enima-children]');
 
       //observer
       parentObserver = new IntersectionObserver((entries, observer) => {

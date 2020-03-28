@@ -57,7 +57,7 @@
         <!-- Parenting -->
         <h2 class="separator-title">Normal offset</h2>
         <div>
-            <div class="container text-center">
+            <div class="container text-center one">
                 <div class="box" data-enima="fade-right" data-enima-offset="50px">50px</div>
             </div>
             <div class="container text-left">
@@ -137,7 +137,9 @@
         // });
 
         var a = new enima({
-            once: false
+            parentSelector: '.one',
+            once: false,
+            offset: '0px 0px -50px 0px',
         });
     // enima.destroy();
     // console.log(hola);
