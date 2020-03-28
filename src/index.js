@@ -114,7 +114,7 @@
 
   }
 
-  
+  // children logic
 
 
 
@@ -126,7 +126,7 @@
 
 
   var enami = function (options) {
-    var parentObserver, observer, parentEnamis, parentSelector;
+    var parentObserver, observer, parentEnamis, parentSelector, childEnamis;
 
     var enami = {}; // Object for public APIs
 
@@ -144,6 +144,10 @@
       parentSelector = document;
     }
 
+
+
+    childEnamis = parentSelector.querySelectorAll('[data-enami]')
+    parentEnamis = parentSelector.querySelectorAll('[data-enami-children]');
 
     // destroy method
     enami.destroy = function (options) {
@@ -181,92 +185,87 @@
       // set intersection observers for single elements
       observer = new IntersectionObserver((entries, observer) => {
 
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            enamiteIn(entry.target)
 
-            // unobserve if has once attribute    
-            let dataOnce = entry.target.getAttribute('data-enami-once');
-            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-              observer.unobserve(entry.target);
+
+        entries.forEach(entry => {
+          if (entry.target.hasAttribute('data-enami-children')) {
+            // is parent entry
+
+            let parentStagger = entry.target.getAttribute('data-enami-stagger');
+            let parentReset = entry.target.getAttribute('data-enami-reset');
+            let childrenClass = entry.target.getAttribute('data-enami-children');
+            let childrens = entry.target.querySelectorAll(childrenClass);
+            // console.log(childrens);
+
+            // setup stagger delay
+            if (parentStagger != null) {
+              let parentStaggerNumber = secondsToMs(parentStagger);
+              let i = 1;
+              childrens.forEach(children => {
+                let delay = parentStaggerNumber * i;
+                children.style.transitionDelay = delay + 'ms';
+                children.style.animationDelay = delay + 'ms';
+                i++;
+              });
             }
 
-          } else if (entry.target.hasAttribute('data-enami-in') && entry.target.hasAttribute('data-enami-reset') == false) {
-            enamiteOut(entry.target)
-          } else if (entry.target.hasAttribute('data-enami-reset')) {
-            enamiteReset(entry.target)
-          }
-        });
 
-      }, { rootMargin: settings.offset, threshold: settings.threshold });
+            if (entry.isIntersecting) {
+              childrens.forEach((children, i) => {
+                enamiteIn(children)
+              });
 
-      // create observer for each enami
-      console.log(parentSelector);
-      parentSelector.querySelectorAll('[data-enami]').forEach(enamis => { observer.observe(enamis) });
+              // unobserve parent if has once attribute
+              let dataOnce = entry.target.getAttribute('data-enami-once');
+              if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+                observer.unobserve(entry.target);
+              }
 
-
-
-      /**
-       * Parenting
-       */
-
-      //vars
-      parentEnamis = parentSelector.querySelectorAll('[data-enami-children]');
-
-      //observer
-      parentObserver = new IntersectionObserver((entries, observer) => {
-
-        entries.forEach(entry => {
-          let parentStagger = entry.target.getAttribute('data-enami-stagger');
-          let parentReset = entry.target.getAttribute('data-enami-reset');
-          let childrenClass = entry.target.getAttribute('data-enami-children');
-          let childrens = entry.target.querySelectorAll(childrenClass);
-          // console.log(childrens);
-
-          // setup stagger delay
-          if (parentStagger != null) {
-            let parentStaggerNumber = secondsToMs(parentStagger);
-            let i = 1;
-            childrens.forEach(children => {
-              let delay = parentStaggerNumber * i;
-              children.style.transitionDelay = delay + 'ms';
-              children.style.animationDelay = delay + 'ms';
-              i++;
-            });
-          }
-
-
-          if (entry.isIntersecting) {
-            childrens.forEach((children, i) => {
-              enamiteIn(children)
-            });
-
-            // unobserve parent if has once attribute
-            let dataOnce = entry.target.getAttribute('data-enami-once');
-            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-              observer.unobserve(entry.target);
+            } else {
+              childrens.forEach(children => {
+                if (children.hasAttribute('data-enami-in')) {
+                  if (parentReset != null) {
+                    enamiteReset(children);
+                  } else {
+                    enamiteOut(children)
+                  }
+                }
+              });
             }
 
           } else {
-            childrens.forEach(children => {
-              if (children.hasAttribute('data-enami-in')) {
-                if (parentReset != null) {
-                  enamiteReset(children);
-                } else {
-                  enamiteOut(children)
-                }
+            // is regular entry
+            if (entry.isIntersecting) {
+              enamiteIn(entry.target)
+
+              // unobserve if has once attribute    
+              let dataOnce = entry.target.getAttribute('data-enami-once');
+              if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+                observer.unobserve(entry.target);
               }
-            });
+
+            } else if (entry.target.hasAttribute('data-enami-in') && entry.target.hasAttribute('data-enami-reset') == false) {
+              enamiteOut(entry.target)
+            } else if (entry.target.hasAttribute('data-enami-reset')) {
+              enamiteReset(entry.target)
+            }
           }
+
+
+
         });
 
       }, { rootMargin: settings.offset, threshold: settings.threshold });
+
+
+      // create observer for each enami
+      childEnamis.forEach(enamis => { observer.observe(enamis) });
 
 
       // setup parent enamis
       parentEnamis.forEach(parent => {
         // add observer to each parent
-        parentObserver.observe(parent);
+        observer.observe(parent);
 
         // remove normal observer from childrens
         let childrenClass = parent.getAttribute('data-enami-children');
@@ -282,14 +281,7 @@
 
     init();
 
-    //
-    // Public APIs
-    //
-
     return enami;
-
   };
-
   return enami;
-
 });

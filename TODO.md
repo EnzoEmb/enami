@@ -23,7 +23,7 @@ Info:
 * data-attributes should override init settings
 
 Optimizaciones
-* merge parent intersection observer with the basic one ()
+* merge parent intersection observer with the basic one ✅
 * make boolean data-attributes get validated on present or not, not based on the value
 * better logs
 
