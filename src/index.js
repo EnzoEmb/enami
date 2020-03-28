@@ -189,6 +189,12 @@
     }
 
 
+    enima.update = function () {
+      enima.destroy();
+      init();
+    }
+
+
     function init() {
 
       emitEvent('enima:init');
@@ -211,8 +217,19 @@
               observer.unobserve(entry.target);
             }
 
-          } else if (entry.target.hasAttribute('data-enima-in')) {
+          } else if (entry.target.hasAttribute('data-enima-in') && entry.target.hasAttribute('data-enima-reset') == false) {
             enimateOut(entry.target)
+          } else if (entry.target.hasAttribute('data-enima-reset')) {
+            entry.target.style.transition = 'false';
+            entry.target.style.animation = 'false';
+            entry.target.removeAttribute('data-enima-in')
+
+            setTimeout(function () {
+
+              entry.target.style.transition = '';
+              entry.target.style.animation = '';
+              //  children.setAttribute('data-enima-in', "")
+            }, 1)
           }
         });
 
@@ -236,6 +253,7 @@
 
         entries.forEach(entry => {
           let parentStagger = entry.target.getAttribute('data-enima-stagger');
+          let parentReset = entry.target.getAttribute('data-enima-reset');
           let childrenClass = entry.target.getAttribute('data-enima-children');
           let childrens = entry.target.querySelectorAll(childrenClass);
           // console.log(childrens);
@@ -260,7 +278,6 @@
 
             // unobserve parent if has once attribute
             let dataOnce = entry.target.getAttribute('data-enima-once');
-            // console.log(dataOnce);
             if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
               observer.unobserve(entry.target);
             }
@@ -268,7 +285,26 @@
           } else {
             childrens.forEach(children => {
               if (children.hasAttribute('data-enima-in')) {
-                enimateOut(children)
+                if (parentReset != null) {
+
+
+                  children.style.transition = 'false';
+                  children.style.animation = 'false';
+                  children.removeAttribute('data-enima-in')
+
+                  setTimeout(function () {
+
+                    children.style.transition = '';
+                    children.style.animation = '';
+                    //  children.setAttribute('data-enima-in', "")
+                  }, 1)
+
+
+
+                } else {
+                  enimateOut(children)
+
+                }
 
               }
             });

@@ -13,10 +13,10 @@ Bugs:
 * stagger with 1s translates to 100ms ✅
 * define offset only on global init config, make posible to init multiple enimas on different elements, if not defined init on global ✅
 * mehotd for reinit animation .reset('.test'); ✅
-* method for update new elemetsn .update();
+* method for update new elemetsn .update(); ✅
+* reset to initial animation on not visible resetAnimations ✅
+* check dinamic added content on stagger
 * method for isIntersection and all the others
-* reset to initial animation on not visible resetAnimations
-* check dinamic added content
 
 Info:
 * data-attributes should override init settings

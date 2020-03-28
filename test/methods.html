@@ -34,32 +34,25 @@
             <button id="add-items">add items</button>
         </div>
         <!-- Parenting -->
-        <h2 class="separator-title">Normal offset</h2>
-        <div>
+        <h2 class="separator-title">Normal</h2>
+        <div id="content">
             <div class="container text-center one">
-                <div class="box reset" data-enima="fade-right" data-enima-offset="50px">50px</div>
+                <div class="box reset" data-enima="fade-right">50px</div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enima="fade-right" data-enima-offset="100px">100px</div>
+                <div class="box" data-enima="fade-right">100px</div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enima="fade-right" data-enima-offset="20%">20%</div>
+                <div class="box" data-enima="fade-right">20%</div>
             </div>
-            <div class="container text-right">
-                <div class="box" data-enima="fade-right" data-enima-offset="50%">50%</div>
-            </div>
-            <div class="container text-center">
-                <div class="box" data-enima="fade-right" data-enima-offset="250px">250px</div>
-            </div>
-            <div class="container text-left">
-                <div class="box" data-enima="fade-right" data-enima-offset="15px">15px</div>
-            </div>
+
         </div>
 
-        <!-- Parenting -->
-        <h2 class="separator-title">Parent offset</h2>
-        <div data-enima-children=".box" data-enima-stagger=".50s" data-enima-offset="100px" class="border">
-            <h3>100px</h3>
+
+
+        <!-- Stagger -->
+        <h2 class="separator-title">Parent staggering</h2>
+        <div data-enima-children=".box" data-enima-stagger=".1s">
             <div class="container text-center">
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
@@ -68,11 +61,6 @@
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
-            </div>
-        </div>
-        <div data-enima-children=".box" data-enima-stagger=".5s" data-enima-offset="50%" class="border">
-            <h3>50%</h3>
-            <div class="container text-center">
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
                 <div class="box sm" data-enima="fade-right"></div>
@@ -93,7 +81,6 @@
         a = new enima({
             parentSelector: '.one',
             once: false,
-            offset: '0px 0px -50px 0px',
         });
 
         document.getElementById('destroy').addEventListener('click', function (e) {
@@ -107,6 +94,11 @@
             a.reset('.reset')
         });
 
+        document.getElementById('update').addEventListener('click', function (e) {
+            // console.info(e);
+            a.update()
+        });
+
 
         document.getElementById('init').addEventListener('click', function (e) {
             console.info(e);
@@ -118,8 +110,23 @@
             });
 
         });
-    // enima.destroy();
-    // console.log(hola);
+
+
+        //appending
+        document.getElementById('add-items').addEventListener('click', function (e) {
+            var e = document.createElement('div');
+            e.innerHTML = `<div class="container text-right">
+                <div class="box" data-enima="fade-right" >dinamic</div>
+            </div>`;
+
+            while (e.firstChild) {
+                document.getElementById('content').appendChild(e.firstChild);
+            }
+        });
+
+
+
+
 
 
     </script>
