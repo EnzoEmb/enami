@@ -23,43 +23,21 @@
         <a href="methods.html">Methods</a>
     </nav>
     <header id="main-header">
-        <h1>Enima.js - Offseting </h1>
-        <div style="height: 80vh;"></div>
+        <h1>Enima.js - Methods </h1>
     </header>
-    <section id="main-wrapper" class="test-offsets">
-        <div class="fix-test top" style="top: 50px">
-            <span>50px</span>
-        </div>
-        <div class="fix-test top" style="top: 100px">
-            <span>100px</span>
-        </div>
-        <div class="fix-test top" style="top: 20%">
-            <span>20%</span>
-        </div>
-        <div class="fix-test top" style="top: 200px">
-            <span>200px</span>
-        </div>
-
-        <div class="fix-test" style="bottom: 50px">
-            <span>50px</span>
-        </div>
-        <div class="fix-test" style="bottom: 100px">
-            <span>100px</span>
-        </div>
-        <div class="fix-test" style="bottom: 20%">
-            <span>20%</span>
-        </div>
-        <div class="fix-test" style="bottom: 50%">
-            <span>50%</span>
-        </div>
-        <div class="fix-test" style="bottom: 200px">
-            <span>200px</span>
+    <section id="main-wrapper">
+        <div class="method">
+            <button id="destroy">destroy</button>
+            <button id="init">init</button>
+            <button id="reset">reset</button>
+            <button id="update">update</button>
+            <button id="add-items">add items</button>
         </div>
         <!-- Parenting -->
         <h2 class="separator-title">Normal offset</h2>
         <div>
             <div class="container text-center one">
-                <div class="box" data-enima="fade-right" data-enima-offset="50px">50px</div>
+                <div class="box reset" data-enima="fade-right" data-enima-offset="50px">50px</div>
             </div>
             <div class="container text-left">
                 <div class="box" data-enima="fade-right" data-enima-offset="100px">100px</div>
@@ -111,36 +89,34 @@
     <!-- Scripts -->
     <script src="../dist/enima.js"></script>
     <script>
-
-        // document.addEventListener('enima:init', function(e){
-        //     console.info(e);
-        //     console.info('enima:init')
-        // });
-        // document.addEventListener('enima:destroy', function(e){
-        //     console.info(e);
-        //     console.info('enima:destroy')
-        // });
-        // document.getElementById('first').addEventListener('enima:animate-in', function(e){
-        //     console.info(e);
-        //     console.info('enima:animate-in')
-        // });
-        // document.getElementById('first').addEventListener('enima:animate-out', function(e){
-        //     console.info(e);
-        //     console.info('enima:animate-out')
-        // });
-        // document.getElementById('only').addEventListener('enima:animate-in', function(e){
-        //     console.info(e);
-        //     console.info('enima:animate-in')
-        // });
-        // document.getElementById('only').addEventListener('enima:animate-out', function(e){
-        //     console.info(e);
-        //     console.info('enima:animate-out')
-        // });
-
-        var a = new enima({
+        var a
+        a = new enima({
             parentSelector: '.one',
             once: false,
             offset: '0px 0px -50px 0px',
+        });
+
+        document.getElementById('destroy').addEventListener('click', function (e) {
+            console.info(e);
+            // console.info('enima:init')
+            a.destroy();
+        });
+
+        document.getElementById('reset').addEventListener('click', function (e) {
+            // console.info(e);
+            a.reset('.reset')
+        });
+
+
+        document.getElementById('init').addEventListener('click', function (e) {
+            console.info(e);
+            // console.info('enima:init')
+            a = new enima({
+                parentSelector: '.one',
+                once: false,
+                offset: '0px 0px -50px 0px',
+            });
+
         });
     // enima.destroy();
     // console.log(hola);

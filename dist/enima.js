@@ -159,6 +159,23 @@
     }
 
 
+    // destroy methdo
+    // enima.reset = function (element) {
+    //   console.log(element)
+    //   emitEvent('enima:reset');
+    //   var e  = document.querySelector(element);
+    //   console.log(e);
+    //   e.removeAttribute('data-enima-in')
+    //   // enimateOut();
+    //   // enimateIn(e);
+    //   // parentObserver.disconnect();
+    //   // observer.disconnect();
+    //   // parentObserver = null;
+    //   // observer = null;
+    //   // console.log(parentObserver);
+    // }
+
+
     function init() {
 
       emitEvent('enima:init');

@@ -176,3 +176,22 @@ body {
 //     }
 //   }
 // }
+
+
+.method{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  padding: 50px;
+  border-top: 1px solid grey;
+  border-right: 1px solid grey;
+  z-index: 5000;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  button{
+    margin-bottom: 10px;
+  }
+}
