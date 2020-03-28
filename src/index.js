@@ -127,7 +127,7 @@
 
 
   var enami = function (options) {
-    var parentObserver, observer, parentEnamis, parentSelector, childEnamis;
+    var observer, parentEnamis, parentSelector, childEnamis;
 
     var enami = {}; // Object for public APIs
 
