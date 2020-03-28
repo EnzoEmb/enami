@@ -139,9 +139,9 @@
       ...defaults,
       ...options
     };
-    if(parentSelector){
+    if (parentSelector) {
       parentSelector = document.querySelector(settings.parentSelector)
-    }else{
+    } else {
       parentSelector = document;
     }
 
@@ -160,20 +160,33 @@
 
 
     // destroy methdo
-    // enima.reset = function (element) {
-    //   console.log(element)
-    //   emitEvent('enima:reset');
-    //   var e  = document.querySelector(element);
-    //   console.log(e);
-    //   e.removeAttribute('data-enima-in')
-    //   // enimateOut();
-    //   // enimateIn(e);
-    //   // parentObserver.disconnect();
-    //   // observer.disconnect();
-    //   // parentObserver = null;
-    //   // observer = null;
-    //   // console.log(parentObserver);
-    // }
+    enima.reset = function (element) {
+      // console.log(element)
+      emitEvent('enima:reset');
+      var e = document.querySelector(element);
+      // console.log(e);
+      e.style.transition = 'false';
+      e.style.animation = 'false';
+      // e.style.transitionDuration = '0s';
+      // e.style.transitionDuration = '0s';
+      // e.style.animationDuration = '0s';
+      // e.style.transitionDelay = '0s';
+      // e.style.animationDelay = '0s';
+      e.removeAttribute('data-enima-in')
+
+      setTimeout(function () {
+
+        e.style.transition = '';
+        e.style.animation = '';
+        // e.style.transitionDuration = '';
+        // e.style.animationDuration = '';
+        // e.style.transitionDelay = '';
+        // e.style.animationDelay = '';
+
+        e.setAttribute('data-enima-in', "")
+      }, 1)
+
+    }
 
 
     function init() {
