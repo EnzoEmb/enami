@@ -24,3 +24,7 @@ Info:
 Optimizaciones
 * merge parent intersection observer with the basic one ()
 * make boolean data-attributes get validated on present or not, not based on the value
+
+Testing:
+* method
+* events

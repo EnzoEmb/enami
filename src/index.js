@@ -29,6 +29,7 @@
 
   // Default settings
   var defaults = {
+    element: null,
     offset: '0px 0px 0px 0px',
     delay: 0,
     duration: 400,
@@ -43,7 +44,7 @@
    */
 
   // emit events
-  function emitEvent(type, element) {
+  var emitEvent = function (type, element) {
     var event = new CustomEvent(type, {});
     if (element) {
       element.dispatchEvent(event);
@@ -53,12 +54,12 @@
   };
 
   // detect mobile
-  function isMobile() {
+  var isMobile = function () {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
 
   // seconds attribute to ms
-  function secondsToMs(attr) {
+  var secondsToMs = function (attr) {
     var attr = attr.trim();
     var number = attr.replace(/[^0-9.]/g, '');
     if (attr.endsWith('ms')) {            // is 100ms
@@ -75,7 +76,7 @@
   }
 
   // execute animation in
-  function enimateIn(element) {
+  var enimateIn = function (element) {
     emitEvent('enima:animate-in', element)
 
     // set delay
@@ -98,7 +99,7 @@
   }
 
   // execute out animation
-  function enimateOut(element) {
+  var enimateOut = function (element) {
     emitEvent('enima:animate-out', element)
 
     // add attributes
@@ -110,128 +111,165 @@
 
 
 
-  var parentObserver, observer, parentEnimas;
 
-  publicMethods.init = function (options) {
-    emitEvent('enima:init');
 
-    // merge settings
-    var settings = {
-      ...defaults,
-      ...options
-    };
+  // return publicMethods;
+  var enima = function (options) {
+    var parentObserver, observer, parentEnimas;
 
-    // disable on mobile
-    if (settings.disableOnMobile == true && isMobile()) {
-      return;
+    //
+    // Variables
+    //
+
+
+    // if (selector == null) {
+    //   selector = document;
+    // }
+    // console.log(selector);
+    // console.log(options);
+
+
+    var enima = {}; // Object for public APIs
+    // var settings, anchor, toggle, fixedHeader, eventTimeout, animationInterval;
+
+    // enima.animateScroll = function (anchor, toggle, options) {
+
+
+    // };
+
+
+    // destroy methdo
+    enima.destroy = function (options) {
+      emitEvent('enima:destroy');
+      parentObserver.disconnect();
+      observer.disconnect();
+      parentObserver = null;
+      observer = null;
+      console.log(parentObserver);
     }
 
-    // set intersection observers for single elements
-    observer = new IntersectionObserver((entries, observer) => {
 
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          enimateIn(entry.target)
+    function init() {
 
-          // unobserve if has once attribute    
-          let dataOnce = entry.target.getAttribute('data-enima-once');
-          if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-            observer.unobserve(entry.target);
-          }
+      emitEvent('enima:init');
 
-        } else if (entry.target.hasAttribute('data-enima-in')) {
-          enimateOut(entry.target)
-        }
-      });
+      // merge settings
+      var settings = {
+        ...defaults,
+        ...options
+      };
 
-    }, { rootMargin: settings.offset, threshold: settings.threshold });
+      // disable on mobile
+      if (settings.disableOnMobile == true && isMobile()) {
+        return;
+      }
 
-    // create observer for each enima
-    document.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
+      // set intersection observers for single elements
+      observer = new IntersectionObserver((entries, observer) => {
 
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            enimateIn(entry.target)
 
-
-    /**
-     * Parenting
-     */
-
-    //vars
-    parentEnimas = document.querySelectorAll('[data-enima-children]');
-
-    //observer
-    parentObserver = new IntersectionObserver((entries, observer) => {
-
-      entries.forEach(entry => {
-        let parentStagger = entry.target.getAttribute('data-enima-stagger');
-        let childrenClass = entry.target.getAttribute('data-enima-children');
-        let childrens = entry.target.querySelectorAll(childrenClass);
-        // console.log(childrens);
-
-        // setup stagger delay
-        if (parentStagger != null) {
-          let parentStaggerNumber = secondsToMs(parentStagger);
-          let i = 1;
-          childrens.forEach(children => {
-            let delay = parentStaggerNumber * i;
-            children.style.transitionDelay = delay + 'ms';
-            children.style.animationDelay = delay + 'ms';
-            i++;
-          });
-        }
-
-
-        if (entry.isIntersecting) {
-          childrens.forEach((children, i) => {
-            enimateIn(children)
-          });
-
-          // unobserve parent if has once attribute
-          let dataOnce = entry.target.getAttribute('data-enima-once');
-          // console.log(dataOnce);
-          if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
-            observer.unobserve(entry.target);
-          }
-
-        } else {
-          childrens.forEach(children => {
-            if (children.hasAttribute('data-enima-in')) {
-              enimateOut(children)
-
+            // unobserve if has once attribute    
+            let dataOnce = entry.target.getAttribute('data-enima-once');
+            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+              observer.unobserve(entry.target);
             }
-          });
-        }
+
+          } else if (entry.target.hasAttribute('data-enima-in')) {
+            enimateOut(entry.target)
+          }
+        });
+
+      }, { rootMargin: settings.offset, threshold: settings.threshold });
+
+      // create observer for each enima
+      document.querySelectorAll('[data-enima]').forEach(enimas => { observer.observe(enimas) });
+
+
+
+      /**
+       * Parenting
+       */
+
+      //vars
+      parentEnimas = document.querySelectorAll('[data-enima-children]');
+
+      //observer
+      parentObserver = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+          let parentStagger = entry.target.getAttribute('data-enima-stagger');
+          let childrenClass = entry.target.getAttribute('data-enima-children');
+          let childrens = entry.target.querySelectorAll(childrenClass);
+          // console.log(childrens);
+
+          // setup stagger delay
+          if (parentStagger != null) {
+            let parentStaggerNumber = secondsToMs(parentStagger);
+            let i = 1;
+            childrens.forEach(children => {
+              let delay = parentStaggerNumber * i;
+              children.style.transitionDelay = delay + 'ms';
+              children.style.animationDelay = delay + 'ms';
+              i++;
+            });
+          }
+
+
+          if (entry.isIntersecting) {
+            childrens.forEach((children, i) => {
+              enimateIn(children)
+            });
+
+            // unobserve parent if has once attribute
+            let dataOnce = entry.target.getAttribute('data-enima-once');
+            // console.log(dataOnce);
+            if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+              observer.unobserve(entry.target);
+            }
+
+          } else {
+            childrens.forEach(children => {
+              if (children.hasAttribute('data-enima-in')) {
+                enimateOut(children)
+
+              }
+            });
+          }
+        });
+
+      }, { rootMargin: settings.offset, threshold: settings.threshold });
+
+
+      // setup parent enimas
+      parentEnimas.forEach(parent => {
+        // add observer to each parent
+        parentObserver.observe(parent);
+
+        // remove normal observer from childrens
+        let childrenClass = parent.getAttribute('data-enima-children');
+        let childrens = parent.querySelectorAll(childrenClass);
+        childrens.forEach(children => {
+          observer.unobserve(children);
+        });
       });
 
-    }, { rootMargin: settings.offset, threshold: settings.threshold });
 
 
-    // setup parent enimas
-    parentEnimas.forEach(parent => {
-      // add observer to each parent
-      parentObserver.observe(parent);
+    }
 
-      // remove normal observer from childrens
-      let childrenClass = parent.getAttribute('data-enima-children');
-      let childrens = parent.querySelectorAll(childrenClass);
-      childrens.forEach(children => {
-        observer.unobserve(children);
-      });
-    });
+    init();
+
+    //
+    // Public APIs
+    //
+
+    return enima;
 
   };
 
-
-  // destroy methdo
-  publicMethods.destroy = function (options) {
-    emitEvent('enima:destroy');
-    parentObserver.disconnect();
-    observer.disconnect();
-    parentObserver = null;
-    observer = null;
-    console.log(parentObserver);
-  }
-
-
-  return publicMethods;
+  return enima;
 
 });
