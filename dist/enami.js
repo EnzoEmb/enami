@@ -160,7 +160,7 @@
     // reset method
     enami.reset = function (element) {
       emitEvent('enami:reset');
-      let e = document.querySelector(element);
+      var e = document.querySelector(element);
       enamiteReset(e)
     }
 
@@ -169,8 +169,7 @@
     enami.update = function () {
       emitEvent('enami:update');
       enami.destroy();
-      init(settings);
-      console.log('update');
+      init();
     }
 
     function init() {
@@ -184,23 +183,24 @@
       // set intersection observers for single elements
       observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-          let entryReset = entry.target.getAttribute('data-enami-reset');
-
+          
           if (entry.target.hasAttribute('data-enami-children')) {
             // is parent entry
 
             let parentStagger = entry.target.getAttribute('data-enami-stagger');
+            let parentReset = entry.target.getAttribute('data-enami-reset');
             let childrenClass = entry.target.getAttribute('data-enami-children');
             let childrens = entry.target.querySelectorAll(childrenClass);
             let entryDelay = entry.target.getAttribute('data-enami-delay');
+            // console.log(childrens);
 
             // setup stagger delay
             if (parentStagger != null) {
               let parentStaggerNumber = secondsToMs(parentStagger);
+              let i = 1;
               if (entryDelay) { // getting initial staggering delay
                 entryDelay = secondsToMs(entryDelay);
               }
-              let i = 1;
               childrens.forEach(children => {
                 let delay = parentStaggerNumber * i;
                 children.style.transitionDelay = (delay + entryDelay) + 'ms';
@@ -224,7 +224,7 @@
             } else {
               childrens.forEach(children => {
                 if (children.hasAttribute('data-enami-in')) {
-                  if (entryReset != null) {
+                  if (parentReset != null) {
                     enamiteReset(children);
                   } else {
                     enamiteOut(children)
@@ -244,9 +244,9 @@
                 observer.unobserve(entry.target);
               }
 
-            } else if (entry.target.hasAttribute('data-enami-in') && entryReset == false) {
+            } else if (entry.target.hasAttribute('data-enami-in') && entry.target.hasAttribute('data-enami-reset') == false) {
               enamiteOut(entry.target)
-            } else if (entryReset) {
+            } else if (entry.target.hasAttribute('data-enami-reset')) {
               enamiteReset(entry.target)
             }
           }
