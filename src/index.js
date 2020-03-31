@@ -217,7 +217,7 @@
 
               // unobserve parent if has once attribute
               let dataOnce = entry.target.getAttribute('data-enami-once');
-              if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+              if (settings.once == true || dataOnce) {
                 observer.unobserve(entry.target);
               }
 
@@ -240,7 +240,7 @@
 
               // unobserve if has once attribute    
               let dataOnce = entry.target.getAttribute('data-enami-once');
-              if (settings.once == true || dataOnce === "true" || dataOnce === "1") {
+              if (settings.once == true || dataOnce) {
                 observer.unobserve(entry.target);
               }
 
@@ -258,13 +258,11 @@
       }, { rootMargin: settings.offset, threshold: settings.threshold });
 
 
-      // create observer for each enami
+      // add to observer each single enami
       childEnamis.forEach(enamis => { observer.observe(enamis) });
 
-
-      // setup parent enamis
+      // add to observer each parent enami
       parentEnamis.forEach(parent => {
-        // add observer to each parent
         observer.observe(parent);
 
         // remove normal observer from childrens
