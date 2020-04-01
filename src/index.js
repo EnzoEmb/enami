@@ -183,30 +183,28 @@
       // set intersection observers for single elements
       observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-          let enamiOnce = entry.target.getAttribute('data-enami-once');
-          let enamiReset = entry.target.getAttribute('data-enami-reset');
-          let hasEnamiReset = entry.target.hasAttribute('data-enami-reset');
-          let hasEnamiIn = entry.target.hasAttribute('data-enami-in');
-
+          
           if (entry.target.hasAttribute('data-enami-children')) {
             // is parent entry
 
-            let enamiStagger = entry.target.getAttribute('data-enami-stagger');
+            let parentStagger = entry.target.getAttribute('data-enami-stagger');
+            let parentReset = entry.target.getAttribute('data-enami-reset');
             let childrenClass = entry.target.getAttribute('data-enami-children');
             let childrens = entry.target.querySelectorAll(childrenClass);
-            let enamiDelay = entry.target.getAttribute('data-enami-delay');
+            let entryDelay = entry.target.getAttribute('data-enami-delay');
+            // console.log(childrens);
 
             // setup stagger delay
-            if (enamiStagger != null) {
-              let enamiStaggerNumber = secondsToMs(enamiStagger);
+            if (parentStagger != null) {
+              let parentStaggerNumber = secondsToMs(parentStagger);
               let i = 1;
-              if (enamiDelay) { // getting initial staggering delay
-                enamiDelay = secondsToMs(enamiDelay);
+              if (entryDelay) { // getting initial staggering delay
+                entryDelay = secondsToMs(entryDelay);
               }
               childrens.forEach(children => {
-                let delay = enamiStaggerNumber * i;
-                children.style.transitionDelay = (delay + enamiDelay) + 'ms';
-                children.style.animationDelay = (delay + enamiDelay) + 'ms';
+                let delay = parentStaggerNumber * i;
+                children.style.transitionDelay = (delay + entryDelay) + 'ms';
+                children.style.animationDelay = (delay + entryDelay) + 'ms';
                 i++;
               });
             }
@@ -218,14 +216,15 @@
               });
 
               // unobserve parent if has once attribute
-              if (settings.once == true || enamiOnce) {
+              let dataOnce = entry.target.getAttribute('data-enami-once');
+              if (settings.once == true || dataOnce) {
                 observer.unobserve(entry.target);
               }
 
             } else {
               childrens.forEach(children => {
-                if (hasEnamiIn) {
-                  if (enamiReset != null) {
+                if (children.hasAttribute('data-enami-in')) {
+                  if (parentReset != null) {
                     enamiteReset(children);
                   } else {
                     enamiteOut(children)
@@ -240,13 +239,14 @@
               enamiteIn(entry.target)
 
               // unobserve if has once attribute    
-              if (settings.once == true || enamiOnce) {
+              let dataOnce = entry.target.getAttribute('data-enami-once');
+              if (settings.once == true || dataOnce) {
                 observer.unobserve(entry.target);
               }
 
-            } else if (hasEnamiIn && hasEnamiReset) {
+            } else if (entry.target.hasAttribute('data-enami-in') && entry.target.hasAttribute('data-enami-reset') == false) {
               enamiteOut(entry.target)
-            } else if (hasEnamiReset) {
+            } else if (entry.target.hasAttribute('data-enami-reset')) {
               enamiteReset(entry.target)
             }
           }
