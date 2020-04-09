@@ -216,8 +216,8 @@
               });
 
               // unobserve parent if has once attribute
-              let dataOnce = entry.target.getAttribute('data-enami-once');
-              if (settings.once == true || dataOnce) {
+              let dataOnce = entry.target.hasAttribute('data-enami-once');
+              if (dataOnce) {
                 observer.unobserve(entry.target);
               }
 
@@ -239,8 +239,8 @@
               enamiteIn(entry.target)
 
               // unobserve if has once attribute    
-              let dataOnce = entry.target.getAttribute('data-enami-once');
-              if (settings.once == true || dataOnce) {
+              let dataOnce = entry.target.hasAttribute('data-enami-once');
+              if (dataOnce) {
                 observer.unobserve(entry.target);
               }
 
