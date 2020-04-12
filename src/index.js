@@ -90,6 +90,7 @@
 
     // add attributes
     element.removeAttribute("data-enami-out");
+    reflow(element);
     element.setAttribute("data-enami-in", "");
   }
 
@@ -98,7 +99,8 @@
     emitEvent('enami:animate-out', element)
 
     // add attributes
-    element.removeAttribute("data-enami-in", "");
+    element.removeAttribute("data-enami-in");
+    reflow(element);
     element.setAttribute("data-enami-out", "");
   }
 
@@ -107,12 +109,17 @@
     element.style.transition = 'false';
     element.style.animation = 'false';
     element.removeAttribute('data-enami-in')
+    reflow(element);
 
     setTimeout(function () {
       element.style.transition = '';
       element.style.animation = '';
     }, 1)
 
+  }
+
+  var reflow = function (element) {
+    console.log(element.offsetHeight);
   }
 
   // children logic
@@ -183,7 +190,7 @@
       // set intersection observers for single elements
       observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-          
+
           if (entry.target.hasAttribute('data-enami-children')) {
             // is parent entry
 
@@ -227,6 +234,7 @@
                   if (parentReset != null) {
                     enamiteReset(children);
                   } else {
+
                     enamiteOut(children)
                   }
                 }
