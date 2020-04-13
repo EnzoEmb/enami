@@ -29,7 +29,6 @@
 
   // Default settings
   var defaults = {
-    element: null,
     offset: '0px 0px 0px 0px',
     delay: 0,
     duration: 400,
