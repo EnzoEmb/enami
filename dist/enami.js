@@ -29,7 +29,7 @@
 
   // Default settings
   var defaults = {
-    offset: '0px 0px 0px 0px',
+    rootMargin: '0px 0px 0px 0px',
     delay: 0,
     duration: 400,
     once: true,
@@ -254,7 +254,7 @@
 
         });
 
-      }, { rootMargin: settings.offset, threshold: settings.threshold });
+      }, { rootMargin: settings.rootMargin, threshold: settings.threshold });
 
 
       // add to observer each single enami
