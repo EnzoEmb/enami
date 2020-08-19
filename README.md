@@ -1,3 +1,4 @@
+# enami
 enami is a animation-on-scroll library, similar to libraries like [aos](https://github.com/michalsnik/aos) or [wow.js](https://github.com/matthieua/WOW) but with a few differences, enami uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), which is supported on [most new browsers](https://caniuse.com/#feat=intersectionobserver) (Edge Chromium, Firefox, Chrome, Safari), to check when an element is visible, this allows you to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel. The way this library works its very simple: adds attribute to specified elements when they are visible, and we use CSS animate them.
 Also, enami has a few other options that others libraries don't have but that i found very useful:
 
