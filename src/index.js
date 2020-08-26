@@ -224,7 +224,7 @@
 
               // unobserve parent if has once attribute
               let dataOnce = entry.target.hasAttribute('data-enami-once');
-              if (dataOnce) {
+              if (dataOnce || settings.once) {
                 observer.unobserve(entry.target);
               }
 
@@ -248,7 +248,7 @@
 
               // unobserve if has once attribute    
               let dataOnce = entry.target.hasAttribute('data-enami-once');
-              if (dataOnce) {
+              if (dataOnce || settings.once) {
                 observer.unobserve(entry.target);
               }
 
