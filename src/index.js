@@ -29,7 +29,7 @@
 
   // Default settings
   var defaults = {
-    element: null,
+    // element: null,
     offset: '0px 0px 0px 0px',
     delay: 0,
     duration: 400,
@@ -64,7 +64,7 @@
     var attr = attr.trim();
     var number = attr.replace(/[^0-9.]/g, '');
     if (attr.endsWith('ms')) {            // is 100ms
-      return number;
+      return parseInt(number);
     } else {
       return number * 1000;
     }
@@ -73,15 +73,15 @@
   // execute animation in
   var enamiteIn = function (element, settings) {
     emitEvent('enami:animate-in', element)
-    console.log(settings);
+    // console.log(settings);
 
     // set delay
     let d = element.getAttribute("data-enami-delay");
     if (d) { // set data-attribute delay
       element.style.transitionDelay = d;
       element.style.animationDelay = d;
-    }else if(settings.delay != 0){ // set property delay
-      
+    } else if (settings.delay != 0) { // set property delay
+
       element.style.transitionDelay = settings.delay;
       element.style.animationDelay = settings.delay;
     }
@@ -215,7 +215,7 @@
               }
               childrens.forEach(children => {
                 let delay = parentStaggerNumber * i;
-                children.style.transitionDelay = (delay + entryDelay) + 'ms';
+              children.style.transitionDelay = (delay + entryDelay) + 'ms';
                 children.style.animationDelay = (delay + entryDelay) + 'ms';
                 i++;
               });
