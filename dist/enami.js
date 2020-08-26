@@ -71,14 +71,19 @@
   }
 
   // execute animation in
-  var enamiteIn = function (element) {
+  var enamiteIn = function (element, settings) {
     emitEvent('enami:animate-in', element)
+    console.log(settings);
 
     // set delay
     let d = element.getAttribute("data-enami-delay");
-    if (d) {
+    if (d) { // set data-attribute delay
       element.style.transitionDelay = d;
       element.style.animationDelay = d;
+    }else if(settings.delay != 0){ // set property delay
+      
+      element.style.transitionDelay = settings.delay;
+      element.style.animationDelay = settings.delay;
     }
 
     // set duration
@@ -219,7 +224,7 @@
 
             if (entry.isIntersecting) {
               childrens.forEach((children, i) => {
-                enamiteIn(children)
+                enamiteIn(children, settings)
               });
 
               // unobserve parent if has once attribute
@@ -244,7 +249,7 @@
           } else {
             // is regular entry
             if (entry.isIntersecting) {
-              enamiteIn(entry.target)
+              enamiteIn(entry.target, settings)
 
               // unobserve if has once attribute    
               let dataOnce = entry.target.hasAttribute('data-enami-once');
