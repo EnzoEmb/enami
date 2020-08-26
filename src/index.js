@@ -76,12 +76,13 @@
     // console.log(settings);
 
     // set delay
+    console.log(element);
+    console.log(element.style.transitionDelay);
     let d = element.getAttribute("data-enami-delay");
-    if (d) { // set data-attribute delay
+    if (d && element.style.transitionDelay == "") { // set data-attribute delay if has delay and if dont have already a delay
       element.style.transitionDelay = d;
       element.style.animationDelay = d;
-    } else if (settings.delay != 0) { // set property delay
-
+    } else if (settings.delay != 0 && element.style.transitionDelay == "") { // set property delay
       element.style.transitionDelay = settings.delay;
       element.style.animationDelay = settings.delay;
     }
@@ -210,9 +211,13 @@
             if (parentStagger != null) {
               let parentStaggerNumber = secondsToMs(parentStagger);
               let i = 1;
-              if (entryDelay) { // getting initial staggering delay
+              if (entryDelay != null) { // getting initial staggering delay
                 entryDelay = secondsToMs(entryDelay);
+              }else if(settings.delay != 0){
+                entryDelay = secondsToMs(settings.delay);
               }
+            // alert(entryDelay);
+
               childrens.forEach(children => {
                 let delay = parentStaggerNumber * i;
               children.style.transitionDelay = (delay + entryDelay) + 'ms';
@@ -220,6 +225,20 @@
                 i++;
               });
             }
+            // else if(settings.delay != 0){ // setting parameter delay
+            //   let parentStaggerNumber = secondsToMs(parentStagger);
+            //   let i = 1;
+            //   if (entryDelay) { // getting initial staggering delay
+            //     entryDelay = secondsToMs(settings.delay);
+            //   }
+            //   childrens.forEach(children => {
+            //     let delay = parentStaggerNumber * i;
+            //   children.style.transitionDelay = (delay + entryDelay) + 'ms';
+            //     children.style.animationDelay = (delay + entryDelay) + 'ms';
+            //     i++;
+            //   });
+
+            // }
 
 
             if (entry.isIntersecting) {
