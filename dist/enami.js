@@ -31,7 +31,7 @@
   var defaults = {
     // element: null,
     offset: '0px 0px 0px 0px',
-    delay: 0,
+    delay: null,
     duration: null,
     once: true,
     disableOnMobile: false,
@@ -78,11 +78,11 @@
     // set delay
     // console.log(element);
     // console.log(element.style.transitionDelay);
-    let d = element.getAttribute("data-enami-delay");
-    if (d && element.style.transitionDelay == "") { // set data-attribute delay if has delay and if dont have already a delay
-      element.style.transitionDelay = d;
-      element.style.animationDelay = d;
-    } else if (settings.delay != 0 && element.style.transitionDelay == "") { // set property delay
+    let delay = element.getAttribute("data-enami-delay");
+    if (delay && element.style.transitionDelay == "") { // set data-attribute delay if has delay and if dont have already a delay
+      element.style.transitionDelay = delay;
+      element.style.animationDelay = delay;
+    } else if (settings.delay != null && element.style.transitionDelay == "") { // set property delay
       element.style.transitionDelay = settings.delay;
       element.style.animationDelay = settings.delay;
     }
@@ -218,7 +218,7 @@
               let i = 1;
               if (entryDelay != null) { // getting initial staggering delay
                 entryDelay = secondsToMs(entryDelay);
-              }else if(settings.delay != 0){
+              }else if(settings.delay != null){
                 entryDelay = secondsToMs(settings.delay);
               }
             // alert(entryDelay);
