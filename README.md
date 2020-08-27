@@ -20,7 +20,7 @@ you are welcome for my broken english btw, lol
 ## Basic usage
 1. Include the script
 ```
-<script src="http://test.example.com/enima.js"></script>
+<script src="http://test.example.com/enami.js"></script>
 ```
 2. Add the **data-enami="my-animation"** attribute on the HTML element you want to animate
 ```

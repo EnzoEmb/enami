@@ -32,7 +32,7 @@
     // element: null,
     offset: '0px 0px 0px 0px',
     delay: 0,
-    duration: 400,
+    duration: null,
     once: true,
     disableOnMobile: false,
     threshold: 0,
@@ -76,8 +76,8 @@
     // console.log(settings);
 
     // set delay
-    console.log(element);
-    console.log(element.style.transitionDelay);
+    // console.log(element);
+    // console.log(element.style.transitionDelay);
     let d = element.getAttribute("data-enami-delay");
     if (d && element.style.transitionDelay == "") { // set data-attribute delay if has delay and if dont have already a delay
       element.style.transitionDelay = d;
@@ -87,11 +87,16 @@
       element.style.animationDelay = settings.delay;
     }
 
+
+
     // set duration
     let duration = element.getAttribute("data-enami-duration");
     if (duration) {
       element.style.transitionDuration = duration;
       element.style.animationDuration = duration;
+    }else if(settings.duration != null){
+      element.style.transitionDuration = settings.duration;
+      element.style.animationDuration = settings.duration;
     }
 
     // add attributes
@@ -125,7 +130,7 @@
   }
 
   var reflow = function (element) {
-    console.log(element.offsetHeight);
+    // console.log(element.offsetHeight);
   }
 
   // children logic
