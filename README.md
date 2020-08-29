@@ -1,6 +1,7 @@
 
-<p style="text-align: center"><img alt="enami" src="https://i.imgur.com/eghT0eF.png"></p>
-
+<p align="center">
+  <img alt="enami" src="https://i.imgur.com/eghT0eF.png">
+</p>
 
 **enami** is a animation-on-scroll library, similar to libraries like [aos](https://github.com/michalsnik/aos) or [wow.js](https://github.com/matthieua/WOW) but with a few differences.
 
