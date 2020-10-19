@@ -1,107 +1,299 @@
-.enter {
-  //   animation: enter 1s 1 forwards;
-}
-.enter-animation {
-  animation: enter 1s 1 forwards;
-  animation-delay: 0.2s;
-}
-
-@keyframes enter {
-  from {
-    transform: translate3d(0, 50px, 0);
-    background-color: red;
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-    background-color: greenyellow;
+[data-enami="fade-up"] {
+  animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+  @keyframes fadeUp {
+      from {
+          transform: translate3d(0, 40px, 0) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+          opacity: 1;
+      }
   }
 }
 
-// [data-enami-animate="fade-up"] {
-//   animation: enter 1s 1 forwards;
+[data-enami="fade-left"] {
+  animation: 2s fadeLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+  @keyframes fadeLeft {
+      from {
+          transform: translate3d(-40px, 0, 0) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="fade-right"] {
+  animation: 2s fadeRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+  @keyframes fadeRight {
+      from {
+          transform: translate3d(40px, 0, 0) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="fade-down"] {
+  animation: 2s fadeDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+  @keyframes fadeDown {
+      from {
+          transform: translate3d(0, -40px, 0) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="jump-up"] {
+  animation: .5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes jumpUp {
+      from {
+          transform: translate3d(0, 20px, 0) rotate(2deg) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="jump-left"] {
+  animation: .5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes jumpLeft {
+      from {
+          transform: translate3d(-20px, 0, 0) rotate(2deg) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="jump-right"] {
+  animation: .5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes jumpRight {
+      from {
+          transform: translate3d(20px, 0, 0) rotate(2deg) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="jump-down"] {
+  animation: .5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes jumpDown {
+      from {
+          transform: translate3d(0, -20px, 0) rotate(2deg) rotate(0.02deg);
+          opacity: 0;
+      }
+      to {
+          transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
+          opacity: 1;
+      }
+  }
+}
+
+[data-enami="jack-in-the-box"] {
+  animation: 2s jackInTheBox forwards cubic-bezier(0.19, 1, 0.22, 1);
+
+  @keyframes jackInTheBox {
+      from {
+          opacity: 0;
+          transform: scale(0.1) rotate(30deg);
+          transform-origin: center bottom;
+      }
+
+      50% {
+          transform: rotate(-10deg);
+      }
+
+      70% {
+          transform: rotate(3deg);
+      }
+
+      to {
+          opacity: 1;
+          transform: scale(1);
+      }
+  }
+}
+
+
+
+
+[data-enami="pop-up"] {
+  animation: .5s popUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes popUp {
+      from {
+          transform: scale(0);
+      }
+      to {
+          transform: scale(1);
+      }
+  }
+}
+
+[data-enami="pop-left"] {
+  animation: .5s popLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes popLeft {
+      from {
+          transform: scale(0);
+      }
+      to {
+          transform: scale(1);
+      }
+  }
+}
+
+[data-enami="pop-right"] {
+  animation: .5s popRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes popRight {
+      from {
+          transform: scale(0);
+      }
+      to {
+          transform: scale(1);
+      }
+  }
+}
+
+[data-enami="pop-down"] {
+  animation: .5s popDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  @keyframes popDown {
+      from {
+          transform: scale(0);
+      }
+      to {
+          transform: scale(1);
+      }
+  }
+}
+
+
+
+// Testing :
+
+// .enter {
+//   //   animation: enter 1s 1 forwards;
 // }
-// [data-enami-animate="fade-out"] {
+// .enter-animation {
 //   animation: enter 1s 1 forwards;
+//   animation-delay: 0.2s;
 // }
 
-// with animations
-// [data-enami="fade-up"] {
-//   // initial state
-//   transform: translate3d(0, 50px, 0);
-//   background-color: orange !important;
-//   // animation
-//   &[data-enami-animate="fade-up"] {
-//     animation: enter 1s 1 forwards .5s;
+// @keyframes enter {
+//   from {
+//     transform: translate3d(0, 50px, 0);
+//     background-color: red;
+//   }
+//   to {
+//     transform: translate3d(0, 0, 0);
+//     background-color: greenyellow;
 //   }
 // }
 
-// with css
-[data-enami="fade-right"] {
-  // initial state
-  transform: translate3d(50px, 0, 0);
-  background-color: orange !important;
-  transition: 1s transform, 1s background-color;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-  // animation
-  &[data-enami-in] {
-    transform: translate3d(0, 0px, 0) !important;
-    background-color: yellow !important;
-  }
-  // &[data-enami-out]{
-  //   transform: translate3d(0, 100px, 0) !important;
-  //   background-color: blue !important;
-  // }
-}
-[data-enami="fade-up"] {
-  // initial state
-  transform: translate3d(0, 30px, 0);
-  background-color: orange !important;
-  transition: 0.8s transform, 0.8s background-color;
-  // transition-timing-function: cubic-bezier(.19,1,.22,1);
-  // animation
-  &[data-enami-in] {
-    transform: translate3d(0, 0px, 0) !important;
-    background-color: yellow !important;
-  }
-}
+// // [data-enami-animate="fade-up"] {
+// //   animation: enter 1s 1 forwards;
+// // }
+// // [data-enami-animate="fade-out"] {
+// //   animation: enter 1s 1 forwards;
+// // }
 
-// [data-enami="rotate"] {
+// // with animations
+// // [data-enami="fade-up"] {
+// //   // initial state
+// //   transform: translate3d(0, 50px, 0);
+// //   background-color: orange !important;
+// //   // animation
+// //   &[data-enami-animate="fade-up"] {
+// //     animation: enter 1s 1 forwards .5s;
+// //   }
+// // }
+
+// // with css
+// [data-enami="fade-right"] {
 //   // initial state
-//   transform: rotate(180deg);
+//   transform: translate3d(50px, 0, 0);
+//   background-color: orange !important;
+//   transition: 1s transform, 1s background-color;
+//   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+//   // animation
+//   &[data-enami-in] {
+//     transform: translate3d(0, 0px, 0) !important;
+//     background-color: yellow !important;
+//   }
+//   // &[data-enami-out]{
+//   //   transform: translate3d(0, 100px, 0) !important;
+//   //   background-color: blue !important;
+//   // }
+// }
+// [data-enami="fade-up"] {
+//   // initial state
+//   transform: translate3d(0, 30px, 0);
 //   background-color: orange !important;
 //   transition: 0.8s transform, 0.8s background-color;
 //   // transition-timing-function: cubic-bezier(.19,1,.22,1);
 //   // animation
 //   &[data-enami-in] {
-//     transform: rotate(0deg) !important;
+//     transform: translate3d(0, 0px, 0) !important;
 //     background-color: yellow !important;
 //   }
 // }
 
-[data-enami="rotate"] {
-  // initial state
-  // transform: rotate(180deg);
-  // background-color: orange !important;
-  // transition: 0.8s transform, 0.8s background-color;
-  // transition-timing-function: cubic-bezier(.19,1,.22,1);
-  // animation
-  transform: rotate(180deg);
-  background-color: orange !important;
-  // animation: 1s;
-  &[data-enami-in] {
-    animation: 1s rotor forwards;
-    // transform: rotate(0deg) !important;
-    // background-color: yellow !important;
-  }
-}
+// // [data-enami="rotate"] {
+// //   // initial state
+// //   transform: rotate(180deg);
+// //   background-color: orange !important;
+// //   transition: 0.8s transform, 0.8s background-color;
+// //   // transition-timing-function: cubic-bezier(.19,1,.22,1);
+// //   // animation
+// //   &[data-enami-in] {
+// //     transform: rotate(0deg) !important;
+// //     background-color: yellow !important;
+// //   }
+// // }
 
-@keyframes rotor {
-  from {
-    transform: rotate(180deg) ;
-    background-color: orange ;
-  }
-  to {
-    transform: rotate(0deg) ;
-    background-color: yellow ;
-  }
-}
+// [data-enami="rotate"] {
+//   // initial state
+//   // transform: rotate(180deg);
+//   // background-color: orange !important;
+//   // transition: 0.8s transform, 0.8s background-color;
+//   // transition-timing-function: cubic-bezier(.19,1,.22,1);
+//   // animation
+//   transform: rotate(180deg);
+//   background-color: orange !important;
+//   // animation: 1s;
+//   &[data-enami-in] {
+//     animation: 1s rotor forwards;
+//     // transform: rotate(0deg) !important;
+//     // background-color: yellow !important;
+//   }
+// }
+
+// @keyframes rotor {
+//   from {
+//     transform: rotate(180deg) ;
+//     background-color: orange ;
+//   }
+//   to {
+//     transform: rotate(0deg) ;
+//     background-color: yellow ;
+//   }
+// }
