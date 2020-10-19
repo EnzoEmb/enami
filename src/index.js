@@ -12,20 +12,22 @@
  */
 
 (function (root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define([], factory(root));
-  } else if (typeof exports === 'object') {
-    module.exports = factory(root);
-  } else {
-    root.enami = factory(root);
-  }
-})(typeof global !== 'undefined' ? global : this.window || this.global, function (root) {
+	if ( typeof define === 'function' && define.amd ) {
+		define([], function () {
+			return factory(root);
+		});
+	} else if ( typeof exports === 'object' ) {
+		module.exports = factory(root);
+	} else {
+		root.myPlugin = factory(root);
+	}
+})(typeof global !== 'undefined' ? global : typeof window !== 'undefined' ? window : this, function (window) {
 
-  'use strict';
+	'use strict';
 
 
 
-  var window = root; // Map window to root to avoid confusion
+  var window = window.root; // Map window to root to avoid confusion
 
   // Default settings
   var defaults = {
