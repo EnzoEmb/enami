@@ -23,55 +23,32 @@
         <a href="events.html">Events</a>
     </nav>
     <header id="main-header">
-        <h1>Enami.js - Methods </h1>
+        <h1>Enami.js - Events </h1>
     </header>
     <section id="main-wrapper">
         <div class="toast toast-left">
             <h6 class="toast-title">Methods</h6>
             <button id="destroy">destroy</button>
+            <button id="destroy-reset">destroy-reset</button>
             <button id="init">init</button>
             <button id="reset">reset</button>
             <button id="update">update</button>
             <button id="add-items">add items</button>
             <button id="add-items-stagger">add items stagger</button>
         </div>
+        <div class="toast toast-right">
+            <h6 class="toast-title">Events</h6>
+        </div>
         <!-- Parenting -->
         <h2 class="separator-title">Normal</h2>
         <div id="content">
             <div class="container text-center one">
-                <div class="box reset" data-enami="fade-test">50px</div>
-            </div>
-            <div class="container text-left">
-                <div class="box" data-enami="fade-test">100px</div>
-            </div>
-            <div class="container text-center">
-                <div class="box" data-enami="fade-test">20%</div>
-            </div>
-
-        </div>
-
-
-
-        <!-- Stagger -->
-        <h2 class="separator-title">Parent staggering</h2>
-        <div data-enami-children=".box" data-enami-stagger=".1s" data-enami-reset>
-            <div class="container text-center" id="stagger">
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box reset" data-enami="fade-test" id="myElement">50px</div>
             </div>
         </div>
+
+
+
 
     </section>
 
@@ -79,16 +56,52 @@
     <!-- Scripts -->
     <script src="../dist/enami.js"></script>
     <script>
-        var a
-        a = new enami({
+        var a = new enami({
             parentSelector: '.one',
             once: false,
         });
+        // a.addEventListener('enami:animate-in', function(a, b){
+        //     alert('asd')
+        // })
+        var h = document.querySelector('.toast-right')
 
+        myEnami = document.getElementById('myElement')
+
+        myEnami.addEventListener('enami:animate-out', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:animate-out</p>')
+        });
+
+        myEnami.addEventListener('enami:animate-in', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:animate-in</p>')
+        });
+
+        document.addEventListener('enami:destroy', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:destroy</p>')
+        });
+
+        document.addEventListener('enami:reset', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:reset</p>')
+        });
+
+        document.addEventListener('enami:update', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:update</p>')
+        });
+
+        document.addEventListener('enami:init', function (e) {
+            h.insertAdjacentHTML('beforeend', '<p style="margin: 0">enami:init</p>')
+        });
+
+
+        // methods
         document.getElementById('destroy').addEventListener('click', function (e) {
             console.info(e);
             // console.info('enami:init')
             a.destroy();
+        });
+        document.getElementById('destroy-reset').addEventListener('click', function (e) {
+            console.info(e);
+            // console.info('enami:init')
+            a.destroy('.reset');
         });
 
         document.getElementById('reset').addEventListener('click', function (e) {
@@ -136,9 +149,6 @@
                 document.getElementById('stagger').appendChild(e.firstChild);
             }
         });
-
-
-
 
     </script>
 

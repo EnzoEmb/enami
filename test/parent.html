@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enami - Testing Zone</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../dist/enami.css">
     <link rel="stylesheet" href="test.css">
 
@@ -21,6 +16,7 @@
         <a href="parent.html">Parent</a>
         <a href="offset.html">Offset</a>
         <a href="methods.html">Methods</a>
+        <a href="events.html">Events</a>
     </nav>
     <header id="main-header">
         <h1>Enami.js - Parent scrolling </h1>
@@ -30,22 +26,22 @@
         <h2 class="separator-title">Parent trigger</h2>
         <div data-enami-children=".box">
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-right">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
         </div>
 
@@ -53,22 +49,22 @@
         <h2 class="separator-title">Parent trigger "data-enami-once" on parent</h2>
         <div data-enami-children=".box" data-enami-once="true">
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-right">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enami="fade-right"></div>
+                <div class="box" data-enami="fade-test"></div>
             </div>
         </div>
 
@@ -76,64 +72,64 @@
         <h2 class="separator-title">Parent staggering</h2>
         <div data-enami-children=".box" data-enami-stagger=".1s">
             <div class="container text-center">
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
             </div>
         </div>
 
-        
-        
+
+
         <!-- Stagger -->
         <h2 class="separator-title">Parent staggering reset</h2>
         <div data-enami-children=".box" data-enami-stagger=".1s" data-enami-reset="true">
             <div class="container text-center">
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
             </div>
         </div>
-        
+
         <!-- Stagger -->
         <h2 class="separator-title">Parent staggering delay</h2>
         <div data-enami-children=".box" data-enami-stagger=".1s" data-enami-delay="1s" data-enami-reset="true">
             <div class="container text-center">
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
             </div>
         </div>
     </section>
@@ -168,9 +164,9 @@
         //     console.info('enami:animate-out')
         // });
 
-    
+
         var a = new enami({
-            once: false
+            once: false,
         });
     // enami.destroy();
     // console.log(hola);

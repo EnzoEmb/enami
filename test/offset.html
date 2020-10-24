@@ -5,11 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Enami - Testing Zone</title>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Space+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="../dist/enami.css">
     <link rel="stylesheet" href="test.css">
 
@@ -21,6 +16,7 @@
         <a href="parent.html">Parent</a>
         <a href="offset.html">Offset</a>
         <a href="methods.html">Methods</a>
+        <a href="events.html">Events</a>
     </nav>
     <header id="main-header">
         <h1>Enami.js - Offseting </h1>
@@ -59,22 +55,22 @@
         <h2 class="separator-title">Normal offset</h2>
         <div>
             <div class="container text-center one">
-                <div class="box" data-enami="fade-right" data-enami-offset="50px">50px</div>
+                <div class="box" data-enami="fade-test">50px</div>
             </div>
-            <div class="container text-left">
-                <div class="box" data-enami="fade-right" data-enami-offset="100px">100px</div>
+            <div class="container text-left two">
+                <div class="box" data-enami="fade-test">100px</div>
             </div>
-            <div class="container text-center">
-                <div class="box" data-enami="fade-right" data-enami-offset="20%">20%</div>
+            <div class="container text-center three">
+                <div class="box" data-enami="fade-test">20%</div>
             </div>
-            <div class="container text-right">
-                <div class="box" data-enami="fade-right" data-enami-offset="50%">50%</div>
+            <div class="container text-right four">
+                <div class="box" data-enami="fade-test">50%</div>
             </div>
-            <div class="container text-center">
-                <div class="box" data-enami="fade-right" data-enami-offset="250px">250px</div>
+            <div class="container text-center five">
+                <div class="box" data-enami="fade-test" >250px</div>
             </div>
-            <div class="container text-left">
-                <div class="box" data-enami="fade-right" data-enami-offset="15px">15px</div>
+            <div class="container text-left six">
+                <div class="box" data-enami="fade-test" >15px</div>
             </div>
         </div>
 
@@ -82,26 +78,26 @@
         <h2 class="separator-title">Parent offset</h2>
         <div data-enami-children=".box" data-enami-stagger=".50s" data-enami-offset="100px" class="border">
             <h3>100px</h3>
-            <div class="container text-center">
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
+            <div class="container text-center parent-one">
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
             </div>
         </div>
         <div data-enami-children=".box" data-enami-stagger=".5s" data-enami-offset="50%" class="border">
             <h3>50%</h3>
-            <div class="container text-center">
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
-                <div class="box sm" data-enami="fade-right"></div>
+            <div class="container text-center parent-two">
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm" data-enami="fade-test"></div>
             </div>
         </div>
 
@@ -111,6 +107,60 @@
     <!-- Scripts -->
     <script src="../dist/enami.js"></script>
     <script>
+
+        new enami({
+            selector: '.one',
+            once: false,
+            offset: '0px 0px -50px 0px',
+        });
+        
+
+        new enami({
+            selector: '.two',
+            once: false,
+            offset: '0px 0px -100px 0px',
+        });
+        
+
+        new enami({
+            selector: '.three',
+            once: false,
+            offset: '0% 0% -20% 0%',
+        });
+        
+
+        new enami({
+            selector: '.four',
+            once: false,
+            offset: '0% 0% -50% 0%',
+        });
+        
+
+        new enami({
+            selector: '.five',
+            once: false,
+            offset: '0px 0px -250px 0px',
+        });
+        
+
+        new enami({
+            selector: '.six',
+            once: false,
+            offset: '0px 0px -15px 0px',
+        });
+        
+
+        new enami({
+            selector: '.parent-one',
+            once: false,
+            offset: '0px 0px -100px 0px',
+        });
+        new enami({
+            selector: '.parent-two',
+            once: false,
+            offset: '0% 0% -50% 0%',
+        });
+
 
         // document.addEventListener('enami:init', function(e){
         //     console.info(e);
@@ -137,11 +187,11 @@
         //     console.info('enami:animate-out')
         // });
 
-        var a = new enami({
-            parentSelector: '.one',
-            once: false,
-            offset: '0px 0px -50px 0px',
-        });
+        // var a = new enami({
+        //     parentSelector: '.one',
+        //     once: false,
+        //     offset: '0px 0px -50px 0px',
+        // });
     // enami.destroy();
     // console.log(hola);
 

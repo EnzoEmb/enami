@@ -8,7 +8,6 @@
 
 This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, this allows you to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
 
-**This is a work in progress, website with demos, documentation on methods and events are coming soon.**
 
 
 ### How it works
@@ -25,15 +24,15 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 
 ## Basic usage
 1. Include the script
-```
+``` html
 <script src="http://test.example.com/enami.js"></script>
 ```
 2. Add your animation attribute **data-enami="my-animation"** on the HTML element you want to animate
-```
+``` html
 <h1 data-enami="fade-up">Hello world!</h1>
 ```
 3. Init the script
-```
+``` javascript
 var myEnami = new enami();
 ```
 
@@ -55,12 +54,6 @@ var myEnami = new enami();
     </tr>
   </thead>
   <tbody>
-    <!-- <tr>
-      <td>element</td>
-      <td><i>boolean</i></td>
-      <td>0</td>
-      <td>Index number of initial slide.</td>
-    </tr> -->
     <tr>
       <td>selector</td>
       <td><i>string</i></td>
@@ -90,6 +83,13 @@ var myEnami = new enami();
       <td>Adds animation-duration/transition-duration to the element, use a CSS time values (.4s, 400ms)</td>
     </tr>
     <tr>
+      <td>reset</td>
+      <td><i>string</i></td>
+      <td>true</td>
+      <td>data-enami-reset</td>
+      <td>When the element is out of the viewport the enami gets resets to the its initial state.</td>
+    </tr>
+    <tr>
       <td>disableOnMobile</td>
       <td><i>boolean</i></td>
       <td>false</td>
@@ -116,6 +116,82 @@ var myEnami = new enami();
 
 
 
+## Methods
+
+<table>
+  <thead>
+    <tr>
+      <th>Method</th>
+      <th>What it does</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <code>myEnami.destroy(myElement)</code>
+      </td>
+      <td>Disconnect all observers, if parameter is present, also triggers reset on the element</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.init()</code>
+      </td>
+      <td>Setup all observers</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.reset(myElement)</code>
+      </td>
+      <td>Reset element enami to initial state</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.update()</code>
+      </td>
+      <td>Disconnect and setup again all observers</td>
+    </tr>
+    </tbody>
+</table>
 
 
-This library is mean to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
+## Events
+
+<table>
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>When is executed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <code>myEnami.destroy()</code>
+      </td>
+      <td>Disconnect all observers</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.init()</code>
+      </td>
+      <td>Setup all observers</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.reset(myElement)</code>
+      </td>
+      <td>Reset element enami to initial state</td>
+    </tr>
+    <tr>
+      <td>
+      <code>myEnami.update()</code>
+      </td>
+      <td>Disconnect and setup again all observers</td>
+    </tr>
+    </tbody>
+</table>
+
+
+
+
+**Note:** This library is meant to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
