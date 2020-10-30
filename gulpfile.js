@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const terser = require('gulp-terser');
 const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
+const autoprefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
 
 // compile js
@@ -27,15 +28,18 @@ gulp.task('sass', function (done) {
     gulp.src('src/index.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
         .pipe(rename('enami.min.css'))
+        .pipe(autoprefix())
         .pipe(gulp.dest('./dist/'));
 
     gulp.src('src/index.scss')
         .pipe(sass({ outputStyle: 'expanded' }).on('error', sass.logError))
+        .pipe(autoprefix())
         .pipe(rename('enami.css'))
         .pipe(gulp.dest('./dist/'));
 
     gulp.src('test/test.scss')
         .pipe(sass({ outputStyle: 'compressed' }).on('error', sass.logError))
+        .pipe(autoprefix())
         .pipe(gulp.dest('./test/'));
 
     done();

@@ -91,6 +91,24 @@
     animation-direction: reverse;
 }
 
+
+
+[data-enami="jump-in"] {
+    animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    @keyframes jumpIn {
+        from {
+            transform: scale(0) rotate(2deg) rotate(0.02deg);
+            opacity: 0;
+        }
+        to {
+            transform: scale(1) rotate(0deg) rotate(0deg);
+            opacity: 1;
+        }
+    }
+}
+
+
+
 [data-enami="jump-up"] {
     animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpUp {
@@ -145,6 +163,13 @@
             opacity: 1;
         }
     }
+}
+
+
+
+[data-enami="jump-out"] {
+    animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    animation-direction: reverse;
 }
 
 [data-enami="jump-up-out"] {
