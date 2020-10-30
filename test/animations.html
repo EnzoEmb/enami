@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enami - Testing Zone</title>
+  <link rel="stylesheet" href="../dist/enami.css">
+  <link rel="stylesheet" href="test.css">
+
+</head>
+
+<body>
+  <nav id="nav">
+    <a href="index.html">Normal</a>
+    <a href="parent.html">Parent</a>
+    <a href="offset.html">Offset</a>
+    <a href="methods.html">Methods</a>
+    <a href="events.html">Events</a>
+    <a href="animations.html">Animations</a>
+  </nav>
+  <header id="main-header">
+    <h1>Enami.js - Animations</h1>
+  </header>
+  <section class="animations-wrapper">
+
+    <div class="item-animation" data-animation="fade-up">
+      <span class="name">fade-up</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-left">
+      <span class="name">fade-left</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-right">
+      <span class="name">fade-right</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-down">
+      <span class="name">fade-down</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-in">
+      <span class="name">fade-in</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-up-out">
+      <span class="name">fade-up-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-left-out">
+      <span class="name">fade-left-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-right-out">
+      <span class="name">fade-right-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-down-out">
+      <span class="name">fade-down-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="fade-in-out">
+      <span class="name">fade-in-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-up">
+      <span class="name">jump-up</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-left">
+      <span class="name">jump-left</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-right">
+      <span class="name">jump-right</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-down">
+      <span class="name">jump-down</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="">
+    </div>
+    
+    <div class="item-animation" data-animation="jump-up-out">
+      <span class="name">jump-up-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-left-out">
+      <span class="name">jump-left-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-right-out">
+      <span class="name">jump-right-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="jump-down-out">
+      <span class="name">jump-down-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="">
+    </div>
+
+    <div class="item-animation" data-animation="scale-up">
+      <span class="name">scale-up</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-left">
+      <span class="name">scale-left</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-right">
+      <span class="name">scale-right</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-down">
+      <span class="name">scale-down</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-in">
+      <span class="name">scale-in</span>
+      <div class="box-animation"></div>
+    </div>
+
+    
+    <div class="item-animation" data-animation="scale-up-out">
+      <span class="name">scale-up-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-left-out">
+      <span class="name">scale-left-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-right-out">
+      <span class="name">scale-right-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-down-out">
+      <span class="name">scale-down-out</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="scale-out">
+      <span class="name">scale-out</span>
+      <div class="box-animation"></div>
+    </div>
+
+
+
+    <div class="item-animation" data-animation="pop-in">
+      <span class="name">pop-in</span>
+      <div class="box-animation"></div>
+    </div>
+    <div class="item-animation" data-animation="pop-out">
+      <span class="name">pop-out</span>
+      <div class="box-animation"></div>
+    </div>
+
+
+
+  </section>
+
+
+  <!-- Scripts -->
+  <script src="../dist/enami.js"></script>
+  <script>
+    var animations = document.querySelectorAll('[data-animation]')
+
+    animations.forEach(function (e, i) {
+      e.addEventListener('click', function () {
+        e.querySelector('.box-animation').removeAttribute('data-enami');
+        setTimeout(() => {
+          var name = e.getAttribute('data-animation');
+          e.querySelector('.box-animation').setAttribute('data-enami', name);
+        }, 0);
+      })
+    })
+  </script>
+
+
+</body>
+
+</html>
