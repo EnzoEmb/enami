@@ -25,7 +25,7 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ## Basic usage
 1. Include the script
 ``` html
-<script src="http://test.example.com/enami.js"></script>
+<script src="https://unpkg.com/browse/enami@0.1.4/dist/enami.min.js"></script>
 ```
 2. Add your animation attribute **data-enami="my-animation"** on the HTML element you want to animate
 ``` html
@@ -156,6 +156,19 @@ var myEnami = new enami();
 
 ## Events
 
+#### Usage
+``` javascript
+
+myEnami = document.getElementById('myElement')
+
+myEnami.addEventListener('enami:animate-out', function (e) {
+    alert('Hello World')
+});
+
+```
+
+#### List
+
 <table>
   <thead>
     <tr>
@@ -166,27 +179,33 @@ var myEnami = new enami();
   <tbody>
     <tr>
       <td>
-      <code>myEnami.destroy()</code>
+      <code>enami:animate-in</code>
       </td>
-      <td>Disconnect all observers</td>
+      <td>When the element is in of the viewport</td>
     </tr>
     <tr>
       <td>
-      <code>myEnami.init()</code>
+      <code>enami:animate-out</code>
       </td>
-      <td>Setup all observers</td>
+      <td>When the element is out of the viewport</td>
     </tr>
     <tr>
       <td>
-      <code>myEnami.reset(myElement)</code>
+      <code>enami:destroy</code>
       </td>
-      <td>Reset element enami to initial state</td>
+      <td>When the destroy method is called</td>
     </tr>
     <tr>
       <td>
-      <code>myEnami.update()</code>
+      <code>enami:update</code>
       </td>
-      <td>Disconnect and setup again all observers</td>
+      <td>When the update method is called</td>
+    </tr>
+    <tr>
+      <td>
+      <code>enami:init</code>
+      </td>
+      <td>When the init method is called</td>
     </tr>
     </tbody>
 </table>
