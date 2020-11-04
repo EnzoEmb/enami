@@ -3,7 +3,9 @@
   <img alt="enami" src="https://i.imgur.com/eghT0eF.png">
 </p>
 
+<p align="center">
 **enami** is a animation-on-scroll library, similar to libraries like [aos](https://github.com/michalsnik/aos) or [wow.js](https://github.com/matthieua/WOW) but with a few differences.
+</p>
 
 
 This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, this allows you to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
@@ -212,5 +214,5 @@ myEnami.addEventListener('enami:animate-out', function (e) {
 
 
 
-
-**Note:** This library is meant to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
+#### Note:
+ This library is meant to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
