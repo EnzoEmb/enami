@@ -36,7 +36,12 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ``` javascript
 var myEnami = new enami();
 ```
-
+4. (optional) Add this css if you want the animations to begin in a hidden state
+``` css
+[data-enami]{
+  visibility: hidden
+}
+```
 
 ## Notes
 - Data attributes override options
