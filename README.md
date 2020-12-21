@@ -218,6 +218,23 @@ myEnami.addEventListener('enami:animate-out', function (e) {
 </table>
 
 
+## Custom animation CSS
+```css
+[data-enami="my-animation"][data-enami-in] {
+    animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
+    @keyframes myAnimation {
+        from {
+            transform: translate3d(0, 40px, 0) rotate(0.02deg);
+            opacity: 0;
+        }
+        to {
+            transform: translate3d(0, 0, 0) rotate(0deg);
+            opacity: 1;
+        }
+    }
+}
+```
 
 ## Note:
  This library is meant to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
