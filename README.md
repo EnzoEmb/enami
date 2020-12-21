@@ -26,7 +26,7 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ## Basic usage
 1. Include the script
 ``` html
-<script src="https://unpkg.com/browse/enami@0.1.4/dist/enami.min.js"></script>
+<script src="https://unpkg.com/browse/enami@latest/dist/enami.min.js"></script>
 ```
 2. Add your animation attribute **data-enami="my-animation"** on the HTML element you want to animate
 ``` html
