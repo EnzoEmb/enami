@@ -1,5 +1,6 @@
 [data-enami="fade-up"][data-enami-in] {
     animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes fadeUp {
         from {
             transform: translate3d(0, 40px, 0) rotate(0.02deg);
@@ -14,6 +15,7 @@
 
 [data-enami="fade-left"][data-enami-in] {
     animation: 2s fadeLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes fadeLeft {
         from {
             transform: translate3d(-40px, 0, 0) rotate(0.02deg);
@@ -28,6 +30,7 @@
 
 [data-enami="fade-right"][data-enami-in] {
     animation: 2s fadeRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes fadeRight {
         from {
             transform: translate3d(40px, 0, 0) rotate(0.02deg);
@@ -42,6 +45,7 @@
 
 [data-enami="fade-down"][data-enami-in] {
     animation: 2s fadeDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes fadeDown {
         from {
             transform: translate3d(0, -40px, 0) rotate(0.02deg);
@@ -56,6 +60,7 @@
 
 [data-enami="fade-in"][data-enami-in] {
     animation: 2s fadeIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes fadeIn {
         from {
             opacity: 0;
@@ -69,32 +74,38 @@
 [data-enami="fade-up-out"][data-enami-in] {
     animation: 0.5s fadeUp forwards;
     animation-direction: reverse;
+    visibility: visible;
 }
 
 [data-enami="fade-left-out"][data-enami-in] {
     animation: 0.5s fadeLeft forwards;
     animation-direction: reverse;
+    visibility: visible;
 }
 
 [data-enami="fade-right-out"][data-enami-in] {
     animation: 0.5s fadeRight forwards;
     animation-direction: reverse;
+    visibility: visible;
 }
 
 [data-enami="fade-down-out"][data-enami-in] {
     animation: 0.5s fadeDown forwards;
     animation-direction: reverse;
+    visibility: visible;
 }
 
 [data-enami="fade-in-out"][data-enami-in] {
     animation: 0.5s fadeIn forwards;
     animation-direction: reverse;
+    visibility: visible;
 }
 
 
 
 [data-enami="jump-in"][data-enami-in] {
     animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes jumpIn {
         from {
             transform: scale(0) rotate(2deg) rotate(0.02deg);
@@ -111,6 +122,7 @@
 
 [data-enami="jump-up"][data-enami-in] {
     animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes jumpUp {
         from {
             transform: translate3d(0, 20px, 0) rotate(2deg) rotate(0.02deg);
@@ -125,6 +137,7 @@
 
 [data-enami="jump-left"][data-enami-in] {
     animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes jumpLeft {
         from {
             transform: translate3d(-20px, 0, 0) rotate(2deg) rotate(0.02deg);
@@ -139,6 +152,7 @@
 
 [data-enami="jump-right"][data-enami-in] {
     animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes jumpRight {
         from {
             transform: translate3d(20px, 0, 0) rotate(2deg) rotate(0.02deg);
@@ -153,6 +167,7 @@
 
 [data-enami="jump-down"][data-enami-in] {
     animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes jumpDown {
         from {
             transform: translate3d(0, -20px, 0) rotate(2deg) rotate(0.02deg);
@@ -169,31 +184,37 @@
 
 [data-enami="jump-out"][data-enami-in] {
     animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="jump-up-out"][data-enami-in] {
     animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="jump-left-out"][data-enami-in] {
     animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="jump-right-out"][data-enami-in] {
     animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="jump-down-out"][data-enami-in] {
     animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="scale-in"][data-enami-in] {
     animation: 2s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes scaleIn {
         from {
             transform: scale(0.6) rotate(0.02deg);
@@ -208,6 +229,7 @@
 
 [data-enami="scale-up"][data-enami-in] {
     animation: 2s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes scaleUp {
         from {
             transform: scale(0.6) translateY(100px) rotate(0.02deg);
@@ -222,6 +244,7 @@
 
 [data-enami="scale-left"][data-enami-in] {
     animation: 2s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes scaleLeft {
         from {
             transform: scale(0.6) translateX(100px) rotate(0.02deg);
@@ -236,6 +259,7 @@
 
 [data-enami="scale-right"][data-enami-in] {
     animation: 2s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes scaleRight {
         from {
             transform: scale(0.6) translateX(-100px) rotate(0.02deg);
@@ -250,6 +274,7 @@
 
 [data-enami="scale-down"][data-enami-in] {
     animation: 2s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     @keyframes scaleDown {
         from {
             transform: scale(0.6) translateY(-100px) rotate(0.02deg);
@@ -264,31 +289,37 @@
 
 [data-enami="scale-out"][data-enami-in] {
     animation: .5s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="scale-up-out"][data-enami-in] {
     animation: .5s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="scale-left-out"][data-enami-in] {
     animation: .5s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="scale-right-out"][data-enami-in] {
     animation: .5s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="scale-down-out"][data-enami-in] {
     animation: .5s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+    visibility: visible;
     animation-direction: reverse;
 }
 
 [data-enami="pop-in"][data-enami-in] {
     animation: 0.5s popIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes popIn {
         from {
             transform: scale(0);
@@ -301,6 +332,7 @@
 
 [data-enami="pop-out"][data-enami-in] {
     animation: 0.5s popOut forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+    visibility: visible;
     @keyframes popOut {
         from {
             transform: scale(1);

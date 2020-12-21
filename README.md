@@ -26,8 +26,8 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ## Basic usage
 1. Include script and css
 ``` html
-<script src="https://unpkg.com/browse/enami@latest/dist/enami.min.js"></script>
-<link href="https://unpkg.com/browse/enami@latest/dist/enami.min.css">
+<script src="https://unpkg.com/enami@latest/dist/enami.min.js"></script>
+<link href="https://unpkg.com/enami@latest/dist/enami.min.css" rel="stylesheet">
 ```
 2. Add your animation attribute **data-enami="fade-up"** on the HTML element you want to animate
 ``` html
