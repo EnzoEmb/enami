@@ -1,4 +1,4 @@
-[data-enami="fade-up"] {
+[data-enami="fade-up"][data-enami-in] {
     animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes fadeUp {
         from {
@@ -12,7 +12,7 @@
     }
 }
 
-[data-enami="fade-left"] {
+[data-enami="fade-left"][data-enami-in] {
     animation: 2s fadeLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes fadeLeft {
         from {
@@ -26,7 +26,7 @@
     }
 }
 
-[data-enami="fade-right"] {
+[data-enami="fade-right"][data-enami-in] {
     animation: 2s fadeRight forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes fadeRight {
         from {
@@ -40,7 +40,7 @@
     }
 }
 
-[data-enami="fade-down"] {
+[data-enami="fade-down"][data-enami-in] {
     animation: 2s fadeDown forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes fadeDown {
         from {
@@ -54,7 +54,7 @@
     }
 }
 
-[data-enami="fade-in"] {
+[data-enami="fade-in"][data-enami-in] {
     animation: 2s fadeIn forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes fadeIn {
         from {
@@ -66,34 +66,34 @@
     }
 }
 
-[data-enami="fade-up-out"] {
+[data-enami="fade-up-out"][data-enami-in] {
     animation: 0.5s fadeUp forwards;
     animation-direction: reverse;
 }
 
-[data-enami="fade-left-out"] {
+[data-enami="fade-left-out"][data-enami-in] {
     animation: 0.5s fadeLeft forwards;
     animation-direction: reverse;
 }
 
-[data-enami="fade-right-out"] {
+[data-enami="fade-right-out"][data-enami-in] {
     animation: 0.5s fadeRight forwards;
     animation-direction: reverse;
 }
 
-[data-enami="fade-down-out"] {
+[data-enami="fade-down-out"][data-enami-in] {
     animation: 0.5s fadeDown forwards;
     animation-direction: reverse;
 }
 
-[data-enami="fade-in-out"] {
+[data-enami="fade-in-out"][data-enami-in] {
     animation: 0.5s fadeIn forwards;
     animation-direction: reverse;
 }
 
 
 
-[data-enami="jump-in"] {
+[data-enami="jump-in"][data-enami-in] {
     animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpIn {
         from {
@@ -109,7 +109,7 @@
 
 
 
-[data-enami="jump-up"] {
+[data-enami="jump-up"][data-enami-in] {
     animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpUp {
         from {
@@ -123,7 +123,7 @@
     }
 }
 
-[data-enami="jump-left"] {
+[data-enami="jump-left"][data-enami-in] {
     animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpLeft {
         from {
@@ -137,7 +137,7 @@
     }
 }
 
-[data-enami="jump-right"] {
+[data-enami="jump-right"][data-enami-in] {
     animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpRight {
         from {
@@ -151,7 +151,7 @@
     }
 }
 
-[data-enami="jump-down"] {
+[data-enami="jump-down"][data-enami-in] {
     animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes jumpDown {
         from {
@@ -167,32 +167,32 @@
 
 
 
-[data-enami="jump-out"] {
+[data-enami="jump-out"][data-enami-in] {
     animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     animation-direction: reverse;
 }
 
-[data-enami="jump-up-out"] {
+[data-enami="jump-up-out"][data-enami-in] {
     animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     animation-direction: reverse;
 }
 
-[data-enami="jump-left-out"] {
+[data-enami="jump-left-out"][data-enami-in] {
     animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     animation-direction: reverse;
 }
 
-[data-enami="jump-right-out"] {
+[data-enami="jump-right-out"][data-enami-in] {
     animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     animation-direction: reverse;
 }
 
-[data-enami="jump-down-out"] {
+[data-enami="jump-down-out"][data-enami-in] {
     animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     animation-direction: reverse;
 }
 
-[data-enami="scale-in"] {
+[data-enami="scale-in"][data-enami-in] {
     animation: 2s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes scaleIn {
         from {
@@ -206,7 +206,7 @@
     }
 }
 
-[data-enami="scale-up"] {
+[data-enami="scale-up"][data-enami-in] {
     animation: 2s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes scaleUp {
         from {
@@ -220,7 +220,7 @@
     }
 }
 
-[data-enami="scale-left"] {
+[data-enami="scale-left"][data-enami-in] {
     animation: 2s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes scaleLeft {
         from {
@@ -234,7 +234,7 @@
     }
 }
 
-[data-enami="scale-right"] {
+[data-enami="scale-right"][data-enami-in] {
     animation: 2s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes scaleRight {
         from {
@@ -248,7 +248,7 @@
     }
 }
 
-[data-enami="scale-down"] {
+[data-enami="scale-down"][data-enami-in] {
     animation: 2s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
     @keyframes scaleDown {
         from {
@@ -262,32 +262,32 @@
     }
 }
 
-[data-enami="scale-out"] {
+[data-enami="scale-out"][data-enami-in] {
     animation: .5s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
     animation-direction: reverse;
 }
 
-[data-enami="scale-up-out"] {
+[data-enami="scale-up-out"][data-enami-in] {
     animation: .5s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
     animation-direction: reverse;
 }
 
-[data-enami="scale-left-out"] {
+[data-enami="scale-left-out"][data-enami-in] {
     animation: .5s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
     animation-direction: reverse;
 }
 
-[data-enami="scale-right-out"] {
+[data-enami="scale-right-out"][data-enami-in] {
     animation: .5s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
     animation-direction: reverse;
 }
 
-[data-enami="scale-down-out"] {
+[data-enami="scale-down-out"][data-enami-in] {
     animation: .5s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
     animation-direction: reverse;
 }
 
-[data-enami="pop-in"] {
+[data-enami="pop-in"][data-enami-in] {
     animation: 0.5s popIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes popIn {
         from {
@@ -299,7 +299,7 @@
     }
 }
 
-[data-enami="pop-out"] {
+[data-enami="pop-out"][data-enami-in] {
     animation: 0.5s popOut forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
     @keyframes popOut {
         from {
