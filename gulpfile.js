@@ -4,11 +4,15 @@ const plumber = require('gulp-plumber');
 const sass = require('gulp-sass');
 const autoprefix = require('gulp-autoprefixer');
 const rename = require('gulp-rename');
+const babel = require('gulp-babel');
 
 // compile js
 gulp.task('js', function (done) {
     gulp.src('src/index.js')
         .pipe(plumber())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(terser())
 
         .pipe(rename('enami.min.js'))
@@ -16,6 +20,9 @@ gulp.task('js', function (done) {
 
     gulp.src('src/index.js')
         .pipe(plumber())
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
         .pipe(rename('enami.js'))
         .pipe(gulp.dest('./dist/'));
 

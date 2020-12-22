@@ -1,4 +1,12 @@
-[data-enami="fade-up"][data-enami-in] {
+/*!
+ * enami
+ * Animation on scroll
+ * 2020 Enzo Vergara
+ * MIT License
+ * https://github.com/enzoemb/enami
+ */
+
+ [data-enami="fade-up"][data-enami-in] {
     animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
     visibility: visible;
     @keyframes fadeUp {
