@@ -5,6 +5,12 @@
  * MIT License
  * https://github.com/enzoemb/enami
  */
+[data-enami-in]{    
+    animation-delay: var(--enami-delay) !important;
+    transition-delay: var(--enami-delay) !important;
+    animation-duration: var(--enami-duration) !important;
+    transition-duration: var(--enami-duration) !important;
+}
 
  [data-enami="fade-up"][data-enami-in] {
     animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);

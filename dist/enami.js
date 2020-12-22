@@ -39,8 +39,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   var defaults = {
     // element: null,
     offset: '0px 0px 0px 0px',
-    delay: null,
-    duration: null,
+    delay: '0s',
+    duration: '1s',
     once: true,
     disableOnMobile: false,
     threshold: 0,
@@ -82,32 +82,34 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
   var enamiteIn = function enamiteIn(element, settings) {
-    emitEvent('enami:animate-in', element); // console.log(settings);
+    emitEvent('enami:animate-in', element); //setup default delay and duration
     // set delay
-    // console.log(element);
-    // console.log(element.style.transitionDelay);
 
     var delay = element.getAttribute("data-enami-delay");
 
     if (delay && element.style.transitionDelay == "") {
       // set data-attribute delay if has delay and if dont have already a delay
-      element.style.transitionDelay = delay;
-      element.style.animationDelay = delay;
+      // element.style.transitionDelay = delay;
+      // element.style.animationDelay = delay;
+      element.style.setProperty('--enami-delay', delay);
     } else if (settings.delay != null && element.style.transitionDelay == "") {
       // set property delay
-      element.style.transitionDelay = settings.delay;
-      element.style.animationDelay = settings.delay;
+      // element.style.transitionDelay = settings.delay;
+      // element.style.animationDelay = settings.delay;
+      element.style.setProperty('--enami-duration', settings.delay);
     } // set duration
 
 
     var duration = element.getAttribute("data-enami-duration");
 
     if (duration) {
-      element.style.transitionDuration = duration;
-      element.style.animationDuration = duration;
+      // element.style.transitionDuration = duration;
+      // element.style.animationDuration = duration;
+      element.style.setProperty('--enami-duration', duration);
     } else if (settings.duration != null) {
-      element.style.transitionDuration = settings.duration;
-      element.style.animationDuration = settings.duration;
+      // element.style.transitionDuration = settings.duration;
+      // element.style.animationDuration = settings.duration;
+      element.style.setProperty('--enami-duration', settings.duration);
     } // add attributes
 
 
@@ -261,6 +263,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           } else {
             // is regular entry
             if (entry.isIntersecting) {
+              entry.target.style.setProperty('--enami-delay', settings.delay);
+              entry.target.style.setProperty('--enami-duration', settings.duration);
               enamiteIn(entry.target, settings); // unobserve if has once attribute    
 
               var _dataOnce = entry.target.hasAttribute('data-enami-once');
