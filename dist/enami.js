@@ -219,9 +219,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
               childrens.forEach(function (children) {
-                var delay = parentStaggerNumber * i;
-                children.style.transitionDelay = delay + entryDelay + 'ms';
-                children.style.animationDelay = delay + entryDelay + 'ms';
+                var delay = parentStaggerNumber * i; // children.style.transitionDelay = (delay + entryDelay) + 'ms';
+                // children.style.animationDelay = (delay + entryDelay) + 'ms';
+
+                children.style.setProperty('--enami-children', i + 's');
+                children.style.setProperty('--enami-delay', delay + entryDelay + 'ms');
                 i++;
               });
             } // else if(settings.delay != 0){ // setting parameter delay
@@ -263,8 +265,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
           } else {
             // is regular entry
             if (entry.isIntersecting) {
-              entry.target.style.setProperty('--enami-delay', settings.delay);
-              entry.target.style.setProperty('--enami-duration', settings.duration);
+              // entry.target.style.setProperty('--enami-delay', settings.delay);
+              // entry.target.style.setProperty('--enami-duration', settings.duration);
               enamiteIn(entry.target, settings); // unobserve if has once attribute    
 
               var _dataOnce = entry.target.hasAttribute('data-enami-once');
