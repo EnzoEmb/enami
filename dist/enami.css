@@ -13,6 +13,8 @@
           animation-duration: var(--enami-duration);
   transition-duration: var(--enami-duration);
   visibility: visible !important;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 [data-enami="fade-up"][data-enami-in] {
