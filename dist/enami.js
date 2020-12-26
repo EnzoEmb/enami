@@ -40,7 +40,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     // element: null,
     offset: '0px 0px 0px 0px',
     delay: null,
-    duration: '1s',
+    duration: null,
     once: true,
     disableOnMobile: false,
     threshold: 0,
