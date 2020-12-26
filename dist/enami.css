@@ -8,8 +8,11 @@
 [data-enami-in] {
   -webkit-animation-delay: var(--enami-delay);
           animation-delay: var(--enami-delay);
+  transition-delay: var(--enami-delay);
   -webkit-animation-duration: var(--enami-duration);
           animation-duration: var(--enami-duration);
+  transition-duration: var(--enami-duration);
+  visibility: visible !important;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -29,7 +32,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -41,7 +43,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -60,7 +61,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -72,7 +72,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -91,7 +90,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -103,7 +101,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -122,7 +119,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -134,7 +130,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -151,7 +146,6 @@
   }
   to {
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -161,7 +155,6 @@
   }
   to {
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -210,7 +203,6 @@
   to {
     transform: scale(1) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -222,7 +214,6 @@
   to {
     transform: scale(1) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -241,7 +232,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -253,7 +243,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -272,7 +261,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -284,7 +272,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -303,7 +290,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -315,7 +301,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -334,7 +319,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -346,7 +330,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -407,7 +390,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -419,7 +401,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -438,7 +419,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -450,7 +430,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -469,7 +448,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -481,7 +459,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -500,7 +477,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -512,7 +488,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -531,7 +506,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -543,7 +517,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -600,7 +573,6 @@
   }
   to {
     transform: scale(1);
-    visibility: visible;
   }
 }
 
@@ -610,7 +582,6 @@
   }
   to {
     transform: scale(1);
-    visibility: visible;
   }
 }
 
@@ -627,7 +598,6 @@
   }
   to {
     transform: scale(0);
-    visibility: visible;
   }
 }
 
@@ -637,6 +607,5 @@
   }
   to {
     transform: scale(0);
-    visibility: visible;
   }
 }
