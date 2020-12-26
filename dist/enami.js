@@ -40,7 +40,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     // element: null,
     offset: '0px 0px 0px 0px',
     delay: null,
-    duration: null,
+    duration: '1s',
     once: true,
     disableOnMobile: false,
     threshold: 0,
@@ -91,11 +91,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     if (delay && element.style.transitionDelay == "") {
       // set data-attribute delay if has delay and if dont have already a delay
-      element.style.transitionDelay = delay;
+      // element.style.transitionDelay = delay;
       element.style.animationDelay = delay;
     } else if (settings.delay != null && element.style.transitionDelay == "") {
       // set property delay
-      element.style.transitionDelay = settings.delay;
+      // element.style.transitionDelay = settings.delay;
       element.style.animationDelay = settings.delay;
     } // set duration
 
@@ -103,10 +103,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var duration = element.getAttribute("data-enami-duration");
 
     if (duration) {
-      element.style.transitionDuration = duration;
+      // element.style.transitionDuration = duration;
       element.style.animationDuration = duration;
     } else if (settings.duration != null) {
-      element.style.transitionDuration = settings.duration;
+      // element.style.transitionDuration = settings.duration;
       element.style.animationDuration = settings.duration;
     } // add attributes
 
@@ -127,12 +127,12 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
   var enamiteReset = function enamiteReset(element) {
-    element.style.transition = 'false';
+    // element.style.transition = 'false';
     element.style.animation = 'false';
     element.removeAttribute('data-enami-in');
     reflow(element);
     setTimeout(function () {
-      element.style.transition = '';
+      // element.style.transition = '';
       element.style.animation = '';
     }, 1);
   };
@@ -217,8 +217,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
               childrens.forEach(function (children) {
-                var delay = parentStaggerNumber * i;
-                children.style.transitionDelay = delay + entryDelay + 'ms';
+                var delay = parentStaggerNumber * i; // children.style.transitionDelay = (delay + entryDelay) + 'ms';
+
                 children.style.animationDelay = delay + entryDelay + 'ms';
                 i++;
               });
