@@ -11,7 +11,6 @@
     animation-duration: var(--enami-duration);
     transition-duration: var(--enami-duration);
     visibility: visible !important;
-    animation-fill-mode: forwards;
 }
 
 [data-enami="fade-up"][data-enami-in] {
