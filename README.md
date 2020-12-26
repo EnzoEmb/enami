@@ -4,6 +4,7 @@
 </p>
 
 <p align="center">
+<b>[W.I.P]</b>
 <b>enami</b> is an animation-on-scroll library, similar to libraries like <a href="https://github.com/michalsnik/aos">aos</a> or <a href="https://github.com/matthieua/WOW">wow.js</a> but with a few differences.
 </p>
 
