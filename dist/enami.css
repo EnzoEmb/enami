@@ -6,20 +6,18 @@
  * https://github.com/enzoemb/enami
  */
 [data-enami-in] {
-  -webkit-animation-delay: var(--enami-delay);
-          animation-delay: var(--enami-delay);
-  transition-delay: var(--enami-delay);
-  -webkit-animation-duration: var(--enami-duration);
-          animation-duration: var(--enami-duration);
-  transition-duration: var(--enami-duration);
+  -webkit-animation-delay: var(--enami-delay) !important;
+          animation-delay: var(--enami-delay) !important;
+  transition-delay: var(--enami-delay) !important;
+  -webkit-animation-duration: var(--enami-duration) !important;
+          animation-duration: var(--enami-duration) !important;
+  transition-duration: var(--enami-duration) !important;
   visibility: visible !important;
 }
 
 [data-enami="fade-up"][data-enami-in] {
-  -webkit-animation-name: fadeUp;
-          animation-name: fadeUp;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s fadeUp forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes fadeUp {
@@ -45,10 +43,8 @@
 }
 
 [data-enami="fade-left"][data-enami-in] {
-  -webkit-animation-name: fadeLeft;
-          animation-name: fadeLeft;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s fadeLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s fadeLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes fadeLeft {
@@ -74,10 +70,8 @@
 }
 
 [data-enami="fade-right"][data-enami-in] {
-  -webkit-animation-name: fadeRight;
-          animation-name: fadeRight;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s fadeRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s fadeRight forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes fadeRight {
@@ -103,10 +97,8 @@
 }
 
 [data-enami="fade-down"][data-enami-in] {
-  -webkit-animation-name: fadeDown;
-          animation-name: fadeDown;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s fadeDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s fadeDown forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes fadeDown {
@@ -132,10 +124,8 @@
 }
 
 [data-enami="fade-in"][data-enami-in] {
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s fadeIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s fadeIn forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes fadeIn {
@@ -157,40 +147,38 @@
 }
 
 [data-enami="fade-up-out"][data-enami-in] {
+  -webkit-animation: 0.5s fadeUp forwards;
+          animation: 0.5s fadeUp forwards;
   animation-direction: reverse;
-  -webkit-animation-name: fadeUp;
-          animation-name: fadeUp;
 }
 
 [data-enami="fade-left-out"][data-enami-in] {
-  -webkit-animation-name: fadeLeft;
-          animation-name: fadeLeft;
+  -webkit-animation: 0.5s fadeLeft forwards;
+          animation: 0.5s fadeLeft forwards;
   animation-direction: reverse;
 }
 
 [data-enami="fade-right-out"][data-enami-in] {
-  -webkit-animation-name: fadeRight;
-          animation-name: fadeRight;
+  -webkit-animation: 0.5s fadeRight forwards;
+          animation: 0.5s fadeRight forwards;
   animation-direction: reverse;
 }
 
 [data-enami="fade-down-out"][data-enami-in] {
-  -webkit-animation-name: fadeDown;
-          animation-name: fadeDown;
+  -webkit-animation: 0.5s fadeDown forwards;
+          animation: 0.5s fadeDown forwards;
   animation-direction: reverse;
 }
 
 [data-enami="fade-in-out"][data-enami-in] {
-  -webkit-animation-name: fadeIn;
-          animation-name: fadeIn;
+  -webkit-animation: 0.5s fadeIn forwards;
+          animation: 0.5s fadeIn forwards;
   animation-direction: reverse;
 }
 
 [data-enami="jump-in"][data-enami-in] {
-  -webkit-animation-name: jumpIn;
-          animation-name: jumpIn;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes jumpIn {
@@ -216,10 +204,8 @@
 }
 
 [data-enami="jump-up"][data-enami-in] {
-  -webkit-animation-name: jumpUp;
-          animation-name: jumpUp;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes jumpUp {
@@ -245,10 +231,8 @@
 }
 
 [data-enami="jump-left"][data-enami-in] {
-  -webkit-animation-name: jumpLeft;
-          animation-name: jumpLeft;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes jumpLeft {
@@ -274,10 +258,8 @@
 }
 
 [data-enami="jump-right"][data-enami-in] {
-  -webkit-animation-name: jumpRight;
-          animation-name: jumpRight;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes jumpRight {
@@ -303,10 +285,8 @@
 }
 
 [data-enami="jump-down"][data-enami-in] {
-  -webkit-animation-name: jumpDown;
-          animation-name: jumpDown;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes jumpDown {
@@ -332,52 +312,38 @@
 }
 
 [data-enami="jump-out"][data-enami-in] {
-  -webkit-animation-name: jumpIn;
-          animation-name: jumpIn;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
   animation-direction: reverse;
 }
 
 [data-enami="jump-up-out"][data-enami-in] {
-  -webkit-animation-name: jumpUp;
-          animation-name: jumpUp;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpUp forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
   animation-direction: reverse;
 }
 
 [data-enami="jump-left-out"][data-enami-in] {
-  -webkit-animation-name: jumpLeft;
-          animation-name: jumpLeft;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpLeft forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
   animation-direction: reverse;
 }
 
 [data-enami="jump-right-out"][data-enami-in] {
-  -webkit-animation-name: jumpRight;
-          animation-name: jumpRight;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s jumpRight forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
   animation-direction: reverse;
 }
 
 [data-enami="jump-down-out"][data-enami-in] {
-  -webkit-animation-name: jumpDown;
-          animation-name: jumpDown;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
   -webkit-animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
           animation: 0.5s jumpDown forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
   animation-direction: reverse;
 }
 
 [data-enami="scale-in"][data-enami-in] {
-  -webkit-animation-name: scaleIn;
-          animation-name: scaleIn;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes scaleIn {
@@ -403,10 +369,8 @@
 }
 
 [data-enami="scale-up"][data-enami-in] {
-  -webkit-animation-name: scaleUp;
-          animation-name: scaleUp;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes scaleUp {
@@ -432,10 +396,8 @@
 }
 
 [data-enami="scale-left"][data-enami-in] {
-  -webkit-animation-name: scaleLeft;
-          animation-name: scaleLeft;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes scaleLeft {
@@ -461,10 +423,8 @@
 }
 
 [data-enami="scale-right"][data-enami-in] {
-  -webkit-animation-name: scaleRight;
-          animation-name: scaleRight;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes scaleRight {
@@ -490,10 +450,8 @@
 }
 
 [data-enami="scale-down"][data-enami-in] {
-  -webkit-animation-name: scaleDown;
-          animation-name: scaleDown;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 2s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 2s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 @-webkit-keyframes scaleDown {
@@ -519,50 +477,38 @@
 }
 
 [data-enami="scale-out"][data-enami-in] {
-  -webkit-animation-name: scaleIn;
-          animation-name: scaleIn;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 0.5s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 0.5s scaleIn forwards cubic-bezier(0.19, 1, 0.22, 1);
   animation-direction: reverse;
 }
 
 [data-enami="scale-up-out"][data-enami-in] {
-  -webkit-animation-name: scaleUp;
-          animation-name: scaleUp;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 0.5s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 0.5s scaleUp forwards cubic-bezier(0.19, 1, 0.22, 1);
   animation-direction: reverse;
 }
 
 [data-enami="scale-left-out"][data-enami-in] {
-  -webkit-animation-name: scaleLeft;
-          animation-name: scaleLeft;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 0.5s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 0.5s scaleLeft forwards cubic-bezier(0.19, 1, 0.22, 1);
   animation-direction: reverse;
 }
 
 [data-enami="scale-right-out"][data-enami-in] {
-  -webkit-animation-name: scaleRight;
-          animation-name: scaleRight;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 0.5s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 0.5s scaleRight forwards cubic-bezier(0.19, 1, 0.22, 1);
   animation-direction: reverse;
 }
 
 [data-enami="scale-down-out"][data-enami-in] {
-  -webkit-animation-name: scaleDown;
-          animation-name: scaleDown;
-  -webkit-animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
-          animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-animation: 0.5s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
+          animation: 0.5s scaleDown forwards cubic-bezier(0.19, 1, 0.22, 1);
   animation-direction: reverse;
 }
 
 [data-enami="pop-in"][data-enami-in] {
-  -webkit-animation-name: popIn;
-          animation-name: popIn;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s popIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s popIn forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes popIn {
@@ -584,10 +530,8 @@
 }
 
 [data-enami="pop-out"][data-enami-in] {
-  -webkit-animation-name: popOut;
-          animation-name: popOut;
-  -webkit-animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
-          animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 2.4);
+  -webkit-animation: 0.5s popOut forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
+          animation: 0.5s popOut forwards cubic-bezier(0.68, -0.55, 0.265, 2.4);
 }
 
 @-webkit-keyframes popOut {
