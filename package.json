@@ -1,6 +1,6 @@
 {
   "name": "enami",
-  "version": "0.1.7",
+  "version": "0.3.0",
   "description": "Animation on scroll package",
   "main": "src/index.js",
   "directories": {
