@@ -47,6 +47,8 @@
    * Helper functions
    */
 
+
+
   // emit events
   var emitEvent = function (type, element) {
     var event = new CustomEvent(type, {});
@@ -57,10 +59,14 @@
     }
   };
 
+
+
   // detect mobile
   var isMobile = function () {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   };
+
+
 
   // seconds attribute to ms
   var secondsToMs = function (attr) {
@@ -73,14 +79,28 @@
     }
   }
 
+
+
+  // setup default styles
+  var setupStyles = function () {
+    var style = document.createElement('style');
+    style.innerHTML = `
+    [data-enami] {
+      opacity: 0.001;
+    }
+    `;
+    document.head.appendChild(style);
+  }
+
+
+
+
   // execute animation in
   var enamiteIn = function (element, settings) {
     emitEvent('enami:animate-in', element)
     // console.log(settings);
 
     // set delay
-    // console.log(element);
-    // console.log(element.style.transitionDelay);
     let delay = element.getAttribute("data-enami-delay");
     if (delay && element.style.transitionDelay == "") { // set data-attribute delay if has delay and if dont have already a delay
       // element.style.transitionDelay = delay;
@@ -104,9 +124,13 @@
 
     // add attributes
     element.removeAttribute("data-enami-out");
-    reflow(element);
+    // reflow(element);
     element.setAttribute("data-enami-in", "");
   }
+
+
+
+
 
   // execute out animation
   var enamiteOut = function (element) {
@@ -114,16 +138,20 @@
 
     // add attributes
     element.removeAttribute("data-enami-in");
-    reflow(element);
+    // reflow(element);
     element.setAttribute("data-enami-out", "");
   }
+
+
+
+
 
   // reset animations
   var enamiteReset = function (element) {
     // element.style.transition = 'false';
     element.style.animation = 'false';
     element.removeAttribute('data-enami-in')
-    reflow(element);
+    // reflow(element);
 
     setTimeout(function () {
       // element.style.transition = '';
@@ -131,6 +159,10 @@
     }, 1)
 
   }
+
+
+
+
 
   var reflow = function (element) {
     // console.log(element.offsetHeight);
@@ -159,6 +191,8 @@
       ...options
     };
 
+
+    // set base element selector
     if (settings.selector != null) {
       parentSelector = document.querySelector(settings.selector)
     } else {
@@ -166,9 +200,11 @@
     }
 
 
-
+    // elements
     childEnamis = parentSelector.querySelectorAll('[data-enami]')
     parentEnamis = parentSelector.querySelectorAll('[data-enami-children]');
+
+
 
     // destroy method
     enami.destroy = function (element = null) {
@@ -184,12 +220,14 @@
     }
 
 
+
     // reset method
     enami.reset = function (element) {
       emitEvent('enami:reset');
       var e = document.querySelector(element);
       enamiteReset(e)
     }
+
 
 
     // update method
@@ -203,7 +241,10 @@
 
 
     function init() {
+
       emitEvent('enami:init');
+
+      setupStyles();
 
       // disable on mobile
       if (settings.disableOnMobile == true && isMobile()) {
@@ -212,11 +253,13 @@
 
       // set intersection observers
       observer = new IntersectionObserver((entries, observer) => {
-        // console.log(entries); 
+
+
         entries.forEach(entry => {
 
-          if (entry.target.hasAttribute('data-enami-children')) {
-            // is parent entry
+          var isParentEnami = entry.target.hasAttribute('data-enami-children');
+
+          if (isParentEnami) {
 
             let parentStagger = entry.target.getAttribute('data-enami-stagger');
             let parentReset = entry.target.getAttribute('data-enami-reset');
@@ -238,25 +281,10 @@
 
               childrens.forEach(children => {
                 let delay = parentStaggerNumber * i;
-                // children.style.transitionDelay = (delay + entryDelay) + 'ms';
                 children.style.animationDelay = (delay + entryDelay) + 'ms';
                 i++;
               });
             }
-            // else if(settings.delay != 0){ // setting parameter delay
-            //   let parentStaggerNumber = secondsToMs(parentStagger);
-            //   let i = 1;
-            //   if (entryDelay) { // getting initial staggering delay
-            //     entryDelay = secondsToMs(settings.delay);
-            //   }
-            //   childrens.forEach(children => {
-            //     let delay = parentStaggerNumber * i;
-            //   children.style.transitionDelay = (delay + entryDelay) + 'ms';
-            //     children.style.animationDelay = (delay + entryDelay) + 'ms';
-            //     i++;
-            //   });
-
-            // }
 
 
             if (entry.isIntersecting) {
@@ -284,6 +312,8 @@
             }
 
           } else {
+
+
             // is regular entry
             if (entry.isIntersecting) {
               enamiteIn(entry.target, settings)
@@ -299,11 +329,15 @@
             } else if (entry.target.hasAttribute('data-enami-reset')) {
               enamiteReset(entry.target)
             }
+
+
           }
 
 
 
         });
+
+
 
       }, { rootMargin: settings.offset, threshold: settings.threshold });
 
@@ -326,6 +360,11 @@
 
 
     }
+
+
+
+
+
 
     init();
 

@@ -78,14 +78,19 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     } else {
       return number * 1000;
     }
+  }; // setup default styles
+
+
+  var setupStyles = function setupStyles() {
+    var style = document.createElement('style');
+    style.innerHTML = "\n    [data-enami] {\n      opacity: 0.001;\n    }\n    ";
+    document.head.appendChild(style);
   }; // execute animation in
 
 
   var enamiteIn = function enamiteIn(element, settings) {
     emitEvent('enami:animate-in', element); // console.log(settings);
     // set delay
-    // console.log(element);
-    // console.log(element.style.transitionDelay);
 
     var delay = element.getAttribute("data-enami-delay");
 
@@ -111,8 +116,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     } // add attributes
 
 
-    element.removeAttribute("data-enami-out");
-    reflow(element);
+    element.removeAttribute("data-enami-out"); // reflow(element);
+
     element.setAttribute("data-enami-in", "");
   }; // execute out animation
 
@@ -120,8 +125,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   var enamiteOut = function enamiteOut(element) {
     emitEvent('enami:animate-out', element); // add attributes
 
-    element.removeAttribute("data-enami-in");
-    reflow(element);
+    element.removeAttribute("data-enami-in"); // reflow(element);
+
     element.setAttribute("data-enami-out", "");
   }; // reset animations
 
@@ -129,8 +134,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   var enamiteReset = function enamiteReset(element) {
     // element.style.transition = 'false';
     element.style.animation = 'false';
-    element.removeAttribute('data-enami-in');
-    reflow(element);
+    element.removeAttribute('data-enami-in'); // reflow(element);
+
     setTimeout(function () {
       // element.style.transition = '';
       element.style.animation = '';
@@ -146,13 +151,15 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     var enami = {}; // Object for public APIs
     // merge settings
 
-    var settings = _objectSpread(_objectSpread({}, defaults), options);
+    var settings = _objectSpread(_objectSpread({}, defaults), options); // set base element selector
+
 
     if (settings.selector != null) {
       parentSelector = document.querySelector(settings.selector);
     } else {
       parentSelector = document;
-    }
+    } // elements
+
 
     childEnamis = parentSelector.querySelectorAll('[data-enami]');
     parentEnamis = parentSelector.querySelectorAll('[data-enami-children]'); // destroy method
@@ -185,7 +192,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     };
 
     function init() {
-      emitEvent('enami:init'); // disable on mobile
+      emitEvent('enami:init');
+      setupStyles(); // disable on mobile
 
       if (settings.disableOnMobile == true && isMobile()) {
         return;
@@ -193,10 +201,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
       observer = new IntersectionObserver(function (entries, observer) {
-        // console.log(entries); 
         entries.forEach(function (entry) {
-          if (entry.target.hasAttribute('data-enami-children')) {
-            // is parent entry
+          var isParentEnami = entry.target.hasAttribute('data-enami-children');
+
+          if (isParentEnami) {
             var parentStagger = entry.target.getAttribute('data-enami-stagger');
             var parentReset = entry.target.getAttribute('data-enami-reset');
             var childrenClass = entry.target.getAttribute('data-enami-children');
@@ -217,25 +225,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
               childrens.forEach(function (children) {
-                var delay = parentStaggerNumber * i; // children.style.transitionDelay = (delay + entryDelay) + 'ms';
-
+                var delay = parentStaggerNumber * i;
                 children.style.animationDelay = delay + entryDelay + 'ms';
                 i++;
               });
-            } // else if(settings.delay != 0){ // setting parameter delay
-            //   let parentStaggerNumber = secondsToMs(parentStagger);
-            //   let i = 1;
-            //   if (entryDelay) { // getting initial staggering delay
-            //     entryDelay = secondsToMs(settings.delay);
-            //   }
-            //   childrens.forEach(children => {
-            //     let delay = parentStaggerNumber * i;
-            //   children.style.transitionDelay = (delay + entryDelay) + 'ms';
-            //     children.style.animationDelay = (delay + entryDelay) + 'ms';
-            //     i++;
-            //   });
-            // }
-
+            }
 
             if (entry.isIntersecting) {
               childrens.forEach(function (children, i) {

@@ -29,7 +29,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -41,7 +40,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -60,7 +58,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -72,7 +69,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -91,7 +87,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -103,7 +98,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -122,7 +116,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -134,7 +127,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -151,7 +143,6 @@
   }
   to {
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -161,7 +152,6 @@
   }
   to {
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -210,7 +200,6 @@
   to {
     transform: scale(1) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -222,7 +211,6 @@
   to {
     transform: scale(1) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -241,7 +229,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -253,7 +240,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -272,7 +258,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -284,7 +269,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -303,7 +287,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -315,7 +298,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -334,7 +316,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -346,7 +327,6 @@
   to {
     transform: translate3d(0, 0, 0) rotate(0deg) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -407,7 +387,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -419,7 +398,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -438,7 +416,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -450,7 +427,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -469,7 +445,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -481,7 +456,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -500,7 +474,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -512,7 +485,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -531,7 +503,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -543,7 +514,6 @@
   to {
     transform: scale(1) rotate(0deg);
     opacity: 1;
-    visibility: visible;
   }
 }
 
@@ -600,7 +570,7 @@
   }
   to {
     transform: scale(1);
-    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -610,7 +580,7 @@
   }
   to {
     transform: scale(1);
-    visibility: visible;
+    opacity: 1;
   }
 }
 
@@ -624,19 +594,19 @@
 @-webkit-keyframes popOut {
   from {
     transform: scale(1);
+    opacity: 1;
   }
   to {
     transform: scale(0);
-    visibility: visible;
   }
 }
 
 @keyframes popOut {
   from {
     transform: scale(1);
+    opacity: 1;
   }
   to {
     transform: scale(0);
-    visibility: visible;
   }
 }
