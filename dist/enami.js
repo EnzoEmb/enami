@@ -209,8 +209,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             var parentReset = entry.target.getAttribute('data-enami-reset');
             var childrenClass = entry.target.getAttribute('data-enami-children');
             var childrens = entry.target.querySelectorAll(childrenClass);
-            var entryDelay = entry.target.getAttribute('data-enami-delay'); // console.log(childrens);
-            // setup stagger delay
+            var entryDelay = entry.target.getAttribute('data-enami-delay');
+            var childrenAnimation = entry.target.getAttribute('data-enami'); // console.log(childrens);
+
+            entry.target.removeAttribute('data-enami'); // setup stagger delay
 
             if (parentStagger != null) {
               var parentStaggerNumber = secondsToMs(parentStagger);
@@ -228,6 +230,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
                 var delay = parentStaggerNumber * i;
                 children.style.animationDelay = delay + entryDelay + 'ms';
                 i++;
+                children.setAttribute('data-enami', childrenAnimation);
               });
             }
 
