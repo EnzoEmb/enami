@@ -266,10 +266,8 @@
             let childrenClass = entry.target.getAttribute('data-enami-children');
             let childrens = entry.target.querySelectorAll(childrenClass);
             let entryDelay = entry.target.getAttribute('data-enami-delay');
-            let childrenAnimation = entry.target.getAttribute('data-enami');
-            // console.log(childrens);
+            let childrenAnimation = entry.target.getAttribute('data-enami-animation');
 
-            entry.target.removeAttribute('data-enami');
             
 
             // setup stagger delay

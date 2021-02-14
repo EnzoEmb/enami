@@ -8,11 +8,11 @@
 <b>enami</b> is an animation-on-scroll library, similar to libraries like <a href="https://github.com/michalsnik/aos">aos</a> or <a href="https://github.com/matthieua/WOW">wow.js</a> but with a few differences.
 </p>
 
-This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, this allows you to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
+This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, allowing to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
 
 
 
-### How it works
+### Basic functioning
 This library adds **data-enami-in** attribute when an element is on viewport, and **data-enami-out** when the element is out. 
 
 
@@ -38,12 +38,12 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ``` javascript
 var myEnami = new enami();
 ```
-4. (optional) Add this css if you want the animations to begin in a hidden state
+<!-- 4. (optional) Add this css if you want the animations to begin in a hidden state
 ``` css
 [data-enami]{
   visibility: hidden
 }
-```
+``` -->
 
 ## Notes
 - Data attributes override options
@@ -124,6 +124,13 @@ var myEnami = new enami();
       <td>null</td>
       <td>--</td>
       <td>IntersectionObserver root.</td>
+    </tr>
+    <tr>
+      <td>animation</td>
+      <td><i>animation name</i></td>
+      <td>--</td>
+      <td>[data-enami-animation]</td>
+      <td>Animation that gets applied to every children</td>
     </tr>
     
 </table>

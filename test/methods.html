@@ -40,13 +40,13 @@
         <h2 class="separator-title">Normal</h2>
         <div id="content">
             <div class="container text-center one">
-                <div class="box reset" data-enami="fade-test">50px</div>
+                <div class="box reset" data-enami="fade-up">50px</div>
             </div>
             <div class="container text-left">
-                <div class="box" data-enami="fade-test">100px</div>
+                <div class="box" data-enami="fade-up">100px</div>
             </div>
             <div class="container text-center">
-                <div class="box" data-enami="fade-test">20%</div>
+                <div class="box" data-enami="fade-up">20%</div>
             </div>
 
         </div>
@@ -55,22 +55,22 @@
 
         <!-- Stagger -->
         <h2 class="separator-title">Parent staggering</h2>
-        <div data-enami-children=".box" data-enami-stagger=".1s" data-enami-reset>
+        <div data-enami-children=".box" data-enami-stagger=".1s" data-enami-animation="fade-up" data-enami-reset>
             <div class="container text-center" id="stagger">
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
-                <div class="box sm" data-enami="fade-test"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
+                <div class="box sm"></div>
             </div>
         </div>
 
@@ -78,11 +78,11 @@
 
 
     <!-- Scripts -->
-    <script src="../dist/enami.js"></script>
+    <script src="../src/index.js"></script>
     <script>
         var a
         a = new enami({
-            parentSelector: '.one',
+            // selector: '.one',
             once: false,
         });
 
@@ -107,7 +107,7 @@
             console.info(e);
             // console.info('enami:init')
             a = new enami({
-                parentSelector: '.one',
+                // selector: '.one',
                 once: false,
                 offset: '0px 0px -50px 0px',
             });
@@ -119,7 +119,7 @@
         document.getElementById('add-items').addEventListener('click', function (e) {
             var e = document.createElement('div');
             e.innerHTML = `<div class="container text-right">
-                <div class="box" data-enami="fade-test" >dinamic</div>
+                <div class="box" data-enami="fade-up" >dinamic</div>
             </div>`;
 
             while (e.firstChild) {
@@ -131,7 +131,7 @@
         //appending
         document.getElementById('add-items-stagger').addEventListener('click', function (e) {
             var e = document.createElement('div');
-            e.innerHTML = `<div class="box sm" data-enami="fade-test"></div>`;
+            e.innerHTML = `<div class="box sm" data-enami="fade-up"></div>`;
 
             while (e.firstChild) {
                 document.getElementById('stagger').appendChild(e.firstChild);
