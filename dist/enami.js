@@ -211,9 +211,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             var childrenClass = entry.target.getAttribute('data-enami-children');
             var childrens = entry.target.querySelectorAll(childrenClass);
             var entryDelay = entry.target.getAttribute('data-enami-delay');
-            var childrenAnimation = entry.target.getAttribute('data-enami'); // console.log(childrens);
-
-            entry.target.removeAttribute('data-enami'); // setup stagger delay
+            var childrenAnimation = entry.target.getAttribute('data-enami-animation'); // setup stagger delay
 
             if (parentStagger != null) {
               var parentStaggerNumber = secondsToMs(parentStagger);
