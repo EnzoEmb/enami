@@ -39,6 +39,7 @@
     disableOnMobile: false,
     threshold: 0,
     selector: null,
+    root: null,
     reset: false
   };
 
@@ -254,7 +255,6 @@
       // set intersection observers
       observer = new IntersectionObserver((entries, observer) => {
 
-
         entries.forEach(entry => {
 
           var isParentEnami = entry.target.hasAttribute('data-enami-children');
@@ -346,7 +346,11 @@
 
 
 
-      }, { rootMargin: settings.offset, threshold: settings.threshold });
+      }, {
+        rootMargin: settings.offset,
+        threshold: settings.threshold,
+        root: settings.root,
+      });
 
 
       // add to observer each single enami

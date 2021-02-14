@@ -118,6 +118,13 @@ var myEnami = new enami();
       <td>--</td>
       <td>IntersectionObserver threshold wrapper.</td>
     </tr>
+    <tr>
+      <td>root</td>
+      <td><i>DOM Element</i></td>
+      <td>null</td>
+      <td>--</td>
+      <td>IntersectionObserver root.</td>
+    </tr>
     
 </table>
 

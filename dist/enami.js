@@ -45,6 +45,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     disableOnMobile: false,
     threshold: 0,
     selector: null,
+    root: null,
     reset: false
   };
   /**
@@ -274,7 +275,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         });
       }, {
         rootMargin: settings.offset,
-        threshold: settings.threshold
+        threshold: settings.threshold,
+        root: settings.root
       }); // add to observer each single enami
 
       childEnamis.forEach(function (enamis) {
