@@ -189,7 +189,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
       emitEvent('enami:destroy', null, {
         detail: {
-          target: element != null ? document.querySelector(element) : settings.selector
+          // target: (element != null ? document.querySelector(element) : settings.selector)
+          target: settings.selector
         }
       }); // if (element != null) {
       //   var e = document.querySelector(element);

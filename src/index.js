@@ -238,7 +238,8 @@
 
       emitEvent('enami:destroy', null, {
         detail: {
-          target: (element != null ? document.querySelector(element) : settings.selector)
+          // target: (element != null ? document.querySelector(element) : settings.selector)
+          target: settings.selector
         }
       });
 
