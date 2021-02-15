@@ -165,21 +165,19 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
     childEnamis = parentSelector.querySelectorAll('[data-enami]');
     parentEnamis = parentSelector.querySelectorAll('[data-enami-children]'); // reset method
-
-    enami.reset = function (element) {
-      emitEvent('enami:reset');
-      var e = document.querySelector(element);
-      enamiteReset(e);
-    }; // update method
-
-
-    enami.update = function () {
-      emitEvent('enami:update');
-      enami.destroy();
-      init();
-    }; // destroy method
+    // enami.reset = function (element) {
+    //   emitEvent('enami:reset');
+    //   var e = document.querySelector(element);
+    //   enamiteReset(e)
+    // }
+    // update method
+    // enami.update = function () {
+    //   emitEvent('enami:update');
+    //   enami.destroy();
+    //   init();
+    // }
+    // destroy method
     // enami.destroy = function (state = null) {
-
 
     enami.destroy = function () {
       var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
@@ -218,7 +216,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     };
 
     function init() {
-      emitEvent('enami:init');
+      emitEvent('enami:init', null, {
+        detail: {
+          target: settings.selector == null ? document : settings.selector
+        }
+      });
       setupStyles(); // disable on mobile
 
       if (settings.disableOnMobile == true && isMobile()) {
