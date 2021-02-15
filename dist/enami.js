@@ -54,7 +54,8 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
   // emit events
 
   var emitEvent = function emitEvent(type, element) {
-    var event = new CustomEvent(type, {});
+    var detail = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    var event = new CustomEvent(type, detail);
 
     if (element) {
       element.dispatchEvent(event);
@@ -163,21 +164,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 
 
     childEnamis = parentSelector.querySelectorAll('[data-enami]');
-    parentEnamis = parentSelector.querySelectorAll('[data-enami-children]'); // destroy method
-
-    enami.destroy = function () {
-      var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      emitEvent('enami:destroy');
-
-      if (element != null) {
-        var e = document.querySelector(element);
-        enamiteReset(e);
-      }
-
-      observer.disconnect();
-      observer = null;
-    }; // reset method
-
+    parentEnamis = parentSelector.querySelectorAll('[data-enami-children]'); // reset method
 
     enami.reset = function (element) {
       emitEvent('enami:reset');
@@ -269,7 +256,25 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             } else if (entry.target.hasAttribute('data-enami-reset')) {
               enamiteReset(entry.target);
             }
-          }
+          } // destroy method
+
+
+          enami.destroy = function () {
+            var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+            emitEvent('enami:destroy', null, {
+              detail: {
+                target: element != null ? document.querySelector(element) : settings.selector != null ? document.querySelector(settings.selector) : entry.target
+              }
+            });
+
+            if (element != null) {
+              var e = document.querySelector(element);
+              enamiteReset(e);
+            }
+
+            observer.disconnect();
+            observer = null;
+          };
         });
       }, {
         rootMargin: settings.offset,

@@ -51,8 +51,8 @@
 
 
   // emit events
-  var emitEvent = function (type, element) {
-    var event = new CustomEvent(type, {});
+  var emitEvent = function (type, element, detail = {}) {
+    var event = new CustomEvent(type, detail);
     if (element) {
       element.dispatchEvent(event);
     } else {
@@ -207,19 +207,6 @@
 
 
 
-    // destroy method
-    enami.destroy = function (element = null) {
-      emitEvent('enami:destroy');
-
-      if (element != null) {
-        var e = document.querySelector(element);
-        enamiteReset(e)
-      }
-
-      observer.disconnect();
-      observer = null;
-    }
-
 
 
     // reset method
@@ -268,7 +255,7 @@
             let entryDelay = entry.target.getAttribute('data-enami-delay');
             let childrenAnimation = entry.target.getAttribute('data-enami-animation');
 
-            
+
 
             // setup stagger delay
             if (parentStagger != null) {
@@ -337,6 +324,29 @@
 
 
           }
+
+
+
+
+          
+          // destroy method
+          enami.destroy = function (element = null) {
+            emitEvent('enami:destroy', null, {
+              detail: {
+                target: (element != null ? document.querySelector(element) : (settings.selector != null ? document.querySelector(settings.selector) : entry.target))
+              }
+            });
+
+            if (element != null) {
+              var e = document.querySelector(element);
+              enamiteReset(e)
+            }
+
+            observer.disconnect();
+            observer = null;
+          }
+
+
 
 
 
