@@ -4,17 +4,14 @@
 </p>
 
 <p align="center">
-<b>[W.I.P]</b>
 <b>enami</b> is an animation-on-scroll library, similar to libraries like <a href="https://github.com/michalsnik/aos">aos</a> or <a href="https://github.com/matthieua/WOW">wow.js</a> but with a few differences.
 </p>
 
-This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, allowing to trigger animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
+This library uses [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), to check the visibility of the element, allowing to trigger css animations on horizontal scrolls, when using a smooth-scroll library or inside a slider/carousel.
 
 
-
-### Basic functioning
-This library adds **data-enami-in** attribute when an element is on viewport, and **data-enami-out** when the element is out. 
-
+<br />
+<br />
 
 ### Features
 
@@ -24,11 +21,15 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 
 
 
+
+<br />
+<br />
+
 ## Basic usage
 1. Include script and css
 ``` html
-<script src="https://unpkg.com/enami@latest/dist/enami.min.js"></script>
-<link href="https://unpkg.com/enami@latest/dist/enami.min.css" rel="stylesheet">
+<script src="https://unpkg.com/enami@0.8.0/dist/enami.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/enami@0.8.0/dist/enami.min.css">
 ```
 2. Add your animation attribute **data-enami="fade-up"** on the HTML element you want to animate
 ``` html
@@ -38,104 +39,30 @@ This library adds **data-enami-in** attribute when an element is on viewport, an
 ``` javascript
 var myEnami = new enami();
 ```
-<!-- 4. (optional) Add this css if you want the animations to begin in a hidden state
-``` css
-[data-enami]{
-  visibility: hidden
-}
-``` -->
-
-## Notes
-- Data attributes override options
-- All parameters are optional
 
 
-## Options
-<table>
-  <thead>
-    <tr>
-      <th>Parameter</th>
-      <th>Type</th>
-      <th>Default</th>
-      <th>Data Attribute</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>selector</td>
-      <td><i>string</i></td>
-      <td>document</td>
-      <td>--</td>
-      <td>The parent selector where this enami works.</td>
-    </tr>
-    <tr>
-      <td>once</td>
-      <td><i>boolean</i></td>
-      <td>true</td>
-      <td>data-enami-once</td>
-      <td>Trigger animation once or every time its on viewport.</td>
-    </tr>
-    <tr>
-      <td>delay</td>
-      <td><i>string</i></td>
-      <td>0</td>
-      <td>data-enami-delay</td>
-      <td>Adds animation-delay/transition-delay to the element, use a CSS time values (.4s, 400ms)</td>
-    </tr>
-    <tr>
-      <td>duration</td>
-      <td><i>string</i></td>
-      <td>400</td>
-      <td>data-enami-duration</td>
-      <td>Adds animation-duration/transition-duration to the element, use a CSS time values (.4s, 400ms)</td>
-    </tr>
-    <tr>
-      <td>reset</td>
-      <td><i>string</i></td>
-      <td>true</td>
-      <td>data-enami-reset</td>
-      <td>When the element is out of the viewport the enami gets resets to the its initial state.</td>
-    </tr>
-    <tr>
-      <td>disableOnMobile</td>
-      <td><i>boolean</i></td>
-      <td>false</td>
-      <td>--</td>
-      <td>If detects mobile, all the animations will be on finish state.</td>
-    </tr>
-    <tr>
-      <td>offset</td>
-      <td><i>string</i></td>
-      <td>"0px 0px 0px 0px"</td>
-      <td>--</td>
-      <td>IntersectionObserver rootMargin wrapper.</td>
-    </tr>
-    <tr>
-      <td>threshold</td>
-      <td><i>integer</i></td>
-      <td>0</td>
-      <td>--</td>
-      <td>IntersectionObserver threshold wrapper.</td>
-    </tr>
-    <tr>
-      <td>root</td>
-      <td><i>DOM Element</i></td>
-      <td>null</td>
-      <td>--</td>
-      <td>IntersectionObserver root.</td>
-    </tr>
-    <tr>
-      <td>animation</td>
-      <td><i>animation name</i></td>
-      <td>--</td>
-      <td>[data-enami-animation]</td>
-      <td>Animation that gets applied to every children</td>
-    </tr>
-    
-</table>
+<br />
+<br />
+
+## Settings
+
+``` javascript
+var myEnami = new enami({
+  selector: null, // parent element containing your animations, if null document will be used (useful when having multiple instances), usage: '#myElement'
+  delay: null, // set delay to all animations, usage: '1s'
+  duration: null, // set duration to all animations, usage: '1s'
+  once: true, // if repeat the animations every time they appear on viewport or just once
+  disableOnMobile: false, // if detect mobile, every animation will be on final state
+  offset: '0px 0px 0px 0px', // intersection observer rootMargin, useful for offseting the viewport functioning
+  threshold: 0, // intersection observer thershold property
+  root: null, // intersection observer root to be used a viewport
+  reset: false // i have no idea
+})
+```
 
 
+<br />
+<br />
 
 
 ## Methods
@@ -150,88 +77,48 @@ var myEnami = new enami();
   <tbody>
     <tr>
       <td>
-      <code>myEnami.destroy(myElement)</code>
+        <code>myEnami.destroy(state)</code>
       </td>
-      <td>Disconnect all observers, if parameter is present, also triggers reset on the element</td>
-    </tr>
-    <tr>
-      <td>
-      <code>myEnami.init()</code>
-      </td>
-      <td>Setup all observers</td>
-    </tr>
-    <tr>
-      <td>
-      <code>myEnami.reset(myElement)</code>
-      </td>
-      <td>Reset element enami to initial state</td>
-    </tr>
-    <tr>
-      <td>
-      <code>myEnami.update()</code>
-      </td>
-      <td>Disconnect and setup again all observers</td>
+      <td>Disconnect all observers. State can be null, 'initial' or 'final' depending on the final state you want your animations to be when destroyed</td>
     </tr>
     </tbody>
 </table>
 
 
+<br />
+<br />
+
 ## Events
-
-#### Usage
 ``` javascript
+var myEnamiElement = document.getElementById('myElement')
 
-myEnami = document.getElementById('myElement')
+// When the element is on viewport
+myEnamiElement.addEventListener('enami:animate-in', function (e) {
+  console.log('Element in viewport')
+});
 
-myEnami.addEventListener('enami:animate-out', function (e) {
-    alert('Hello World')
+// When the element is out viewport
+myEnamiElement.addEventListener('enami:animate-out', function (e) {
+  console.log('Element out of viewport')
+});
+
+// When an instance is destroy
+document.addEventListener('enami:destroy', function (e) {
+  console.log('An enami has been destroyed')
+  console.log('Selector:', e.detail.target)
+});
+
+// When an new instance is initiated
+document.addEventListener('enami:init', function (e) {
+  console.log('An enami has been initialized')
+  console.log('Selector:', e.detail.target)
 });
 
 ```
 
-#### List
 
-<table>
-  <thead>
-    <tr>
-      <th>Event</th>
-      <th>When is executed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-      <code>enami:animate-in</code>
-      </td>
-      <td>When the element is in of the viewport</td>
-    </tr>
-    <tr>
-      <td>
-      <code>enami:animate-out</code>
-      </td>
-      <td>When the element is out of the viewport</td>
-    </tr>
-    <tr>
-      <td>
-      <code>enami:destroy</code>
-      </td>
-      <td>When the destroy method is called</td>
-    </tr>
-    <tr>
-      <td>
-      <code>enami:update</code>
-      </td>
-      <td>When the update method is called</td>
-    </tr>
-    <tr>
-      <td>
-      <code>enami:init</code>
-      </td>
-      <td>When the init method is called</td>
-    </tr>
-    </tbody>
-</table>
-
+<br />
+<br />
 
 ## Custom animation CSS
 ```css
@@ -249,6 +136,10 @@ myEnami.addEventListener('enami:animate-out', function (e) {
     }
 }
 ```
+
+
+<br />
+<br />
 
 ## Note:
  This library is meant to work as a simple way to animate elements on your site, if you intend to do some heavy animations you are probably looking for libraries like [anime.js](https://github.com/juliangarnier/anime) or [gsap](https://github.com/greensock/GSAP)
