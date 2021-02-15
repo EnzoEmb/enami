@@ -177,12 +177,11 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     //   init();
     // }
     // destroy method
-    // enami.destroy = function (state = null) {
 
     enami.destroy = function () {
-      var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-      var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
+      // enami.destroy = function (element = null, state = null) {
       if (observer == null) {
         console.error("enami.js: You can destroy a not initialized enami");
         return;
@@ -192,12 +191,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
         detail: {
           target: element != null ? document.querySelector(element) : settings.selector
         }
-      });
-
-      if (element != null) {
-        var e = document.querySelector(element);
-        enamiteReset(e);
-      }
+      }); // if (element != null) {
+      //   var e = document.querySelector(element);
+      //   enamiteReset(e)
+      // }
 
       observer.disconnect();
       observer = null;

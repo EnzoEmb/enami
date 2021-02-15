@@ -229,8 +229,8 @@
 
 
     // destroy method
-    // enami.destroy = function (state = null) {
-    enami.destroy = function (element = null, state = null) {
+    enami.destroy = function (state = null) {
+    // enami.destroy = function (element = null, state = null) {
       if (observer == null) {
         console.error("enami.js: You can destroy a not initialized enami")
         return;
@@ -242,10 +242,10 @@
         }
       });
 
-      if (element != null) {
-        var e = document.querySelector(element);
-        enamiteReset(e)
-      }
+      // if (element != null) {
+      //   var e = document.querySelector(element);
+      //   enamiteReset(e)
+      // }
 
       observer.disconnect();
       observer = null;

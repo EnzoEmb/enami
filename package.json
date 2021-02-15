@@ -1,6 +1,6 @@
 {
   "name": "enami",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Animation on scroll package",
   "main": "dist/enami.js",
   "directories": {
