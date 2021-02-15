@@ -177,6 +177,44 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
       emitEvent('enami:update');
       enami.destroy();
       init();
+    }; // destroy method
+    // enami.destroy = function (state = null) {
+
+
+    enami.destroy = function () {
+      var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
+      var state = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      if (observer == null) {
+        console.error("enami.js: You can destroy a not initialized enami");
+        return;
+      }
+
+      emitEvent('enami:destroy', null, {
+        detail: {
+          target: element != null ? document.querySelector(element) : settings.selector
+        }
+      });
+
+      if (element != null) {
+        var e = document.querySelector(element);
+        enamiteReset(e);
+      }
+
+      observer.disconnect();
+      observer = null;
+
+      if (state == 'initial') {
+        childEnamis.forEach(function (entry) {
+          entry.removeAttribute('data-enami-out');
+          entry.removeAttribute('data-enami-in');
+        });
+      } else if (state == 'final') {
+        childEnamis.forEach(function (entry) {
+          entry.removeAttribute('data-enami-out');
+          entry.setAttribute('data-enami-in', '');
+        });
+      }
     };
 
     function init() {
@@ -256,25 +294,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
             } else if (entry.target.hasAttribute('data-enami-reset')) {
               enamiteReset(entry.target);
             }
-          } // destroy method
-
-
-          enami.destroy = function () {
-            var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
-            emitEvent('enami:destroy', null, {
-              detail: {
-                target: element != null ? document.querySelector(element) : settings.selector != null ? document.querySelector(settings.selector) : entry.target
-              }
-            });
-
-            if (element != null) {
-              var e = document.querySelector(element);
-              enamiteReset(e);
-            }
-
-            observer.disconnect();
-            observer = null;
-          };
+          }
         });
       }, {
         rootMargin: settings.offset,
