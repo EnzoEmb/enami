@@ -69,16 +69,19 @@ var myEnami = new enami({
 ``` javascript
 // Single element usage:
 data-enami="fade-up" // define the animation to be applied to this element
-data-enami-delay=".2s" // define the delay to be apllied to this element (css time format)
-data-enami-duration=".2s" // define the delay to be apllied to this element (css time format)
-data-enami-once // unused feature
-data-enami-reset // unused feature
+data-enami-delay=".2s" // define the delay to be applied to this element (css time format)
+data-enami-duration=".2s" // define the delay to be applied to this element (css time format)
+data-enami-once // future feature
+data-enami-reset // future feature
 
 // Multiple elements usage:
 data-enami-children=".my-box" // define the children animations of this parent
 data-enami-animation="fade-up" // define the animation to be applied to all the childrens
-data-enami-stagger=".2s" // define the staggering time to be apllied to all the childrens
+data-enami-stagger=".2s" // define the staggering time to be applied to all the childrens
 
+// Added by the library
+data-enami-in // when the element is on viewport
+data-enami-out // when the element is out of viewport
 ```
 
 <br />
