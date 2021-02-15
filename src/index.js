@@ -228,6 +228,50 @@
 
 
 
+    // destroy method
+    // enami.destroy = function (state = null) {
+    enami.destroy = function (element = null, state = null) {
+      if (observer == null) {
+        console.error("enami.js: You can destroy a not initialized enami")
+        return;
+      }
+
+      emitEvent('enami:destroy', null, {
+        detail: {
+          target: (element != null ? document.querySelector(element) : settings.selector)
+        }
+      });
+
+      if (element != null) {
+        var e = document.querySelector(element);
+        enamiteReset(e)
+      }
+
+      observer.disconnect();
+      observer = null;
+
+
+      if (state == 'initial') {
+        childEnamis.forEach(entry => {
+          entry.removeAttribute('data-enami-out')
+          entry.removeAttribute('data-enami-in')
+        });
+      } else if (state == 'final') {
+        childEnamis.forEach(entry => {
+          entry.removeAttribute('data-enami-out')
+          entry.setAttribute('data-enami-in', '')
+        });
+
+      }
+
+
+
+    }
+
+
+
+
+
     function init() {
 
       emitEvent('enami:init');
@@ -328,29 +372,12 @@
 
 
 
-          
-          // destroy method
-          enami.destroy = function (element = null) {
-            emitEvent('enami:destroy', null, {
-              detail: {
-                target: (element != null ? document.querySelector(element) : (settings.selector != null ? document.querySelector(settings.selector) : entry.target))
-              }
-            });
-
-            if (element != null) {
-              var e = document.querySelector(element);
-              enamiteReset(e)
-            }
-
-            observer.disconnect();
-            observer = null;
-          }
-
 
 
 
 
         });
+
 
 
 
